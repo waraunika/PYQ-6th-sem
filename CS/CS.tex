@@ -1,0 +1,1776 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[margin=1.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem, inconsolata}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\parindent 0px
+\newcommand{\W}{\(\Omega\)}
+\newcommand{\w}{\(\omega\)}
+\newcommand{\lb}{\\$\left|\rightarrow\right.$}
+\newcommand{\enter}{\\\textcolor{white}{1}}
+\newcommand{\sub}[1]{\textsubscript{#1}}
+\newcommand{\super}[1]{\textsuperscript{#1}}
+\DeclareMathOperator{\sinc}{sinc}
+\ExplSyntaxOn
+\NewDocumentCommand{\bo}{m}
+ {
+   \bold_commas:n { #1 }
+ }
+
+\cs_new:Npn \bold_commas:n #1
+ {
+   \seq_set_split:Nnn \l_tmpa_seq { , } { #1 }
+   \seq_map_indexed_function:NN \l_tmpa_seq \__bold_commas_aux:nn
+ }
+
+\cs_new:Npn \__bold_commas_aux:nn #1 #2
+ {
+   \textbf{#2}
+   \int_compare:nNnTF { #1 } < { \seq_count:N \l_tmpa_seq }
+     { , }
+     { }
+ }
+
+\ExplSyntaxOff
+
+\title{Communication System}
+\author{by PUL079BEI008}
+\date{\today}
+
+\begin{document}
+\maketitle
+\vspace{5cm}
+\textbf{Notes}
+\begin{itemize}[noitemsep]
+	\item Our subject code is EX 656, of which only 4 question papers are added. \texttt{Their questions are stylized as this}.
+	\item This document encorporates EX 652 (CS-I) and EX 702 (CS-II) as well, for further enrichment of question papers.
+	\item This may create an effect of duplication of question/year, and the authors assure that this effect, if is created, is not real.
+	\item If a question was asked in Regular Exam, it is kept in \bo{boldened} form. If it was asked in back exam, it is in regular font.
+  \item The marking scheme present in the syllabus is quite weird:
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item Ch: 1, 2, 4 $\rightarrow$ 20 Marks
+    \item Ch: 3, 5 $\rightarrow$ 10 Marks
+    \item Ch: 6, 7 $\rightarrow$ 10 Marks
+    \item Ch: 8, 9, 10 $\rightarrow$ 20 Marks
+    \item Ch: 11, 12, 13 $\rightarrow$ 20 Marks
+  \end{itemize}
+  \item So, it was decided the marks for individual chapters would be decided as per their ratios of course hours of the total marking scheme. Total course hours = 60.
+  \item There are 2 2071 Magh paper (new and old back). The old back is \textit{stylized as italic} to separate it as of a different subject code.
+	\item Months are marked as: 
+	\begin{itemize}[noitemsep, topsep=0pt]
+		\item Ba: Baisakh
+		\item Jth: Jestha
+		\item Asa: Ashar
+		\item Shr: Shrawan
+		\item Bh: Bhadra
+		\item Ash: Ashwin
+		\item Ka: Kartik
+		\item Mng: Mangsir
+		\item Po: Poush
+		\item Ma: Magh
+		\item Ch: Chaitra
+	\end{itemize}
+\end{itemize}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Introduction}
+  \begin{center}(2 Hours / 2.5 Marks)\end{center}
+
+  \subsection{Fundamental Concepts}
+    \subsubsection{A/D sources and transmission}
+      \begin{enumerate}[topsep=0pt, noitemsep]
+        \item Define Channel in communication system (\bo{CS})and classify them with example. \hfill [4+6] (73 Ma)
+
+        \item Draw the block diagram of CS and explain briefly. \hfill [6] (76 Ba, 71 Ma)
+
+        \item What major elements does a CS contains? \hfill [4] (\bo{68 Bh})
+
+        \item Draw the block diagram of analog CS. \hfill [2] (\bo{72 Ash}) [4] (68 Jth)
+        \lb and briefly explain each block. \hfill [6] (\bo{79 Ch}) [8] (\bo{74 Bh})
+
+        \item What are the main components of analog CS? Describe each. \hfill [2+5] (\bo{69 Bh}) [4] (67 Shr)
+
+        \item Draw the block diagram of digital CS. \hfill [2] (\bo{72 Ashh})
+        
+        \item Briefly explain the function of the basic components of a digital communication system. \hfill [5] (\bo{79 Bh})
+        
+        \item Explain in brief the functional block diagram and the basic elements of a digital communication system. \hfill [5] (73 Shr)
+
+        \item Sketch and describe the functional digital CS working in a duplex mode and contrast it with an analog communication system. \hfill [5] (\bo{\texttt{81 Ch}})
+
+        \item Sketch a generic block diagram of a digital CS for full-duplex mode. \hfill [5] (\bo{\texttt{79 Ch}})
+        
+        \item Draw functional block diagram of DCS and explain the significance of each major blocks. \hfill [6] (\bo{80 Ch})
+        
+        \item Explain digital communication system with appropriate block diagram. \hfill [5] (80 Ba)
+
+        \item Write the advantages of digital CS over analog CS. \hfill [3] (\bo{\texttt{79 Ch}})
+        \lb Write the advantages of analog CS over digital CS? \hfill [4] (\bo{77 Ch})
+
+        \item List out the differences between analog source and digital source. \hfill [2] (\bo{77 Ch})
+        
+        \item List the differences between digital communication system. \hfill [2] (\bo{80 Ch})
+      \end{enumerate}
+
+    \subsubsection{Noise, Distortion and Interference}
+      \begin{enumerate}[topsep=0pt, noitemsep]
+       \item Define noise. \hfill [2] (72 Ma)
+       
+       \item Define any three types of noise. \hfill [3] (\bo{76 Ch})
+
+        \item Distinguish between external and internal noise. \hfill [2] (\bo{75 Bh}, 72 Ma)
+
+        \item Describe the types and causes of internal and external noise that may affect the CS. \hfill [5] (\bo{76 Bh})
+
+        \item Describe the types and causes of any 4 types of internal noise that may affect the CS. \hfill [8] (\bo{73 Bh})
+
+        \item Briefly explain any four types of noise encountered in CS. \hfill [4] (68 Jth)
+
+        \item List various sources of external noise. \hfill [2] (72 Ma)
+
+        \item Explain thermal and high frequency noise. \hfill [3] (\bo{71 Bh})
+
+        \item How does noise limit the performance of CS? \hfill [2] (\bo{73 Bh})
+
+        \item What are the limitations posed by noise and interference? \hfill [3] (\bo{70 Bh})
+
+        \item Define noise, distortion and interference. \hfill [2] (\bo{76 Bh}) [3] (\bo{71 Bh})
+        
+        \item Define distortion and explain its types. \hfill [3] (81 Ba)
+        
+        \item What will be the effects of noise, distortion and interference? \hfill [1] (\bo{71 Bh})
+        
+        \item Write short notes on: Distortion and interference. \hfill [4] (71 Ma)
+        
+        \item Explain briefly about linear type and non-linear type distortion. \hfill [2] (\bo{72 Ash})
+
+        \item List out the sources of interferences. \hfill [2] (\bo{75 Bh})
+
+        \item How can effects of noise and interference be minimized? \hfill [2] (75 Ba)
+
+        \item Mention its impairments and performance parameters. \hfill [3] (\bo{\texttt{81 Ch}})
+
+        \item What are the effects of atmospheric noise in analog CS. \hfill [2] (\bo{77 Ch})
+        
+        \item Differentiate among noise, interference and distortion. \hfill [4] (70 Ma) [5] (\bo{\texttt{78 Ch}}) [6] (\bo{80 Ch})
+        \lb with examples. \hfill [6] (68 Jth)
+
+        \item Distinguish between noise and interference. \hfill [3] (\bo{70 Bh}) [4] (75 Ba)
+      \end{enumerate}
+      
+  \subsection{Introduction to Modulation}
+      \begin{enumerate}[topsep=0pt, noitemsep]
+        \item Define modulation. \hfill [1] (70 Ma) [2] (\bo{69 Bh, 71 Bh}, 67 Shr) [4] (\bo{79 Ch}, 68 Jth)
+
+        \item ``Communication over long distance is impossible without modulation. Modulation is must to mitigate several constraints in transmission." Justify. \hfill [4] (\bo{68 Bh})
+        \lb What are the needs for modulation? \hfill [1] {\tiny (70 Ma)} [2] {\tiny (\bo{\texttt{79 Ch}, 76 Ch, 71 Bh, 69 Bh}, 76 Ba, 75 Ba, 72 Ma, 68 Jth)} [4] {\tiny (\bo{75 Bh}, 67 Shr)}
+
+        \item Describe how channel can be modulated? \hfill [4] (72 Ma)
+      \end{enumerate}
+
+\pagebreak
+
+\section{Representation of signals and systems in communication}
+  \begin{center}(4 Hours / 6.5 Marks)\end{center}
+
+  \subsection{Review of Signals and Systems}
+    \subsubsection{Review of Signals}
+      \begin{enumerate}
+        \item Represent Unit Step signal in terms of signal function. \hfill [4] (\bo{\texttt{79 Ch}})
+
+        \item What is signum signal? \hfill [2] (72 Ma)
+
+        \item Define band pass signal and band limited signal with example. \hfill [4] (\bo{68 Bh})
+
+        \item Define with examples, period and non-periodic signals. \hfill [4] (\bo{67 Mng})
+      \end{enumerate}
+
+    \subsubsection{Types of systems}
+      \begin{enumerate}
+        \item Discluss linear, non-linear, casual and time invariant systems used in CS. \hfill [4] (\textit{71 Ma})
+
+        \item Explain how can you classify systems according to their basic properties. \hfill [4] (64 Shr)
+      \end{enumerate}
+
+    \subsubsection{Imulse Response and Transfer Function of a System}
+      \begin{enumerate}
+        \item Define impulse response. \hfill [2] (\bo{74 Bh, 72 Ash})
+
+        \item Define impulse response and transfer function of a system. \hfill [2] (\bo{77 Ch}) [4] [\bo{73 Bh}]
+
+        \item Explain significance of impulse response and transfer function. \hfill [2] (\bo{73 Bh})
+
+        \item Why is the impulse response of a system quite useful in the design of CS? \hfill [3] (\bo{72 Ash})
+
+        \item Prove that the output of any system is given by convolution of input and impulse response of the system. \hfill [4] (\textit{71 Ma}) [6] (\bo{67 Mng})
+        
+        \item Show that impulse response of an ideal low pass filter is non-casual. \hfill [4] (64 Shr) [6] (\bo{75 Bh})
+        \lb What is the impulse response of LPF? \hfill [1] (\bo{72 Ash})
+      \end{enumerate}
+  
+    \subsubsection{LTI systems}
+      \begin{enumerate}[topsep=0pt]
+        \item Define LTI system. \hfill [2] (\bo{71 Bh, 70 Bh})
+
+        \item Write the properties of LTI system. \hfill [4] (\bo{68 Bh})
+
+        \item What is the significance of LTI in communication engineering? \hfill [3] (\bo{70 Bh})
+
+        \item Find the expression (in time domain) for the output of a LTI. \hfill [5] (\bo{71 Bh})
+
+        \item Determine whether the following signals are: \hfill [4+4] (\bo{\texttt{81 Ch}})\\
+        a. $y(t) = 2t^2\ x(t)\ +\ 3t\ x(t-4)$ linear or not\\
+        b. $y(t) = x^2(t)\ +\ x(t+2)$ casual or not.
+
+        \item Determine whether the following signals are: \hfill [3+3] (\bo{\texttt{80 Ch}})\\
+        a. $y(t) = x^2 (t)$ linear or not.
+        b. $y(t) = y(t-4) + x(t-4)$ time invarient or not.
+      \end{enumerate}
+
+  \subsection{System Transformations and Properties}
+    \subsubsection{Transformations on Transfer Function}
+      \begin{enumerate}
+        \item State any four properties of the Fourier Transform. \hfill [4] (\textit{71 Ma})
+
+        \item State and explain following properties of Fourier Transform. \hfill [5] (\bo{67 Mng})\\
+        a. Modulation \hspace{1cm} b. Duality (symmetry) \hspace{1cm} c. Time shifting\\
+        d. Scaling \hspace{1.8cm} e. Convolution
+      \end{enumerate}
+
+    \subsubsection{Lowpass/Bandpass signals and systems}
+    \subsubsection{Bandwidth of systems}
+    \subsubsection{Distortionless Transmission}
+      \begin{enumerate}
+        \item Explain the significance of distortionless transmission in CS with necessary derivation. \hfill [5] (72 Ma)
+
+        \item Derive the transfer function for a system that provides distortionless transmission. \hfill [3] (\bo{69 Bh})
+        \lb and draw its amplitude response as well. \hfill [6] (\bo{77 Ch})
+
+        \item Explain distortionless transmission line with its frequency response. \hfill [3] (\bo{76 Bh}, 75 Ba) [4] (76 Ba)
+
+        \item What are the conditions for distortionless transmission? Explain with necesary diagram. \hfill [6] (\bo{74 Bh})
+
+        \item Write short notes on distortionless transmission. \hfill [5] (\bo{70 Bh}, 70 Ma)
+      \end{enumerate}
+
+  \subsection{Special Transforms and Signal Representations}
+    \subsubsection{Hilbert Transform and its Properties}
+      \begin{enumerate}
+        \item On Hilbert Transform:
+        \lb Define. \hfill [2] (\bo{\texttt{80 Ch}, 80 Ch, 76 Bh, 75 Bh}, 71 Ma) [4] (73 Ma)
+        \lb Write short notes. \hfill [5] (\bo{\texttt{81 Bh}})
+        \lb Write its properties. \hfill [2] (76 Ba, 75 Ba) [3] (\bo{76 Bh}) [4] (73 Ma)
+        \lb Describe, with its properties. \hfill [2] (\bo{\texttt{78 Ch}}) [4] (71 Ma)
+        \lb Describe, with mathematical expression in frequency domain.
+        \enter\hfill [2] (\bo{76 Bh}, 76 Ba) [3] (\bo{80 Ch}, 75 Ba)
+
+        \item How is Hilbert Transform different from Fourier transform? \hfill [2] (73 Ma)
+      \end{enumerate}
+
+    \subsubsection{Band-pass/band-limited Signals Representation}
+    \subsubsection{Complex envelops rectangular representation}
+    \subsubsection{Polar representation}
+
+\pagebreak
+
+\section{Spectral Analysis}
+  \begin{center}(2 Hours / 2 Marks)\end{center}
+
+  \subsection{Foundations of Spectral Analysis}
+    \subsubsection{Spectral Analysis}
+      \begin{enumerate}
+        \item Define energy spectral density and power spectral density function of a signal. 
+        \enter\hfill [4] (\bo{79 Ch, 75 Bh, 74 Bh})
+
+        \item Differentiate between ESD and PSDF. \hfill [2] (70 Ma)
+
+        \item Define energy spectral density (ESD)? \hfill [2] (\bo{71 Bh})
+
+        \item Find ESD and total energy for sinc pulse defined by g(t) = A sinc (2wt). \hfill [3+2] (\bo{71 Bh})
+      \end{enumerate}
+
+    \subsubsection{Reviews of Fourier Series and Transform}
+  \subsection{Signal Energy and Power}
+    \subsubsection{Energy and Power}
+      \begin{enumerate}
+        \item Define energy and power signal. \hfill [2] (\bo{76 Bh, 73 Bh}, 65 Ka)
+
+        \item Define bandwidth of a system along with necesary diagram. \hfill [2] (\bo{73 Bh})
+
+        \item Write properties for energy signal. \hfill [3] (76 Ba)
+
+        \item State Rayliegh energy theorem. \hfill [2] (75 Ba) [4] (72 Ma)
+
+        \item Prove Rayliegh energy theorem for a given energy signal x(t). \hfill [6] (75 Ba)
+        \lb Derive the expression for the Rayliegh Energy Theorem. \hfill [4] (\textit{71 Ma})
+
+        \item How can you calculate the power of a periodic signal when its Fourier-series coefficients C$_n$ are known?
+        \enter\hfill [2] (72 Ma)
+
+        \item Determine whether the given signal $x(t) = e^{-2t}\ u(t)$ is a power or an energy signal. \hfill [5] (\bo{\texttt{80 Ch}})
+
+        \item Find whether the signal $x(t) = A \cos(2\pi ft)$ is energy or power type signal. \hfill [5] (\bo{76 Bh}) [6] (65 Ka)
+
+        \item Determine whether a Unit Step signal is energy or power type or neither of the two. \hfill [4] (\bo{\texttt{79 Ch}})
+
+        \item Prove that for an energy signal x(t) thhe AC function and energy spectral density form Fourier transform pair. \hfill [4] (76 Ba)
+
+        \item Compute the energy and power of unit step signal. \hfill [5] (\bo{\texttt{78 Ch}})
+      \end{enumerate}
+
+    \subsubsection{Parseval's Theorem}
+      \begin{enumerate}
+        \item State Parseval's Theorem. \hfill [2] (\bo{80 Ch}) [3] (\bo{77 Ch})
+      \end{enumerate}
+
+    \subsection{Power spectral density function}
+      \begin{enumerate}
+        \item What is PSD? \hfill [2] (\bo{73 Bh})
+
+        \item What is PSDF? \hfill [4] (73 Ma)
+
+        \item Define power and energy spectral density function. \hfill [2] (\bo{72 Ash}) [4] (\bo{69 Bh}, 67 Shr)
+
+        \item Derive an expression for PSDF of an arbitrary signal X(t). \hfill [4] (\bo{73 Bh}) [6] (73 Ma, 70 Ma)
+
+        \item Brifly explain the operation of analog spectrum analyzer. \hfill [6] (\bo{79 Ch}, 67 Shr)
+        \lb with block diagrams. \hfill [8] (65 Ka)
+
+        \item Find power spectral density and average power for the periodic signal defined by g(t) = A $\cos (2\pi f_c t +\theta)$. \hfill [6] (\bo{69 Bh})
+      \end{enumerate}
+
+    \subsection{AC function, relationship between psdf and AC function}
+      \begin{enumerate}
+        \item Define auto-correlation function. \hfill [1] (76 Ba) [3] (\bo{74 Ch})
+        \lb Write short notes on: Autocorrelation function and its properties. \hfill [5] (\bo{79 Ch})
+
+        \item List out any three properties of AC function. \hfill [3] (\bo{\texttt{78 Ch}, 70 Bh})
+
+        \item What is white noise. \hfill [3] (71 Ma)
+        
+        \item Write short notes on: White noise and its psdf. \hfill [2] (\bo{70 Ch})
+
+        \item Mention the AC function of white noise. \hfill [3] (\bo{\texttt{78 Ch}, 70 Bh})
+        \lb Explain the relation between PSDF and AC function with the example of white noise.
+        \enter\hfill [3] (71 Ma) [4] (\bo{74 Bh, 73 Bh}) [6] (\bo{80 Ch})
+        
+        \item Derive the AC function of white noise utilizing PSD with necesary diagram. \hfill [4] (\bo{75 Bh})
+
+        \item Prove that in LTI system when a power signal x(t) is applied the PSD of its output is equal to the PSD of its input multiplied by the squared amplitude response of the system. \hfill [5] (\bo{77 Ch})
+
+        \item Given a signal x(t) = $\cos (200\pi t)$, find the auto correlation of x(t) at $\tau = \frac{\pi}{4}$. \hfill [3] (\bo{72 Ash})
+
+        \item Derive auto-correlation, cross-correlation and convolution of the following two signals graphically:\\
+        \begin{tikzpicture}
+          \draw[->] (-0.5,0) -- (3,0) node[right] {$t$};
+          \draw[->] (0,-0.5) -- (0,3) node[above] {$p(t)$};
+          \draw[thick,red] (1,0) -- (1,2) -- (2,2) -- (2,0);
+          \node[below] at (1,0) {1};
+          \node[below] at (2,0) {2};
+          \node[left] at (0,2) {2};
+        \end{tikzpicture}
+        \hspace{2cm}
+        \begin{tikzpicture}
+          \draw[->] (-0.5,0) -- (3,0) node[right] {$t$};
+          \draw[->] (0,-0.5) -- (0,3) node[above] {$p(t)$};
+          \draw[thick,red] (1,0) -- (1,2) -- (2,0) -- (1,0.01);
+          \node[below] at (1,0) {1};
+          \node[below] at (2,0) {2};
+          \node[left] at (0,2) {2};
+        \end{tikzpicture}\hfill [3+3] (\bo{\texttt{81 Ch}})
+      	\enter \hspace{1.6cm} a. \hspace{5.5cm} b.
+      \end{enumerate}
+
+
+\pagebreak
+
+\section{Amplitude Modulation and Demodulation}
+  \begin{center}(8 Hours / 11 Marks)\end{center}
+
+  \subsection{Fundamentals of Amplitude Modulation}
+    \subsubsection{Amplitude Modulated (AM) signals}
+      \begin{enumerate}
+        \item What is the basic characteristics of AM modulation. \hfill [3] (\bo{72 Ash})
+      \end{enumerate}
+
+    \subsubsection{Time domain expressions}
+    \subsubsection{Frequency domain representation}
+      \begin{enumerate}
+        \item Find the frequency domain expression for standard AM wave for single tone message signal.
+        \enter\hfill [3] (\bo{71 Bh})
+      \end{enumerate}
+
+    \subsubsection{Modulation index}
+      \begin{enumerate}
+        \item Define BW and modulation indices. \hfill [1] (\bo{\texttt{79 Ch}})
+
+        \item Draw a neat diagram of amplitude-modulated wave and drive an expression for modulation index.
+        \enter\hfill [6] (\bo{72 Ash})
+
+        \item Justify why AM transmitters are generally operated with the modulation index as close to 100\% as possible. \hfill [2] (\bo{72 Ash})
+
+        \item Define modulation index of AM wave. \hfill [1] (\bo{76 Bh})
+
+        \item Short notes on: Modulation index. \hfill [4] (72 Ma)
+      \end{enumerate}
+
+    \subsubsection{Signal Bandwidth}
+    	  \begin{enumerate}
+        \item Define BW. \hfill [1] (\bo{\texttt{79 Ch}})
+    	  \end{enumerate}
+
+  \subsection{AM System Characteristics}
+    \subsubsection{Single Tone message}
+    \subsubsection{Carrier and Side-band components}
+    \subsubsection{Powers in carrier and Side-band components}
+    \subsubsection{Bandwidth and power efficiency}
+      \begin{enumerate}
+        \item Why is conventional AM wasteful of power and bandwidth? \hfill [4] (\bo{73 Bh})
+
+        \item Compare various types of AM systems in terms of transmission power and transmission bandwidth.
+        \enter\hfill [2] (70 Ma)
+      \end{enumerate}
+
+  \subsection{Generation of AM Variants}
+    \subsubsection{Generation of DSB-FC AM (Balanced, Ring Modulators)}
+      \begin{enumerate}
+        \item Derive the expression for double tone AM. \hfill [3] (\bo{\texttt{80 Ch}}) [6] (\bo{\texttt{79 Ch}})
+
+        \item Find the time domain and frequency domain expressions for signle tone DSB-FC AM modulated wave. Also, show the spectrum of the modulated signal. \hfill [3+3+3] (75 Ba)
+
+        \item Explain the generation of DSB FC signal using square law modulator with appropriate diagram and spectrum of transmitted signal. \hfill [5] (\bo{76 Bh}) [6] (\bo{80 Ch})
+
+        \item Describe the process of generating DSB-SC AM using Balance Modulator. \hfill [5] (\bo{75 Bh})
+
+        \item Explain Ring Modulator method of generating DSB-SC signal. \hfill [5] (\bo{70 Bh})
+        \lb with waveforms and necesary derivation. \hfill [6] (73 Ma) [8] (\bo{74 Bh})
+
+        \item Explain the method of conventional AM generation by using switching modulator. \hfill [6] (\bo{73 Bh})
+
+        \item Explain the generation of DSB-FC AM using switching modulator with the help of diagram and expressions. \hfill [8] (71 Ma)
+
+        \item Explain any one method generating DSB-FC AM. \hfill [4] (70 Ma)
+      \end{enumerate}
+
+    \subsubsection{DSB-SC AM: time \& frequency domain, powers, bandwidth, efficiency}
+      \begin{enumerate}
+        \item Show that a square-law modulator can be used to generate DSBAM signal with explanation of its diagram and also sketch spectrum at the input of Bpf. \hfill [5] (\bo{72 Ash})
+
+        \item What are the advantages of SSB-AM over DSBFC-AM? \hfill [2] (71 Ma)
+
+        \item (Assumed) Find the detection gain for SSB-SC demodulation and compare with DSB-SC. \hfill [8] (\bo{75 Ch})
+        
+        \item (Assumed) Calculate detection gain for DSB-FC, DSB-SC and SSB and also compare them. \hfill [8] (\bo{73 Ch})
+        
+        \item (Assumed) What is detecting gain. Prove that for 100\% modulation of (DSB-AM), the detection gain is less than 1. \hfill [8] (\bo{74 Ch})
+      \end{enumerate}
+
+    \subsubsection{Single Side Band (SSB) Modulation: time and frequency domain, powers}
+      \begin{enumerate}
+        \item How is DSB different from SSB signal? \hfill [2] (\bo{\texttt{79 Ch}})
+        \lb Compare DSB-AM and SSB wave in terms of transmission power and bandwidth. \hfill [4] (73 Ma)
+        \lb Compare the basics of DSB-AM, DSB-SC and SSB modulations with their respective spectrum.
+        \enter\hfill [5] (\bo{72 Ash})
+        \lb Compare DSB-AM, DSB-SC and SSB in temrs of complexity, power and bandwidth efficiency.
+        \enter\hfill [8] (\textit{71 Ma})
+        \lb How deos SSB differ from conventional AM and DSB-SC? \hfill [3] (\bo{75 Bh})
+        \lb How is SSB different from conventional full carrier AM? \hfill [2] (\bo{70 Bh})
+
+        \item Derive the equation for SSB modulated signal in terms of Hilber Transformation of modulating signal mt(t). \hfill [6] (\bo{79 Ch})
+        \lb Derive the expression for SSB signal. \hfill [4] (71 Ma)
+
+        \item Write application areas of SSB communication. \hfill [2] (76 Ba)
+      \end{enumerate}
+
+    \subsubsection{Generation of SSB (SSB filters and indirect method)}
+      \begin{enumerate}
+        \item Briefly discuss any one method of generating SSB signal. \hfill [4] (\bo{79 Ch})
+
+        \item Describe the process of generation of SSB-AM wave using phase discrimination method. \hfill [6] (\bo{76 Bh})
+
+        \item Explain the phase shift method of generation of SSB AM modulated wave. \hfill [6] (75 Ba)
+        \lb With the help of block diagram and expression explain the phase shift method for generation of SSB-AM wave. \hfill [6] (\bo{71 Bh})
+
+        \item Derive the expression for SSB wave modulated by a low pass signal m(t). \hfill [6] (70 Ma)
+
+        \item What are the pros and cons of phase shift method? \hfill [2] (75 Ba)
+      \end{enumerate}
+
+  \subsection{Advanced AM Techniques}
+    \subsubsection{Introduction to Vestigial Side Bands (VSB)}
+      \begin{enumerate}
+        \item What is vestigial side band modulation? \hfill [2] (\bo{70 Bh})
+
+        \item What is the motivation behind using VSB? \hfill [2] (\bo{70 Bh})
+
+        \item Explain about generation of VSB AM with its frequency spectrum. \hfill [4] (76 Ba)
+
+        \item Why is VSB suitable for television transmission? \hfill [2] (\bo{70 Bh}, 76 Ba)
+      \end{enumerate}
+
+    \subsubsection{Introduction to Independent Side Bands (ISB)}
+    \subsubsection{Introduction to Quadrature Amplitude Modulations (QAM)}
+  \subsection{Demodulation of AM Signals}
+    \subsubsection{Demodulation of DSB-FC, DSB-SC and SSB using synchronous detection}
+      \begin{enumerate}
+        \item Compare and constrast DSB-SC and SSB. \hfill [3] (\bo{80 Ch})
+
+        \item Explain the synchronous demodulation for DSB-SC signal along with its requirements and limitations.
+        \enter\hfill [6+3] (\bo{80 Ch})
+        \lb How can synchronous demodulator be used to detect DSB-SC wave? \hfill [3] (\bo{70 Bh})
+
+        \item Explain mathematically, the effects of phase error \& frequency error in local oscillator while demodulating DSB-SC. \hspace{13cm} [3] (\bo{70 Ch})
+
+        \item Why DSB-SC detection is known as synchronous detection, explain with required details.
+        \enter\hfill [3] (\bo{72 Ash})
+
+        \item Propose one of practically synchronised receiving system for DSB-SC wave. \hfill [5] (\bo{76 Bh})
+
+        \item Compare the performance of DSB-AM, DSB-SC, SSB-AM VSB. \hfill [2] (\bo{76 Bh})
+      \end{enumerate}
+
+    \subsubsection{Square law and envelope detection of DSB-FC}
+      \begin{enumerate}
+        \item What is the limitation of square law detector for DSB-AM detection? \hfill [2] (70 Ma)
+
+        \item Write short notes on: Envelope Detector. \hfill [4] (\bo{76 Bh})
+        \lb Explain envelope detector. Include in your explanation how the values of capacitor and resistor can be chosen so that the output of detector is the envelope of the signal as its input. \hfill [6] (\bo{70 Bh})
+
+        \item Explain the process of demodulation of AM wave using envelope detector. \hfill [6] (76 Ba)
+        \lb with necessary conditions for time constants and waveforms. \hfill [4+2+2] (75 Ba)
+        \lb Draw the circuit diagram and the waveforms and describe how envelope detector can be used for demodulation of standard AM wave. \hfill [5] (\bo{71 Bh}) [6] (70 Ma)
+
+        \item Does envelope detector demodulate dSB-SC AM wave? Explain. \hfill [2] (76 Ba)
+      \end{enumerate}
+
+    \subsubsection{Demodulation of SSB using carrier reinsertion}
+      \begin{enumerate}
+        \item Describe any one method of demodulating DSB-FC AM signal. \hfill [8] (\bo{75 Bh})
+      \end{enumerate}
+
+    \subsubsection{Carrier recovery circuits}
+  \subsection{Phase Locked Loop (PLL) in AM}
+    \subsubsection{PLL: basic concepts, definition, equations and applications}
+      \begin{enumerate}
+        \item Write short notes on: Phase Locked Loop. \hfill [5] (\bo{79 Ch})
+
+        \item What are the essential components that constitute PLL? \hfill [2] (\bo{74 Bh})
+
+        \item How AM can be demodulated using PLL circuit? Explain. \hfill [5] (\bo{72 Ash})
+      \end{enumerate}
+
+    \subsubsection{Demodulation of AM using PLL}
+      \begin{enumerate}
+        \item How can PLL be used to demodulate AM signal? \hfill [6] (\bo{74 Bh, 71 Bh})
+        \lb Explain the demodulation of AM using PLL. \hfill [4] (71 Ma)
+
+        \item (Assumed) Explain the effect of phase and frequency error in local oscillator in demoudlating DSB and SSB using PPL. \hfill [8] (\bo{80 Ch})
+        \lb Evaluate the effect of small phase error in the local oscillator on synchronous detection of DSB-SC AM. \hfill [3] (\bo{76 Bh})
+        \lb Show the effect of phase error in coherent detection of DSB-SC AM. \hfill [4] (71 Ma)
+
+        \item With block diagram and ncecessary mathematics, show that the Costas loop can be used as a practical syncrhonous receiving system suitable for use with the DSB-SC modulated wave. \hfill [10] (73 Ma)
+        \lb Draw the block diagram of Costas Loop detector and explain how it demodulates DSB-SC AM and corrects for phase error. \hfill [4+4+2] (\bo{73 Bh})
+      \end{enumerate}
+
+  \subsection{Numericals}
+    \begin{enumerate}
+      \item For the given modulated signal draw line spectrums. \hfill [3] (\bo{\texttt{80 Ch}})\\
+      $s(t)\ =\ 50 \cos(2\ \pi\ 10^6t\ +\ 60^0)\ -\ 15\ \cos(2\ \pi\ 10^6t\ - 60^0)\ +\ 20\sin(4\ \pi\ 10^4t\ -\ 190^0)\ +\ \sin(2\ \pi\ 10^4t\ + 190^0)$.
+
+      \item For an amplitude modulated signal. \hfill [2+2+2] (\bo{80 Ch})\\
+      $s(t) = 50\ \cos(2\pi\ 10^6\ t) + 20\ \cos(2\pi\ 10^6\ t)\ \cos(2\pi\ 10^3\ t) + 12\ \cos(2\pi\ 10^6\ t)\ \cos(4\pi\ 10^2\ t) $
+      \enter a. Calculate the net modulation index.
+      \enter b. Calculate the total modulated power.
+      \enter c. Draw the spectrum of the signal.
+
+      \item A message signal m(t) = $10 \cos(2\pi\ 4000t)$ Volt is used to frequency modulate the carrier signal c(t) = $80 \cos(2\pi\ 10^7t)$ Volt. Assuming the frequency sensitivity of the frequency modulator to be 400 Hz/Volt, calculate: \hfill [4x2.5] (\bo{79 Ch})
+      \enter a. Peak frequency deviation
+      \enter b. Modulation index
+      \enter c. Bandwidth of modulated signal for over 98\% of FM power
+      \enter d. Total modulated signal power dissipated in unit impedance
+
+      \item An amplitude modulated signal is represented by \hfill [1+2+1+2+1] (\bo{76 Bh})\\
+      S$_{\text{AM}}$(t) = $10(1\ +\ 0.2\cos(2\Pi\ 10^3\ t))\ \cos(2\Pi\ 10^6\ t)$.
+      \enter a. Identify which type of modulation.
+      \enter b. Find modulating frequency and carrier frequency
+      \enter c. Bandwidth of the signal
+      \enter d. Carrier power, total power, power in side bands
+      \enter e. Efficiency
+
+      \item The signal m(t) = $10\cos(2\cdot 10^3\pi t)\ +\ 15\cos(1\cdot 10^3\pi t)$, c(t) = $20\cos(3\cdot 10^6\pi t)$ are applied to AM. Find \hfill [2x4] (76 Ba)
+      \enter a. The equation of the resulting signal
+      \enter b. Modulation index
+      \enter c. Total power
+      \enter d. Draw spectrum
+
+      \item An amplitude modulated wave is given by: \hfill [3+2+2+1] (\bo{75 Bh})\\
+      s(t) = $100\cos(2\pi\ \cdot\ 10^6t)\ +\ 30\cos(2\pi\ \cdot\ 10^6t)\ \cos(2\pi\ 10^3t)\ +\ 40\cos(2\pi\ \cdot\ 10^6 t)\ \cos(4\pi\ \cdot\ 10^2t)$ Volt
+      \enter a. Draw the frequency spectrum of modulated wave
+      \enter b. Net modulation index
+      \enter c. Total modulated power
+      \enter d. Efficiency
+
+      \item A cosine carrier of frequency 750 kHz is amplitude modulated by another cosine wave of frequency 325 Hz resulting in maximum and minimum carrier amplitudes of 110V and 90V respectively.
+      \enter a. Draw the waveform of AM wave thus created. \hfill [2+3+2] (75 Ba)
+      \enter b. Write the expression of the resulting AM wave.
+      \enter c. Find the total radiated and efficiency.
+
+      \item An AM wave is represented by s(t) = $5 \left[ 1\ +\ \cos(6280t) \right] \cos(2\pi\ 10^4t)$ volts, then find the followings: (a) Modulation Depth, (b) Maximum and Minimum Amplitude of AM wave, (c) Frequency components in modulated signal and their amplitudes and (d) Power dissipated across 1 k\W\ resistor.
+      \enter\hfill [2+2+2+2] (\bo{74 Bh})
+
+      \item An amplitude modulated wave is given by: \hfill [4+3+3] (\bo{73 Bh})\\
+      s(t) = $50 (1 + 0.3\cos(3141.60t) + 0.2\cos(2513.28t))cos(10^6t)$
+      \enter a. Draw the amplitude spectrum of s(t)
+      \enter b. Determine the bandwidth of s(t)
+      \enter c. Calculate the power efficiency
+
+      \item An audio signal given as $15 \sin(2\pi \cdot 1500t)$ amplitude modulates a carrier given as $60 \sin(2\pi \cdot 100,000t)$ determine the following: \hfill [2+2+2+2] (72 Ma, \textit{71 Ma})
+      \enter a. Construct the modulated wave
+      \enter b. Determine the modulation index and percent modulation
+      \enter c. What frequencies would present in a spectrum analysis of the modulated wave?
+      \enter d. Sketch audio and carrier wave
+
+      \item The signals m(t) = $5 \cos(2\cdot 10^3\pi t) + 10 \cos(1\cdot 10^3\pi t)$, c(t) = $15 \cos(2\cdot 10^6\pi t)$ are applied to AM.
+      \enter Find modulation index \hfill [2+2+3] (\bo{72 Ash})
+      \enter Find total power
+      \enter Draw spectrum
+
+      \item A certain AM transmitter radiates 10 kW with the carrier unmodulated and 11.8 kW when the carrier is sinusoidal modulated. Calculate the modulation index. If another sine wave, corresponding to 30 percent modulation, is transmitted simultaneously, determine the total radiated power.
+      \enter\hfill [3+4] (\bo{72 Ash})
+
+      \item An AM wave is represented by S$_{AM}$ (t) = $20(1 + 0.8 \cos(2\pi 1000t)) \cos(9424777.96t)$ volts. Find
+      \enter a. Amplitude of all frequency components \hfill [2x4] (\bo{71 Bh})
+      \enter b. Modulation index
+      \enter c. Maximum and minimum amplitude of AM wave
+      \enter d. Frequency of USB and LSB
+
+      \item Given the modulated wave, u(t) = $\left[ 20 + 2 \cos(3000\pi t) + 10 \cos(6000\pi t)\right] \cos(2\pi f_c t)$ where f$_c$ = 10$^5$ Hz.
+      \enter a. Sketch the spectrum of the signal. \hfill [2x4] (70 Ma)
+      \enter b. Find the power contained in each frequency component.
+      \enter c. Calculate efficiency.
+      \enter d. Transmission bandwidth of the system.
+
+      \item The amplitued modulated signal is given by x(t) = $50 \cos(2\pi \cdot 10^6t) + 15 \cos(2\pi \cdot 10^6t)\ \cos(2\pi \cdot 10^3t) + 20 \cos(2\pi \cdot 10^6t)\ \cos(4\pi \cdot 10^2t)$. \hfill [3+2+2] (\bo{70 Bh})
+      \enter a. Draw the spectrum.
+      \enter b. Find the total modulated power.
+      \enter c. Find the net modulation index.
+    \end{enumerate}
+
+\pagebreak
+
+\section{Angle Modulation and Demodulation}
+  \begin{center}(6 Hours / 8 Marks)\end{center}
+
+  \subsection{Fundamentals of Angle Modulation}
+    \begin{enumerate}
+      \item What is angle modulation? \hfill [2] (75 Ba) [4] (73 Ma)
+    \end{enumerate}
+
+    \subsubsection{Basic definitions for FM and PM}
+    \subsubsection{Time domain expressions for FM and PM}
+      \begin{enumerate}
+        \item Derive the general expression for frequency modulation. \hfill [3] (\textit{71 Ma})
+      \end{enumerate}
+
+  \subsection{Spectral Analysis of FM}
+    \subsubsection{Time domain expression for single tone modulated FM}
+      \begin{enumerate}
+        \item Find the time domain and frequency domain expression of single tone modulated FM signal.
+        \enter\hfill [3+3] (75 Ba)
+      \end{enumerate}
+
+    \subsubsection{Spectral representation using Bessel's function}
+    \subsubsection{Bessel's function properties}
+      \begin{enumerate}
+        \item What are the properties of Bessel function? \hfill [2] (\bo{76 Bh})
+
+        \item Derive expression for single tone modulated FM signal in terms of Bessel coefficients. \hfill [8] (\bo{75 Bh})
+        \lb Find the time domain expression for single tone FM modulated waves in terms of Bessel coefficients.
+        \enter\hfill [6] (\bo{71 Bh})
+
+        \item Derive the time domain expression of single tone FM in terms of Bessel's function J$_n$($\beta$). Use the result to find the expression of average power of FM signal whose significant Bessel's coefficients are taken from `-n' to `+n'. \hfill [6+2] (\bo{74 Bh})
+
+        \item Express angle modulated wave in terms of Bessel function j$_n$($\beta$) of first kind of order n and argument $\beta$. \hfill [6] (\bo{72 Ash})
+      \end{enumerate}
+
+    \subsubsection{Bandwidth of FM: Carson's rule}
+      \begin{enumerate}
+        \item Explain Carson's rule for determining the bandwidth of an FM wave. \hfill [2] (72 Ma)
+
+        \item Under what condition the bandwidth of FM signal is same as that of AM? Explain. \hfill [4] (72 Ma)
+      \end{enumerate}
+
+    \subsubsection{Narrow and wideband FM}
+      \begin{enumerate}
+        \item Define narrow band and wide band FM. \hfill [2] (76 Ba)
+
+        \item How is the spectrum of Narrow band FM similar to and different from the spectrum of conventional AM? \hfill [5] (\bo{70 Bh})
+
+        \item Find the time domain expression for Narrowband FM signal. \hfill [6] (\bo{73 Bh})
+
+        \item How NBFM can be used to generate Wideband FM signal. \hfill [4] (\bo{73 Bh})
+        
+        \item Write short notes on: Threshold effect in WBFM. \hfill [4] (\bo{80 Bh}) [5] (\bo{75 Bh})
+      \end{enumerate}
+
+  \subsection{Generation and Demodulation}
+    \subsubsection{Generation of FM (direct and Armstrong's method)}
+      \begin{enumerate}
+        \item Explain the Armstrong's method for Frequency Modulation. \hfill [4] (\bo{\texttt{80 Ch}}) [6] (73 Ma)
+        \lb Explain how NBFM is generated by Armstrong's method. \hfill [5] (\bo{70 Bh})
+
+        \item Explain the process of generation of wide band FM wave using Armstrong method. \hfill [6] (76 Ba)
+
+        \item Explain with block diagram how can you generate FM using phase modulator. \hfill [5] (\textit{71 Ma})
+      \end{enumerate}
+
+    \subsubsection{Demodulation of FM and PM signals}
+    \subsubsection{Synchronous (PLL) and non-synchronous (limiter-discriminator) demodulation}
+      \begin{enumerate}
+        \item What is the role of amplitude limiter in limiter discriminator method? \hfill [2] (\bo{76 Bh}, 70 Ma)
+
+        \item Explain demodulation of FM using limiter-discriminator method. \hfill [6] (71 Ma) [7] (\bo{71 Bh})
+
+        \item Explain FM demodulator using PLL. \hfill [4] (\bo{76 Bh}, 72 Ma)
+
+        \item Define lock, range, capture range in PLL. \hfill [2] (72 Ma)
+      \end{enumerate}
+
+  \subsection{FM Systems and Applications}
+    \subsubsection{Stereo FM: spectral details, encoder and decoder}
+      \begin{enumerate}
+        \item Explain the stereo FM encoder and decoder with spectral diagram. \hfill [7] (\bo{\texttt{78 Ch}})
+        \lb With functional block diagrams and spectral details explain the operation of stereo encoder and decoder. \hfill [5+5] (\bo{79 Ch})
+
+        \item Draw the block diagram of stereo FM encoder and decoder. Explain each block briefly.
+        \enter\hfill [8] (76 Ba)
+        \lb Explain the functional block diagram of stereo encoder. \hfill [4] (70 Ma) [5] (\bo{75 Bh})
+
+        \item Write short notes on: Stereo encoder. \hfill [4] (71 Ma) [5] (\bo{80 Ch}, 73 Ma)
+      \end{enumerate}
+
+    \subsubsection{Pre-emphasis and de-emphasis networks}
+      \begin{enumerate}
+        \item Write short notes on: Pre-Emphasis and De-Emphasis. \hfill [4] (\bo{74 Bh}) [5] (\bo{\texttt{81 Ch}, 80 Ch})
+      \end{enumerate}
+
+    \subsubsection{The super-heterodyne radio receivers for AM/FM}
+      \begin{enumerate}
+        \item Explain the operation of superheterodyne radio receiver. \hfill [5] (\bo{70 Bh}) [8] (\bo{80 Ch}, 71 Ma)
+
+        \item Write short notes on: Super heterodyne Receiver. \hfill [4] (\bo{74 Bh}, 76 Ba) [5] (70 Ma)
+
+        \item Write short notes on: AM radio receiver. \hfill [4] (72 Ma)
+        \lb Write short ntoes on: FM radio receiver. \hfill [4] (\bo{72 Ash})
+
+        \item What are the requirements for a good radio receiver? \hfill [3] (\bo{70 Bh})
+
+        \item List the major differences between AM and FM superheterodyne receiver. \hfill [3] (72 Ma)
+
+        \item Why are superheterodyne receivers provided with automatic gain control (AGC) mechanism?
+        \enter\hfill [2] (72 Ma)
+      \end{enumerate}
+
+  \subsection{Numericals}
+    \begin{enumerate}
+      \item The equation of angle modulated signal is v(t) = $12\ \sin(10^6t\ +\ 5\sin(10^4t))$. Determine the following:
+      \enter a. Carrier frequency \hfill [4x 1.5] (\bo{80 Ch})
+      \enter b. Modulating frequency
+      \enter c. Modulation index
+      \enter d. Power dissipate in 100\W\ resistors
+
+      \item The angle modulated signal is given by S(t) = $20 \cos(6\cdot 10^8t + 7 \sin(1250t))$.\\
+      Determine: \hfill [2.5x4] (73 Ma)
+      \enter a. The carrier and modulating frequency
+      \enter b. The modulation index
+      \enter c. Maximum frequency deviation
+      \enter d. Power dissipated in 10 \W\ resistor
+
+      \item Show that a FM signal consists infinite number of cosine signal components centered at frequencies f$_c$ + n f$_m$, where f$_c$ = carrier frequency, f$_m$ = message frequency and n = 0, $\pm$1, $\pm$2, $\pm$3, ... \hfill [6] (\bo{76 Bh})
+
+      \item A sinusoidal modulating signal m(t) = $5\cos(18849.55t)$ is applied to an FM modulator that has frequency sensitivity of 9 kHz/V. The amplitude of carrier is 25V and the frequency is 88.7 MHz. Compute: (a) Modulation index (b) Carrier frequency swing (c) Bandwidth using Carson rule (d) Total power delivered to 10\W\ resistor. \hfill [2+2+2+2] (\bo{76 Bh}, 76 Ba)
+      \lb Compute: (i) Peak frequency deviation, (ii) Modulation index, (iii) Frequency swing, (iv) Carson's bandwidth. \hfill [2x4] (\bo{71 Bh})
+
+      \item A 102.4 MHz carrier signal is frequency modulated by 5 kHz sine wave. The resultant FM signal has frequency deviation of 75 kHz. Now, determine the followings: (a) carrier swing of FM signal, (b) the bandwidth occupied by FM signal and (c) modulation index. \hfill [3+3+3] (75 Ba)
+
+      \item An Armstrong FM modulator is required in order to transmit an audio signal of bandwidth 50 Hz to 15 kHz. The Narrow Band (NB) phase modulator used utilizes an oscillator providing carrier frequency f$_{c_{1}}$ = 0.2 MHz. The output of the NB phase modulator is multiplied by n$_1$ by multiplier and then passed to mixer with a local oscillator frequency f$_c$ = 10.925 MHz. The desired FM wave at the transmitter output has a carrier frequency f$_c$ = 90 MHz and a frequency deviation deviation $\Delta$f = 75 kHz, which is obtained by multiplying the mixer output frequency with n$_2$ by using another multiplier. Find n$_1$ and n$_2$. Assume that the NBFM signal at the output of NB phase modulator has modulation index, $\beta$ = 0.5. \hfill [9] (\bo{74 Bh})
+
+      \item Generate an FM signal with F$_c$ = 50 MHz and $\beta$ = 1 from a NBFM signal with F$_c$ = 1 MHz, $\beta$ = 0.1 and Fm = 10 kHz. \hfill [6] (72 Ma)
+
+      \item A carrier frequency 10$^6$ Hz and amplitude 3 volts is frequency modulated by a sinusoidal modulating signal frequency 500 Hz and peak amplitude 1 volt. The frequency deviation is 1 kHz. The level of the modulating waveform is changed to 5V peak and the modulating frequency is changed to 2 kHz. Write the expression for the new modulated waveform. \hfill [6] (\bo{72 Ash})
+
+      \item The equation of an angle modulation voltage is E = $10 \sin(10^8t + 3 \sin(10^4t))$. Calculate the carrier and modulating frequency, modulating index and power dissipated in 100 \W\ resistor. \hfill [2+2+2+2] (71 Ma)
+
+      \item In an FM system a baseband signal band limited to 10 kHz modulates 100 MHz carrier wave so that the frequency deviation is 75 kHz. Find: \hfill [4+4] (70 Ma)
+      \enter a. Carrier frequency swing in the FM signal and modulation index
+      \enter b. The practical bandwidth of the FM signal
+      
+      \item A message signal x(t) = $\cos(5000\pi t)$ is quantized in 128 levels using Nyquist sampling rate: \hfill [2+3+2] (71 Shr)
+      \enter a. Find SQNR of the PCM signal
+      \enter b. Find the sampling frequency required when same signal uses delta modulation for same SQNR.
+      \enter c. If the system uses DM using Nyquist sampling rate, find SQNR degradation in DM as compared to PCM.
+    \end{enumerate}
+
+\pagebreak
+
+\section{Source Coding and Sampling Theory}
+  \begin{center}(4 Hours / 4 Marks)\end{center}
+
+  \subsection{Digital Communication Framework}
+    \subsubsection{Digital communication sources, transmitters, channels and receivers}
+  \subsection{Source Coding}
+    \subsubsection{Source coding and coding efficiency}
+      \begin{enumerate}
+      	\item What is source coding? \hfill [1] (70 Asa)
+      	
+      	\item What is the aim of source coding? \hfill [2] (\bo{\texttt{79 Ch}})
+        
+        \item Discuss the importance of source coding in digital communication system. \hfill [2] (\bo{71 Ch, 70 Ch}, 71 Shr) [4] (\bo{75 Ch}) [6] (\bo{73 Ch})
+        
+        \item Distinguish between the Source coding and Channel coding. \hfill [3] (74 Ash)
+        
+        \item How does source encoding differ from channel encoding? \hfill [4] (\bo{81 Bh})
+      \end{enumerate}
+
+    \subsubsection{Shannon-Fano and Huffman codes}
+      \begin{enumerate}
+      	\item Explain Shannon-Fano coding. \hfill [3] (73 Shr)
+      	
+      	\item Explain Huffman codes with examples. \hfill [4] (\bo{72 Ch})
+      	
+      	\item Write algorithm for Huffman's coding. \hfill [3] (70 Asa)
+      	
+        \item Encode “Engineer Ko Betha Arulai Ke Thaha” using Huffman Encoder and calculate the transmission efficiency. Find the codeword if the message is received as “Engineer Ko Betha Ke Ke”. 
+        \enter\hfill [7+2+3] (\bo{\texttt{81 Ch}})
+
+        \item Encode the message "Mississipi is missing" using weighted Huffman code and calculate transmission efficiency. \hfill [8] (\bo{\texttt{80 Ch}})
+
+        \item Encode "Kun Mandir Ma Janchhau Yatri" using Huffman codes and finds its efficiency. \hfill [8] (\bo{\texttt{79 Ch}})
+        
+        \item A DMS has five symbols with probability of p(x$_1$) = 0.4, p(x$_2$) = 0.19, p(x$_3$) = 0.16, p(x$_4$) = 0.15 and p(x$_5$) = 0.1. Construct the Huffman code for X and calculate its efficiency and compare with fixed Length coding. \hfill [4] (81 Ba)
+        
+        \item A DMS has size symbols with probability of p(x$_1$) = 0.3, p(x$_2$) = 0.2, p(x$_3$) = 0.25, p(x$_4$) = 0.12, p(x$_5$) = 0.08 and p(x$_6$) = 0.05. Construct Shannon - Fano code for X and calculate its efficiency and code Redundancy. \hfill [5] (80 Ba)
+        
+        \item A discrete memoryless source has an alphabet of seven symbols whose probabilities occurrence are as under:
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        	\hline
+        	Symbol & S$_0$ & S$_1$ & S$_2$ & S$_3$ & S$_4$ & S$_5$ & S$_6$ \\ \hline
+        	Probability & 0.25 & 0.25 & 0.125 & 0.125 & 0.125 & 0.0625 & 0.0625 \\ \hline
+        \end{tabular}
+        Determine the Huffman code for above source. \hfill [5] (\bo{79 Bh})
+        
+        \item Calculate coding efficiency of a six symbol source with probabilities P = { 0.36, 0.18, 0.12, 0.09, 0.07 } using Shannon Fano and Huffman's coding techniques. \hfill [8] (\bo{76 Ch})
+        
+        \item Compute coding efficiency of a source with symbols \{ A$_0$, A$_1$, A$_2$, A$_3$, A$_4$\} with corresponding probabilities {0.4, 0.3, 0.15, 0.1, 0.05} using (i) Binary coding (ii) Shannon-Fano Coding (iii) Binary Huffman Coding. \hfill [2+2+2] (76 Ash)
+
+        \item A DMS emits one of the seven symbol with probabilities P = [ 0.25, 0.2, 0.15, 0.08, 0.07, 0.03, 0.02 ]. Find the coding efficiency, code redundancy for both Shannon-Fano coding and Fixed length coding and compare result. \hfill [6] (\bo{75 Ch})
+        
+        \item A discrete memory less source emits one of the eight symbols with probabilities P = \{ 0.25, 0.2, 0.15, 0.08, 0.07, 0.03, 0.02 \}. If the output symbols are encoded using Huffman code, find the coding efficiency and output bit if the symbol rate of the source is 1000 symbols per second. \hfill [4+2] (71 Shr)
+        
+        \item Six messages are transmitted with probabilities 0.3, 0.08, 0.1, 0.15, 0.25 and 0.12 respectively. Obtain their respective shannon-fano and Huffamn's codes and code efficiencies. \hfill [8] (75 Ash)
+        
+        \item A discrete memoryless source has an alphabet of five symbols S$_0$, S$_1$, S$_2$, S$_3$, S$_4$ with probabilities of 0.55, 0.15, 0.15, 0.1 and 0.05 respectively. Determine the Huffman code for each symbol and calculate high the coding efficiency. \hfill [2+2] (74 Ash)
+        
+        \item The source of information symbols \{ A0, A1, A2, A3 and A4\} have corresponding probabilities \{ 0.4, 0.3, 0.15, 0.1 and 0.05\}. Encode the source symbols using Huffman encoder and Shannon-Fano encoder and compare their efficiency. \hfill [8] (\bo{74 Ch})
+        
+        \item A discrete memory less source emits five symbols with probabilities P = {0.3, 0.25, 0.2, 0.15, 0.1}, find coding efficiency for both fixed and shannon-fano coding and compare results. \hfill [4] (\bo{73 Ch})
+        
+        \item If a source emits symbols X$_i$ = \{ A, B, C, D, E, F \} in the BCD format with probabilities P(X$_i$) = \{ 0.3, 0.1, 0.02, 0.15, 0.4, 0.03 \} at a rate R$_5$ = 14.4 kBaud, find the following: \hfill [5] (\bo{72 Ch})
+        \enter a. Information rate
+        \enter b. Coding efficiency both with BCD and Huffman coded signal
+        
+        \item A discrete memory less source emits four symbols with probabilities P = \{ 0.125, 0.125, 0.25, 0.5 \}. If the output symbols are encoded using Shannon-Fano code, find the coding efficiency and compare the coding efficiency with that of BCD  code. \hfill [4+2] (\bo{71 Ch})
+        
+        \item Develop Huffman coding of a 5 symbol source with probabilities: S$_0$ = 0.3, S$_1$ = 0.25, S$_2$ = 0.2, S$_3$ = 0.15, S$_4$ = 0.1. And also calculating coding efficiency. \hfill [3+1] (70 Asa)
+      \end{enumerate}
+
+    \subsubsection{Coding of continuous time signals (A/D conversion)}
+  \subsection{Sampling Theory}
+  	\begin{enumerate}
+  		\item Define sampling. \hfill [1] (76 Ash)
+  		
+  		\item State and prove sampling theorem. \hfill [5] (73 Shr)
+
+      \item Explain the types of sampling techniques with waveforms. \hfill [6] (\bo{75 Ch})
+      
+      \item State sampling theory in terms of transmitter and receiver. \hfill [4] (74 Ash)
+  	\end{enumerate}
+  
+    \subsubsection{Nyquist-Kotelnikov sampling theorem}
+    	\begin{enumerate}
+    		\item State and prove Nyquist sampling theorem. \hfill [8] (\bo{80 Bh})
+    		
+    		\item State and explain Nyquist sampling theoremm. \hfill [4] (80 Ba)
+    		\lb State and explain Nyquist-Kotelnikov sampling theorem with time domain and frequency domain analysis. \hfill [6] (71 Shr)
+    		
+    		\item State Nyquist sampling theory. \hfill [2] (\bo{72 Ch, 71 Ch})
+    		
+    		\item Find the Nyquist rate and the Nyquist interval for the signal x(t) = $\sin(800\pi t)/\pi t + 10 \cos(2000t)$. \hfill [5] (\bo{79 Bh})
+    		
+    		\item Twenty four voice signals are sampled uniformly and then have to be time division multiplexed. The highest frequency component for each voice signal is equal to 3.4 kHz. Now, \hfill [4+3] (\bo{76 Ch})
+    		\enter a. If the signals are pulse amplitude modulated using Nyquist rate of sampling, what would be the minimum channel bandwidth required.
+    		\enter If the signal are pulse code modulated with an 8 bit encoder, what would be the sampling rate? The bit rate of the system is given as 1.5 x 10$^6$ bits/sec.
+    		
+	        \item An analog baseband signal, band limited to 100 Hz, is sampled at the Nyquist rate. The samples are quantized into four emssage symbols that occur independently with probabilities p1 = p4 = 0.125 and p2 = p3. Determine the information rate (bits/sec) of the message source signal. \hfill [6] (76 Ash)
+	        
+	        \item Determine the Nyquist rate and Nyquist interval for a continuous time signal x(t) = $6\cos(50\pi t) + 20\sin(300\pi t) - 10\cos(100\pi t)$. It is to be sampled and quantize using 512 levels. \hfill [5] (\bo{72 Ch, 71 Ch})
+	        
+	        \item With mathematical derivation show that original band limited signal band limited signal can be reconstructed from its samples taken at Nyquist rate. \hfill [5] (70 Asa)
+    	\end{enumerate}
+    
+    \subsubsection{Time domain and frequency domain analysis}
+    \subsubsection{Spectrum of sampled signal}
+    \subsubsection{Reconstruction of sampled signal}
+  \subsection{Practical Sampling Considerations}
+    \subsubsection{Ideal, flat-top and natural sampling processes}
+      \begin{enumerate}
+        \item Explain the aperture effect during flat-topped sampling. \hfill [2] (\bo{78 Ch})
+        
+        \item Explain flat top sampling with appropriate derivation. \hfill [6] (80 Ba)
+        \lb Explain flat top sampling and compare its advantage over natural sampling. \hfill [5] (\bo{79 Bh})
+        
+        \item State the practical considerations that need to be considered during sampling. Explain natural sampling with appropriate derivation. \hfill [3] (\bo{81 Bh})
+        
+        \item Explain natural sampling with appropriate derivation. \hfill [6] (\bo{81 Bh})
+        
+        \item Explain the merits and demerits of flat-top sampling of a continuous time signal using relevant mathematical expressions. \hfill [7] (81 Ba)
+        
+        \item Explain with proper illustration the Natural Sampling and Flat Top Sampling. \hfill [5] (76 Ash)
+        
+        \item Illustrate and explain the ideal sampling and reconstruction of sampled signal. \hfill [6] (75 Ash)
+        
+        \item What are the practical factors to be considered while sampling? \hfill [6] (\bo{70 Ch})
+        
+        \item If two band limited signals X$_1$[t] and X$_2$[t] have bandwidths of W$_1$ and W$_2$ Hertz respectively. Estimate the maximum sampling interval required for the signal given by Y[t] = X$_1$[t] X$_2$[t]. \hfill [2] (\bo{70 Ch})
+      \end{enumerate}
+
+    \subsubsection{Sampling of band-pass signals and sub-sampling theory}
+    	\begin{enumerate}
+    		\item Briefly explain the term sub-sampling theory. \hfill [2] (\bo{74 Ch}, 72 Ka)
+    		
+    		\item A signal x(t) = $\sinc(5\pi t)$ is sampled (using uniformly spaced impulses) at a rate of 10 Hz, \hfill [2+2+1] (72 Ka)
+    		\enter a. Sketch the sampled of signal (not to scale);
+    		\enter b. Sketch the spectrum of the sampled signal for the range $\left| f \right|$ < 30 Hz
+    		\enter c. Explain whether you can recover the signal x(t) from the sampled signal.
+    	\end{enumerate}
+    
+    \subsubsection{Non-ideal sampling pulses (aperture effect)}
+    	\begin{enumerate}
+    		\item Briefly explain the term aperture effect. \hfill [2] (\bo{74 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{Non-ideal reconstruction filter}
+    \subsubsection{Time-limitedness of the signal (aliasing effects)}
+      \begin{enumerate}
+        \item Define the aliasing and aperture effects. \hfill [2] (71 Shr) [3] (\bo{73 Ch}) [4] (\bo{75 Ch}) [5] (73 Shr)
+        \lb with remedy solutions. \hfill [6] (74 Ash)
+        
+        \item What is aliasing and how can it be minimized? \hfill [3] (70 Asa)
+      \end{enumerate}
+
+\pagebreak
+
+\section{Pulse Modulation Systems}
+  \begin{center}(6 Hours / 6 Marks)\end{center}
+
+  \subsection{Analog Pulse Modulation}
+    \subsubsection{Pulse Amplitude Modulation (PAM): generation, bandwidth, spectrum, reconstruction}
+    	\begin{enumerate}
+    		\item Write short notes on: PAM, PWM and PPM. \hfill [5] (\bo{79 Bh})
+    		
+    		\item Define PMA, PWM and PPM with corresponding waveforms. \hfill [1.5] (\bo{70 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{Pulse position and pulse width modulations: generation, bandwidth requirements}
+    \begin{enumerate}
+    	\item Differentiate between pulse amplitude and pulse position modulation. \hfill [3] (\bo{81 Bh})
+    	
+    	\item Explain the generation of pulse width modulation. \hfill [4] (\bo{81 Bh})
+    \end{enumerate}
+    
+  \subsection{Pulse Code Modulation (PCM)}
+    \subsubsection{PCM as a result of analog to digital conversion}
+    	\begin{enumerate}
+    		\item Define PCM. \hfill [2] (81 Ba)
+    		
+    		\item Explain working principle of PCM with necessary figures and equations. \hfill [5] (73 Shr)
+    		
+    		\item A PCM system uses a uniform quantizer followed by a 7 bit binary encoder. The bit rate of the system is equal to 50 $\cdot$ 10$^6$ bits/sec. What is the maximum message signal bandwidth for which the system operates satisfactorily? \hfill [3] (73 Shr)
+    		
+    		\item What are the design goals of digital modulation techniques? \hfill [2] (\bo{73 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{Uniform quantization}
+    	\begin{enumerate}
+    		\item Define quantization. \hfill [2] (\bo{80 Bh})
+    	\end{enumerate}
+    
+    \subsubsection{Quantization noise}
+    \subsubsection{Signal to quantization noise ratio (SQNR) in uniform quantization}
+      \begin{enumerate}
+        \item Find the SQNR of PCM. \hfill [5] (\bo{\texttt{79 Ch}})
+
+        \item Derive the expression for the SQNR of uniformly quantized PCM. \hfill [4] (\bo{72 Ch, 71 Ch}) [6] (\textit{71 Ma})
+        
+        \item Derive expression for evaluating SQNR for uniform quantization in terms of number of levels and number of bits per source symbol. \hfill [7] (74 Ash)
+        
+        \item Find SQNR in uniform quantization in terms of no. of bits per source sample. \hfill [8] (70 Asa)
+
+        \item What is the relation between SQNR value and bit used for coding? \hfill [2] (\textit{71 Ma})
+        
+        \item With necessary derivations show that in case of PCM, SQNR increases approximately by 6dB for each extra bit used. \hfill [6] (75 Ash)
+        
+        \item Derive the expression for evaluating SQNR for linear quantization. \hfill [6] (\bo{80 Bh})
+        
+        \item Determine the SQNR for delta modulation with no slope overload condition. \hfill [5] (\bo{76 Ch})
+        
+        \item A television signal having a bandwidth of 4.2 MHz is transmitted using binary PCM system. Given that the number of quantization level is 512. Determine: \hfill [6] (\bo{74 Ch})
+        \enter a. Code word length
+        \enter b. Transmission bandwidth
+        \enter c. Bit rate
+        \enter d. SQNR
+        \lb For bandwidth = 4.8 MHz, other values same. \hfill [1+1.5+1.5+1.5] (\bo{70 Ch})
+      \end{enumerate}
+
+  \subsection{Advanced Quantization Techniques}
+    \subsubsection{Non-uniform quantization}
+    	\begin{enumerate}
+    		\item Elaborate on the technique of implementing non-uniform quantization using uniform quantization technique. \hfill [5] (\bo{81 Bh})
+    		
+    		\item Differentiate between uniform quantization and non-uniform quantization. \hfill [2] (74 Ash) [4] (\bo{73 Ch})
+    		
+    		\item Find non-uniform quantization done for speech signal? \hfill [2] (75 Ash)
+    		
+    		\item Explain basic process of Non-uniform quantization including companding technique of its realization. \hfill [3] (72 Ka)
+    		
+    		\item Why is non uniform quantization required? \hfill [2] (\bo{74 Ch}) [3] (\bo{76 Ch})
+    		\lb for speech signal. \hfill [2] (73 Shr)
+    		
+    		\item Explain any one algorithm for non-uniform quantization. \hfill [3] (\bo{74 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{Improvement in average SQNR for high crest factor signals}
+    \subsubsection{Companding techniques ($\mu$ and A law companding)}
+    	\begin{enumerate}
+    		\item Explain generation of pulse width modulation. \hfill [3] (\bo{81 Bh})
+    		
+    		\item What is companding? \hfill [1] (\bo{79 Bh}, 76 Ash) [2] (\bo{75 Ch}, 71 Shr)
+
+        	\item Why is companding necessary? \hfill [1] (76 Ash)
+
+        	\item Explain any two types of companding techniques. \hfill [5] (76 Ash)
+        	
+        	\item Explain about companding laws. \hfill [2] (75 Ash)
+    	\end{enumerate}
+    
+    \subsubsection{Data rate and bandwidth of a PCM signal}
+  \subsection{Differential PCM and Delta Modulation}
+    \subsubsection{Differential PCM: encoder, decoder}
+      \begin{enumerate}
+        \item Illustrate, the DPCM scheme that overcomes the disadvantages of PCM. \hfill [3] (\bo{78 Ch})
+        
+        \item Explain DPCM. \hfill [2.5] (80 Ba) [4] (\bo{70 Ch})
+        \lb Briefly explain DPCM along with derivation and block diagram. \hfill [4] (\bo{75 Ch})
+        \lb Explain the working principle of DPCM with necessary transmitter and receiver. \hfill [4] (75 Ash)
+        
+        \item Explain why DPCM is preferred over PCM? \hfill [2] (75 Ash)
+        \lb Why is DPCM superior over PCM? \hfill [2] (\bo{71 Ch})
+        
+        \item Explain DPCM working principle with necessary figures and equations. \hfill [4] (\bo{71 Ch})
+      \end{enumerate}
+
+    \subsubsection{Delta Modulation: encoder, decoder}
+      \begin{enumerate}
+        \item Explain the Delta and Adoptive Delta Modulations encoders and decoders with their derivations and diagram. \hfill [6] (\bo{\texttt{80 Ch}})
+
+        \item Explain the Delta Modulation encoder and decoder with its derivations and diagram. \hfill [6] (\bo{75 Bh})
+        
+        \item Compare DPCM and Delta Modulation. [2.5] (80 Ba)
+
+        \item List out merits and demerits of Delta and Adoptive Delta Modulations. \hfill [2] (\bo{\texttt{80 Ch}})
+        \lb Explain the principles of Adaptive Delta Modulation (ADM). \hfill [5] (\bo{79 Bh})
+        
+        \item Write short notes on: Adaptive Delta Modulation. \hfill [4] (72 Ka)
+
+        \item Compare PCM, DPCM and Delta Modulation. \hfill [3] (\bo{\texttt{79 Ch}})
+        \lb Compare between PCM and DM. \hfill [1] (\bo{75 Bh})
+
+        \item A delta modulator system is designed to operate at 5 times the Nyquist rate for a signal having a bandwidth equal to 3kHz bandwidth. Calculate the maximum aplitude of a 2kHz sinusoidal for which the delta modulator does not have slope overload. The given step size is 250 mV. \hfill [4] (\bo{\texttt{78 Ch}})
+        
+        \item Find the Nyquist rate and the interval for m(t) = $\sin^2(400\pi t)$ \hfill [4] (76 Ash)
+        
+        \item Find the Nyquist rate and the interval for $dfrac{1}{2} \pi \cos(400\pi t) \cos(1000\pi t)$. \hfill [4] (75 Ash)
+        
+        \item A delta modulator is used to encode speech signal band-limited to 5 kHz with a sampling frequency of 200 kHz. For maximum signal amplitude of A$_{max}$ = 1, find:
+        \enter a. Minimum step size to avoid slope overloading.
+        \enter b. Assuming the speech signal to be sinusoidal, find signal to quantization noise ratio.
+        \enter c. Determine the minimum transmission bandwidth.
+
+        \item The bandwidth of a TV plus audio signal is 4.5 MHz. If this signal is converted to PCM with 1024 quantization levels, determine bit rate of the resulting PCM signal. Let us assume that the signal is sampled at a rate 20\% above the Nyquist rate. \hfill [4] (\bo{75 Ch})
+        
+        \item A signal g(t) = $10 \cos(20\pi t)\ \cos(200\pi t)$ is sampled at the rate of 250 samples per second, then (i) determine the spectrum of the resulting sampled signal, (ii) specify the cut-off frequency of the ideal reconstruction filter so as to recover g(t) from its sampled version, and (iii) determine the Nyquist rate for g(t). \hfill [3] (\bo{73 Ch})
+        
+        \item The information in an analog waveform with maximum frequency 4 kHz is ot be transmitted over a 16-level PCM system. \hfill [6] (\bo{73 Ch})
+        \enter a. What would be the maximum number of bits per sample?
+        \enter b. What is the minimum sampling rate and bit rate?
+        
+       \item A delta modulator is used to encode speech signal band-limited to 3 kHz with sampling frequency 10 kHz. For maximum signal amplitude of A$_{max}$ = 1, find: \hfill [2+3+1] (72 Ka)
+       \enter a. Minimum step size to avoid slope overloading.
+       \enter b. Assuming the speech signal to be sinusoidal, find SQNR
+       \enter c. Determine the minimum transmission bandwidth.
+      \end{enumerate}
+
+    \subsubsection{Noises in DM and SQNR}
+    	\begin{enumerate}
+    		\item Derive the expression for SQNR in delta modulation. \hfill [6] (\bo{70 Ch}, 73 Shr)
+    		\lb for a single-tone analog signal. \hfill [7] (81 Ba)
+    	\end{enumerate}
+    	
+    \subsubsection{Comparison between PCM and DM}
+	\subsection{Parametric Speech Coding}
+    	\subsubsection{Vocoders}
+
+\pagebreak
+
+\section{Baseband Data Communication Systems}
+  \begin{center}(6 Hours / 7.5 Marks)\end{center}
+
+  \subsection{Information Theory Fundamentals}
+    \subsubsection{Introduction to information theory}
+    \subsubsection{Measure of information and entropy}
+    	\begin{enumerate}
+    		\item Define information and entropy. \hfill [2] (81 Ba, 70 Asa)
+    		
+    		\item Differentiate between message and information? \hfill [2] (\bo{70 Ch})
+    		
+    		\item Relate the message, the entropy and information. \hfill [6] (\bo{80 Bh})
+    		\lb State and derive the relation between entropy and information rate. \hfill [4] (\bo{76 Ch})
+    		
+    		\item A continuous signal is band limited to 5 kHz. The signal is quantized in 6 levels of a PCM system with the probabilities $\dfrac{1}{2}, \dfrac{1}{4}, \dfrac{1}{8}, \dfrac{1}{16}, \dfrac{1}{32}, \text{and} \dfrac{1}{32}$. Calculate the entropy and information rate. \hfill [5+5] (74 Ash)
+    		
+    		\item A fixed length encoder generates six symbols with probabilities \{ 0.2, 0.15, 0.25, 0.05, 0.3, 0.05 \} and encoded by unique code word. Find entropy and maximum code efficiency. \hfill [3] (72 Ka)
+    		
+    		\item A discrete source one of 6 possible symbols per 10$\mu$s statistically independent manner. The symbol probabilities are $\dfrac{1}{4}, \dfrac{1}{4}, \dfrac{1}{4}, \dfrac{1}{8}, \dfrac{1}{16}, \text{and} \dfrac{1}{16}$ respectively. Calculate symbol rate, entropy and information rate. \hfill [6] (70 Asa)
+    		
+    		\item A discrete source one of 5 possible symbols per 10$\mu$s statistically independent manner. The symbol probabilities are $\dfrac{1}{2}, \dfrac{1}{4}, \dfrac{1}{8}, \dfrac{1}{16}, \text{and} \dfrac{1}{16}$. Find (a) Symbol rate (b) Source entropy (c) Information rate. \hfill [3] (\bo{70 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{Symbol rates and data (bit) rates}
+    \subsubsection{Shannon Hartley Channel capacity theorem}
+      \begin{enumerate}
+        \item With a suitable example explain Shanon-Hartley channel capacity theorem. \hfill [3] (\bo{\texttt{80 Ch}})
+        
+        \item Explain Shannon channel capacity theorem. \hfill [1] (\bo{71 Ch}) [2] (\bo{72 Ch})
+        
+        \item Write down theoretical limitations of this theorem. \hfill [3] (\bo{72 Ch, 71 Ch})
+        
+        \item Explain Shannon Hartley channel capacity theorem and its implication and theoretical limits. \hfill [6] (80 Ba, 75 Ash)
+        \lb with examples. \hfill [8] (76 Ash)
+        
+        \item Derive the expression which shows the limit of Shannon's channel capacity theorem when bandwidth tends to infinity. \hfill [6] (\bo{76 Ch})
+        
+        \item Calculate the upper limit of the channel capacity as the bandwidth of the channel (B) tends to infinity. \hfill [4] (81 Ba, 70 Asa)
+        \lb Show that channel capacity 1.44S/No, when channel bandwidth is tends to infinity. \hfill [10] (80 Ba) [4] (75 Ash)
+        
+        \item State and explain Nyquist Channel Capacity Thereom. \hfill [8] (\bo{80 Bh})
+      \end{enumerate}
+
+    \subsubsection{Implications and theoretical limits}
+  \subsection{Line Coding}
+    \subsubsection{Electrical representation of binary data (line codes)}
+    	\begin{enumerate}
+    		\item Write short notes on: Line codes. \hfill [4] (72 Ka)
+    	\end{enumerate}
+    
+    \subsubsection{Unipolar NRZ, bipolar NRZ, unipolar RZ, bipolar RZ}
+    \subsubsection{Manchester (split phase), differential (binary RZ-alternate mark inversion) codes}
+      \begin{enumerate}
+        \item Define unipolar, polar, bipolar, unnipolar RZ and Manchester line codes. \hfill [2x5] (\bo{79 Ch})
+
+        \item Consider that the bit sequence 100000000001101 is to be transmitted. Draw the resulting waveform if the sequence is transmitted using Polar RZ, Differential Manchester, HDB3 and B\&ZS, and compare their bandwidths.
+        \hfill [10] (\bo{\texttt{81 Ch}})
+
+        \item Represent the given binary sequence 110011000001 in unipolar RZ, Manchester and HDB3 encoder.
+        \enter\hfill [6] (\bo{\texttt{80 Ch}})
+
+        \item Given the binary sequence 1101010111 represent in Unipolar RZ, Bipolar NRZ, Polar NRZ and Manchester encoders. \hfill [6] (\bo{\texttt{79 Ch}})
+
+        \item Represent using following encoders: Polar RZ, Bipolar NRZ, AMI and Manchester.
+        \lb 100111010 \hfill [2+2+2+2] (\bo{\texttt{78 Ch}})
+        \lb 1001101101 \hfill [1.5+1.5+1.5+1.5] (\bo{81 Bh})
+        
+        \item Given the binary sequence, represent it in polar NRZ, polar RZ, Manchester and AMI codes.
+        \lb 1101010111 \hfill [4] (8f1 Ba)
+        \lb 1011001010 \hfill [5] (\bo{70 Ch}, 73 Shr)
+        \lb 1101010011 \hfill [4] (\bo{73 Ch})
+
+        \item Draw the timing diagram of Polar NRZ, Polar RZ, Manchester and unipolar RZ for the following binary sequence 101100001000000000111. \hfill [6] (76 Ash)
+        
+        \item Represent binary sequence 10110101 in Polar NRZ, unipolar RZ, AMI and Manchester codes. \hfill [4] (75 Ash)
+        
+        \item Draw the timing diagram of Polar NRZ, AMI and Manchester for the following binary sequence 1011000010000000001. \hfill [6] (\bo{74 Ch})
+        
+        \item Represent binary sequence 1001001101 in polar, NRZ, polar RZ, Manchester and AMI codes. \hfill [4] (\bo{72 Ch, 71 Ch})
+      \end{enumerate}
+
+    \subsubsection{Properties and comparisons of line codes}
+  \subsection{Baseband System Design}
+    \subsubsection{Baseband data communication systems}
+    \subsubsection{Inter-symbol interference (ISI)}
+    	\begin{enumerate}
+    		\item Define ISI. \hfill [2] (\bo{81 Bh, 80 Bh, 74 Ch, 72 Ch}, 73 Shr, 72 Ka, 71 Shr) [6] (\bo{75 Ch})
+    		
+    		\item Illustrate the methods to reduce Intersymbol Interference. \hfill [4] (\bo{79 Bh})
+    		
+    		\item Explain ISI in baseband digital communication system with derivations. \hfill [4] (74 Ash)
+    		
+    		\item Explain the ideal and practical solutions of ISI. \hfill [3+3] (74 Ash)
+    		
+    		\item Explain the ideal and practical solutions for zero ISI. \hfill [6] (\bo{72 Ch})
+    		
+    		\item State Nyquist Criteria for zero ISI in both time and frequency domain. \hfill [6] (\bo{71 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{Pulse shaping (Nyquist, Raised-cosine) and bandwidth considerations}
+    	\begin{enumerate}
+    		\item Elaborate Nyquist pulse shaping criterion for mitigation of ISI. \hfill [6] (\bo{81 Bh})
+    		\lb What are the physical constraints in implementing Nyquist pulse shaping criteria? \hfill [4] (\bo{80 Bh})
+    		
+    		\item State Nyquist conditions for zero ISI. \hfill [2] (\bo{80 Bh}, 72 Ka, 71 Shr)
+    		\lb State Nyquist pulse shaping criteria for zero ISI. \hfill [2] (70 Asa)
+    		
+    		\item Discuss any one pulse shaping method of ISI reduction. \hfill [4] (70 Asa)
+    	\end{enumerate}
+    
+  \subsection{Advanced Signaling Techniques}
+    \subsubsection{Correlative coding techniques}
+    	\begin{enumerate}
+    		\item Explain any one type of correlative coding technique with its impulse response and transfer function. \hfill [6] (\bo{73 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{Duobinary and modified duocoders}
+    	\begin{enumerate}
+    		\item Mention how can we minimize error in duo-binary coding. \hfill [2] (81 Ba, \bo{73 Ch})
+    		
+    		\item Explain duo-binary encoding with example. \hfill [4] (72 Ka)
+    		
+    		\item Explain modified Duobinary coding technique with precoder, illustrating with input sequence 01001101. \hfill [6] (\bo{80 Bh})
+        	\lb input sequence 10110011. \hfill [4] (\bo{75 Bh})
+        	\lb input sequence 0010110. \hfill [5] (73 Shr)
+        	
+        	\item Explain duo-binary encoding with the use of precoder. \hfill [6] (\bo{74 Ch})
+        	
+        	\item What are two major difficulties with duo binary encoding method and explain how can they be solved? \hfill [6] (\bo{71 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{M-ary signaling and comparison with binary signaling}
+      \begin{enumerate}
+        \item (Assumed) What are the significances of multilevel modulation? \hfill [2] (\bo{\texttt{78 Ch}})
+        
+        \item Write short notes on: M-ary baseband communication system. \hfill [5] (\bo{79 Bh, 75 Bh, 72 Ch})
+        
+        \item Write short notes on: M-ary baseband data communication. \hfill [5] (\bo{75 Bh})
+      \end{enumerate}
+
+  \subsection{System Performance Analysis}
+    \subsubsection{The eye diagram}
+    	\begin{enumerate}
+    		\item Write short notes on: The eye diagram. \hfill [4] (\bo{81 Bh}) [5] (\bo{76 Ch, 72 Ch})
+    		\lb on: eye diagram and its significance. \hfill [4] (72 Ka)
+    	\end{enumerate}
+
+\pagebreak
+
+\section{Bandpass (Modulated) Data Communication Systems}
+  \begin{center}(4 Hours / 5 Marks)\end{center}
+
+  \subsection{Binary Digital Modulations}
+    \subsubsection{ASK, PSK, FSK, DPSK, QPSK implementation}
+      \begin{enumerate}
+        \item Explain the modulation scheme for MSK with appropriate example. \hfill [4] (\bo{\texttt{80 Ch}})
+        
+        \item Discuss Gaussian Minimum Shift Keying (GMSK) with its advantage. \hfill [5] (81 Ba)
+        
+        \item Briefly explain generation and detection of Phase Shift Keying (PSK) with necessary illustration. \hfill [5] (81 Ba)
+        
+        \item What do you understand by differential coding? Explain differential phase shihft keying modulation and detection with example and diagrams. \hfill [5] (71 Shr)
+        
+        \item Explain coherent binary PSK modulation technique with its signal space diagram, modulator and demodulator. \hfill [8] (\bo{73 Ch})
+
+        \item Explain BSPSK modulation technique with its relevant diagram and signal space diagram.
+        \enter\hfill [5] (\bo{\texttt{78 Ch}})
+        
+        \item Why DPSK is preferred than PSK? \hfill [1] (72 Ka)
+        
+        \item What is DPSK? \hfill [1] (70 Asa)
+        
+        \item How it can DPSK be implemented? \hfill [3] (70 Asa)
+        
+        \item Explain the modulator, demodulator and signal space diagram FSK modulation. \hfill [6] (\bo{72 Ch})
+        \lb For QPSK with derivation. \hfill [8] (\bo{70 Ch})
+        
+        \item Explain the generation and non coherent detection for BFSK signal and also the signal space diagram for a BFSK signal. \hfill [8] (\bo{76 Ch})
+        
+        \item Explain the modulator, demodulator, and signal space diagram for QPSK modulation with relevant derivations. \hfill [10] (80 Ba)
+        \lb Explain the modulation and demodulation techniques used in QPSK. \hfill [8] (75 Ash)
+
+        \item Explain QPSK with its transformation as well as receiver block diagram. \hfill [4] (\bo{\texttt{78 Ch}})
+        
+        \item Explain the modulator, demodulator and signal space diagram for DPSK system. \hfill [2+2+1] (72 Ka)
+      \end{enumerate}
+
+    \subsubsection{Properties and comparisons of binary modulations}
+  \subsection{M-ary Digital Modulations}
+    \subsubsection{Quadrature amplitude modulation (QAM) systems}
+      \begin{enumerate}
+        \item What is QAM, why is it necessary? \hfill [3] (\bo{74 Bh})
+        \lb What is the significance of constellation diagram? \hfill [2] (\bo{\texttt{80 Ch}})
+
+        \item Explain generation and detection of QAM wave. [4] (\bo{74 Bh})
+        
+        \item Explain the working of Quadrature Amplitude Modulation (QAM) with appropriate modulation, demodulation block, and constellation diagram. \hfill [5] (\bo{81 Bh})
+
+        \item Define an efficient constellation diagram of a 32-QAM. \hfill [3] (\bo{\texttt{81 Ch}})
+      \end{enumerate}
+
+    \subsubsection{Four phase PSK systems}
+  \subsection{Demodulation and Applications}
+    \subsubsection{Demodulation of binary signals (coherent and non-coherent)}
+      \begin{enumerate}
+        \item (Assumed) Derive the expression for figure of merit for the SSB receiver. \hfill [5] (\bo{\texttt{81 Bh}})
+
+        \item Write short notes on: Coherent detector. \hfill [4] (72 Ma)
+      \end{enumerate}
+
+    \subsubsection{Modems and its applications}
+    	\begin{enumerate}
+    		\item What is modem? Discuss the modes of operation of modems. \hfill [4] (70 Asa)
+    	\end{enumerate}
+    
+  \subsection{Numerical}
+  	\begin{enumerate}
+  		\item A band-limited m(t) with a bandwidth of 3 kHz is sampled at a rate equal to twice the Nyquist rate. The step size used during the quantization process is 0.5\% of the peak amplitude m$_p$. Assuming binary encoding, determine the minimum bandwidth of the channel to transmit the encoded binary signal. \hfill [5] (81 Ba)
+  	\end{enumerate}
+
+\pagebreak
+
+\section{Random Signals and Noise in Communication Systems}
+  \begin{center}(6 Hours / 7.5 Marks)\end{center}
+
+  \subsection{Random Processes}
+    \subsubsection{Random variables and processes}
+    	\begin{enumerate}
+    		\item What do you mean by random process? \hfill [2] (72 Ka, 71 Shr)
+    	\end{enumerate}
+    
+    \subsubsection{Statistical and time averaged moments}
+    	\begin{enumerate}
+    		\item Define moment and central moment of continuous random variable. Show that first central moment is always zero. \hfill [2] (\bo{71 Ch})
+    	\end{enumerate}
+    
+    \subsubsection{Stationary and ergodic processes}
+    	\begin{enumerate}
+    		\item What is Ergodic Stcastic Process? \hfill [2] (\bo{74 Ch}, 81 Ba, 76 Ash)
+    	\end{enumerate}
+    
+    \subsubsection{PSDF and AC function of an ergodic random process}
+  \subsection{Noise Characterization}
+    \subsubsection{White noise and thermal noise}
+    \subsubsection{Band-limited white noise}
+    \subsubsection{PSDF and AC function of white noise}
+  \subsection{Noise in Linear Systems}
+    \subsubsection{Passage of random signals through a LTI system}
+    	\begin{enumerate}
+    		\item (Assumed) Show that the output signal of LTI system is also a wide sense stationary process if the input to it also a WSSP. \hfill [6] (81 Ba)
+    		
+    		\item (Assumed) Find mean and AC function at the output when a WSSP signal is passed through LTI system. \hfill [5] (70 Asa)
+
+        \item (Assumed) Explain with necessary derivation passage of wide-sense random signals through an LTI. \hfill [10] (76 Ash)
+        \lb Explain with necessary derivation passage of wide-sense random signals through an LTI. \hfill [10] (\bo{74 Ch})
+        
+        \item Show that the output of LTI is WSSP if the input is also a WSSP. \hfill [6] (71 Shr)
+    	\end{enumerate}
+    
+    \subsubsection{Ideal low-pass and RC filtering of white noise}
+      \begin{enumerate}
+        \item Explain and compare ideal and practical RC filtering of white noise with respect to change in autocorrelation function. \hfill [8] (\bo{75 Ch})
+        
+        \item Explain the approximation of the matched filter for a rectangular pulse using a single pole RC low pass filter with variable bandwidth. \hfill [6] (72 Ka)
+        
+        \item Explain white noise with its PSDF and autocorrelation function. \hfill [4] (72 Ka)
+        
+        \item  Determine the noise equivalent bandwidth of RC-LPF and that of ideal LPF of zero frequency response one. Also, find output noise power of this RC-LPF when input is white noise. \hfill [4] (\bo{71 Ch})
+      \end{enumerate}
+
+    \subsubsection{Noise equivalent bandwidth of a filter}
+    	\begin{enumerate}
+    		\item Explain Noise Equivalent Bandwidth represents of a filter. \hfill [4] (\bo{81 Bh})
+    		\lb Write short notes on: Noise Equivalent Bandwidth. \hfill [5] (\bo{72 Ch})
+    		
+    		\item Define Noise Equivalent bandwidth. \hfill [2] (\bo{73 Ch}) [3] (70 Asa) [4] (80 Ba)
+    		
+    		\item Find noise equivalent bandwidth of the first order RC low pass filter. \hfill [6] (80 Ba)
+    	\end{enumerate}
+    
+  \subsection{Optimum Detection and Matched Filter}
+    \subsubsection{Optimum detection of a pulse in additive white noise}
+      \begin{enumerate}
+        \item Define optimum detector. \hfill [1] (\bo{71 Ch}) [2] (\bo{\texttt{80 Ch, 79 Ch}, 74 Ch}, 76 Ash)
+        \lb Define optimum detection. \hfill [2] (\bo{72 Ch})
+        
+        \item Define matched filter. \hfill [2] (72 Ka) [5] (\bo{79 Bh})
+        
+        \item Realize matched filter with relevant mathematical support. \hfill [4] (70 Asa)
+
+        \item Find the impulse response of optimum detector in the presence of additive white noise. \hfill [5] (\bo{79 Bh}) [6] (\bo{\texttt{80 Ch}, 81 Bh, 71 Ch}, 76 Ash)
+        
+        \item Derive the expression of impulse response of the matched filter. \hfill [6] (81 Ba) [8] (74 Ash)
+        
+        \item What are the physical constraints in implementing Nyquist pulse shaping criteria? \hfill [4] (\bo{80 Bh})
+      \end{enumerate}
+
+    \subsubsection{The matched filter concept and realization (time correlators)}
+    \subsubsection{Matched filter for a rectangular pulse}
+    \subsubsection{Ideal LPF and RC filters as matched filters}
+      \begin{enumerate}
+        \item Show that the impulse response of the matched filter is reverse delayed version of the input signal.
+        \enter\hfill [6] (\bo{\texttt{79 Ch}, 74 Ch}, 71 Shr) [8] (73 Shr) [10] (\bo{73 Ch})
+        
+        \item Show that the impulse response of the optimum detector network is the time shifted replica of the incoming signal. \hfill [5] (\bo{72 Ch})
+        
+        \item Explain the approximation of the matched filter for a rectangular pulse using an Ideal low pass filter with variable bandwidth. \hfill [6] (\bo{70 Ch})
+      \end{enumerate}
+
+  \subsection{Error Performance in Baseband Systems}
+    \subsubsection{Performance limitation due to noise}
+    \subsubsection{Error probabilities in binary and M-ary baseband systems}
+      \begin{enumerate}
+        \item (Assumed) Explain communication impairments with examples. \hfill [2] (\bo{\texttt{79 Ch}})
+        
+        \item Evaluate the error probability in a binary communication system with appropriate expression. \hfill [7] (\bo{81 Bh, 70 Ch}) [8] (\bo{80 Bh})
+
+        \item Derive the expression for evaluating error probability in binary baseband system and compare with M-ary system. \hfill [8] (76 Ash)
+        
+        \item Derive the expression for evaluating error probability in binary communication system. \hfill [7] (\bo{79 Bh})
+        
+        \item Derive expression for evaluating error probability of M-ary system. \hfill [5] (71 Shr) [8] (75 Ash)
+      \end{enumerate}
+
+\pagebreak
+
+\section{Noise performance of Bandpass Communication Systems}
+  \begin{center}(6 Hours / 8.5 Marks)\end{center}
+
+  \subsection{Noise in AM Systems}
+    \subsubsection{Effect of noise in envelop and synchronous demodulation of DSB-FC AM}
+    	\begin{enumerate}
+    		\item  Evaluate the noise performance of the coherent detection of DSB-FC using necessary derivations. Use the result ot evaluate the noise performance of the signal-tone DSB-FC modulation with 100\% modulation. \hfill [2] (81 Ba)
+    		
+    		\item With necessary derivation, compare noise performance of DSB-AM, DSB-SC, SSB-SC. \hfill [8] (\bo{72 Ch})
+    		
+    		\item With necessary derivations, compare the noise performance of DSB-SC and SSB-SC modulations in analog communication system. \hfill [6] (71 Shr)
+    	\end{enumerate}
+    	
+    \subsubsection{Expression for gain parameter (output SNR to input SNR)}
+    	\begin{enumerate}
+    		\item Derive the expression for evaluation the gain parameter (SNR$_0$/SNR$_1$) of non-coherent FM detector. \hfill [8] (\bo{71 Ch}, 73 Shr)
+    	\end{enumerate}
+    
+    \subsubsection{Threshold effect in nonlinear demodulation of AM}
+    \subsubsection{Gain parameter for synchronous demodulation of DSB-SC and SSB}
+    	\begin{enumerate}
+    		\item Calculate the gain parameter in DSB-FC with envelop detection. \hfill [5] (70 Asa)
+    	\end{enumerate}
+    
+  \subsection{Noise in FM Systems}
+    \subsubsection{Effect of noise (gain parameter) for non-coherent demodulation of FM}
+    \subsubsection{Threshold effect in FM}
+      \begin{enumerate}
+        \item Write short notes on: Threshold effect in demodulation of FM. \hfill [4] (\textit{71 Ma})
+        
+        \item What is threshold effect in FM? \hfill [7] (\bo{79 Bh})
+        \lb and how it can be minimized? \hfill [3] (\bo{70 Ch})
+        
+        \item Explain threshold effect in detection of FM signal. \hfill [4] (\bo{76 Ch})
+        
+        \item What are the techniques for the mitigation of threshold effect in FM? \hfill [3] (\bo{79 Bh})
+        
+        \item Compute the figure of merit of non coherent FM system and explain the threshold effects. \hfill [6+2] (74 Ash)
+        
+        
+        \item With necessary derivations, explain the threshold effect in envelope detector for DSB-FC modulation in analog communication system. \hfill [7] (72 Ka)
+      \end{enumerate}
+
+    \subsubsection{Use of pre-emphasis and de-emphasis circuits in FM}
+      \begin{enumerate}
+        \item Why do we need pre-emphasis and de-emphasis circuits in FM? Explain. \hfill [4] (\bo{\texttt{80 Ch}})
+        \lb Why pre-emphasis and de-emphasis circuits are required in commercial FM broadcasting? \hfill [2] (70 Ma)
+
+        \item Why pre-emphasis and de-emphasis circuits are used in commercial FM broadcasting? \hfill [3] (\bo{75 Bh})
+
+        \item Write short notes on: Pre-emphases and de-emphases. \hfill [4] (\bo{72 Ash})
+
+        \item Why pre-emphases is needed in FM during transmission? \hfill [2] (71 Ma)
+      \end{enumerate}
+
+  \subsection{Comparison of Analog Modulation Schemes}
+    \subsubsection{Comparison of AM (DSB-FC, DSB-SC, SSB) and FM (Narrow and wide bands)}
+    \subsubsection{Comparison metrics: power efficiency, channel bandwidth and complexity}
+    	\begin{enumerate}
+    		\item Compare A.M and F.M in terms of power efficiency and system complexity. \hfill [5] (80 Ba)
+    		\lb Compare AM and FM in terms of power efficiency, brand width efficiency and system complexity. \hfill [3] (70 Asa)
+    		
+    		\item Compare binary and M-ary scheme in terms of bandwidth efficiency and system complexity. \hfill [3] (71 Shr)
+    	\end{enumerate}
+    
+  \subsection{Noise in Digital Modulated Systems}
+    \subsubsection{Noise performance of modulated digital systems}
+    \subsubsection{Error probabilities for ASK, PSK, FSK, DPSK (coherent and non-coherent)}
+    	\begin{enumerate}
+    		\item Derive the bit error probability for the coherent binary FSK system. \hfill [6] (81 Ba)
+    		
+    		\item Calculate the error probability of coherent ASK. \hfill [4] (70 Asa) [5] (80 Ba)
+    		\lb Derive the expression of error probability for coherent detection of ASK. \hfill [6] (74 Ash)
+    		\lb Derive the expression for evaluating error probability for binary ASK system. \hfill [6] (\bo{71 Ch})
+    		\lb Derive the expression for evaluating error probability for binary ASK system and extend it to M-ary. \hfill [8] (73 Shr)
+    		
+    		\item Find the error probability in coherent ASK and PSK detections and show that ASK requires double the average signal power than PSK for same error probability. \hfill [3] (\bo{72 Ch})
+    		
+    		\item Derive the expression of error probability for coherent detection of Phase Shift Keying (PSK). \hfill [6] (\bo{76 Ch})
+    		
+    		\item Derive the expression of error probability for binary PAM signal. \hfill [5] (72 Ka)
+    	\end{enumerate}
+    
+    \subsubsection{Comparison of digital systems: bandwidth efficiency, power efficiency and complexity}
+
+\pagebreak
+
+\section{Multiplexing}
+  \begin{center}(2 Hours / 3 Marks)\end{center}
+
+  \subsection{Frequency Division Multiplexing (FDM)}
+    \subsubsection{Principle of FDM}
+      \begin{enumerate}
+        \item Define FDM. \hfill [2] (\bo{75 Bh}, 75 Ba) [4] (\bo{79 Ch})
+
+        \item Write short notes on: FDM. \hfill [5] (\bo{73 Bh}, 70 Ma)
+        \lb Describe the principle of frequency division multiplexing (FDM). \hfill [2] (\bo{71 Bh})
+      \end{enumerate}
+
+    \subsubsection{FDM in telephony and hierarchy}
+      \begin{enumerate}
+        \item Explain FDM hierarchy used in telephony. \hfill [5] (75 Ba) [6] (\bo{79 Ch, 75 Bh})
+        \lb Write short notes on: FDM in telephony. \hfill [4] (\bo{76 Bh}, 76 Ba)
+        \lb Write short notes on: FDM Telephone Hierarchy. \hfill [5] (\bo{70 Bh})
+      \end{enumerate}
+
+    \subsubsection{Frequency Division Multiple Access (FDMA) systems (SCPC, DAMA, SPADE)}
+      \begin{enumerate}
+        \item What do you understand by FDMA? \hfill [2] (72 Ma, 71 Ma)
+
+        \item Briefly explain SCPC and Dama types of FDMA. \hfill [4] (\bo{71 Bh})
+      \end{enumerate}
+
+    \subsubsection{Filter and oscillator requirements in FDM}
+      \begin{enumerate}
+        \item Write short notes on: Filter and oscillator requirements in FDM. \hfill [5] (\bo{80 Ch, 73 Bh}, 73 Ma)
+
+        \item Write short ntoes on: FDMA in satellite communications. \hfill [4] (\bo{74 Bh}) [5] (\bo{73 Bh})
+        
+        \item Write short notes on: Satellite communication system. \hfill [4] (\bo{72 Ash})
+      \end{enumerate}
+
+  \subsection{Time Division Multiplexing (TDM)}
+    \begin{enumerate}
+      \item Write short notes on: FDM vs TDM. \hfill [5] (\bo{\texttt{81 Ch}})
+      \lb Compare TDM and FDM. \hfill [3] (\bo{\texttt{79 Ch}})
+      \lb Compare FDMA and TDMA. \hfill [3] (\bo{\texttt{78 Ch}})
+
+      \item \textit{(Attached with Qno.1 of (\bo{\texttt{79 Ch}}), but it has no description whatsoever, so i've put it here.)}\\
+      Show that for voice application. \hfill [2] (\bo{\texttt{79 Ch}})
+      
+      \item An audio signal of frequency 4 kHz and maximum dynamic range of $\pm$ 2.4V is digitized by PCM system with its bit rate of 64 kHz. Calculate numbers of bits per sample, quantization noise and SQNR$_{dB}$. Estimate the minimum bandwidth required for TDM of 10 such audio signals (assume no extra framing and synchronization bits). \hfill [3+2] (72 Ka)
+    \end{enumerate}
+
+    \subsubsection{Time Division Multiplexing with PCM}
+    \subsubsection{Data rate and bandwidth of a PCM signal}
+      \begin{enumerate}
+        \item Prove that signaling rate for time division multiplexing of 24 voice channels is equal to 1.544 Mbps. \hfill [8] (\textit{71 Ma})
+      \end{enumerate}
+
+    \subsubsection{The T1 and E1 TDM PCM telephone hierarchy}
+      \begin{enumerate}
+        \item Write short notes on: T1 and E1 hierarchy used in telephony. \hfill [5] (\bo{81 Ch})
+        
+        \item Draw T1 and E1 telephony hierarchy. \hfill [2] (\bo{\texttt{78 Ch}})
+        
+        \item Explain T1 digital carrier system with its multiplexing hierarchy. \hfill [5] (\bo{79 Bh})
+        
+        \item Explain the differences between T1 and E1 digital hierarchy. \hfill [4] (75 Ash)
+        
+        \item What are the signaling (bit) rate and bandwidth requirement for the T1 and E1 digital carrier systems? \hfill [3] (\bo{70 Ch})
+        
+        \item Explain T1 hierarchy of TDM-PCM telephony. \hfill [4] (71 Shr)
+        
+        \item Explain E1 TDM-PCM Telephone Hierarchy. \hfill [4] (\bo{74 Ch}) [5] (80 Ba)
+        
+        \item Describe E1 fram and its TDM hierarchy along with signaling rate. \hfill [3+3] (74 Ash)
+
+        \item Compare E1 and T1 TDM PCM hierarchy. \hfill [4] (\bo{\texttt{80 Ch}}) [5] (\bo{\texttt{79 Ch}})
+        
+        \item Write short notes on: The E1 digital hierarchy. \hfill [5] (\bo{76 Ch})
+        
+        \item Explain E1 digital hierarchy as related to telephony system. \hfill [4] (\bo{72 Ch, 71 Ch})
+
+        \item Explain the use of FDM in telephony hierarchy. \hfill [6] (72 Ma, 71 Ma)
+        
+        \item With the help of the frame diagrams, discuss T1 and E1 hierarchy of TDM-PCM telephony. \hfill [8] (\bo{80 Bh})
+      \end{enumerate}
+
+\pagebreak
+
+\section{Error control coding techniques}
+  \begin{center}(6 Hours / 8.5 Marks)\end{center}
+
+  \subsection{Fundamentals of Error Control}
+    \subsubsection{Basic principles and types of error control coding}
+      \begin{enumerate}
+        \item Differentiate error-detection and error-correction. \hfill [2] (\bo{\texttt{79 Ch}})
+        
+        \item Write short notes on: Error detection and correction capability of a codeword. \hfill [4] (\bo{81 Bh})
+      \end{enumerate}
+
+    \subsubsection{Basic definitions: hamming weight, hamming distance, minimum weight}
+      \begin{enumerate}
+        \item Define Hamming Weight and Hamming Distance. \hfill [2] (\bo{75 Ch, 74 Ch, 72 Ch, 71 Ch}, 74 Ash, 70 Asa) [3] (73 Shr) [4] (76 Ash)
+        
+        \item What is the importance of hamming distance and hamming weight? \hfill [2] (71 Shr)
+      \end{enumerate}
+
+    \subsubsection{Hamming distance and error control capabilities}
+      \begin{enumerate}
+      	\item What is the significance of (d$_{min}$) minimum hamming distance? \hfill [2] (\bo{81 Bh})
+      	
+      	\item What is binary Cyclic code? \hfill [1] (70 Asa) [2] (80 Ba)
+      	
+      	\item Construct a (7, 4) binary Cyclic Code using a generator polynomial g(x) = x$^3$ + x$^2$ + 1 with data vector (1011). \hfill [4] (70 Asa) [6] (74 Ash) [8] (80 Ba)
+      	
+      	\item The generator polynomial of a (7, 4) cyclic code is g(x) = 1 + x + x$^3$. Find the code for the message vector 1011 in a non-systematic and systematic form. \hfill [6] (\bo{70 Ch})
+      	
+      	\item The generator polynomial of (7, 4) cyclic code is G(p) = p$^3$ + p + 1, and obtain the obtain the code vector for the code in non-systematic and systematic form with message vector 0101. \hfill [8] (75 Ash)
+
+        \item Determine systematic and non-systematic code vector for a (7, 4) cyclic hamming code for message vector { 1011 } with generator matrix g(x) = 1 + x + x$^3$. \hfill [5] (\bo{\texttt{78 Ch}})
+        \lb for \{ 1010 \} \hfill [6] (\bo{73 Ch})
+        
+        \item Determine the systematic and non-systematic code vector for a (7, 4) cyclic code for message vector (m$_0$, m$_1$, m$_2$, m$_3$) = (1101) for a given generator polynomial g(x) = 1 + x + x$^2$. \hfill [6] (\bo{81 Bh})
+
+        \item Prove that (4, 3) even parity code is a linear block code and (4, 3) odd parity code is not a linear code. \hfill [7] (81 Ba)
+
+        \item Construct a (7, 4) cyclic code using a generator polynomial g(x) = x$^3$ + x$^2$ + 1 with data vector 1011. \hfill [5] (76 Ash)
+        
+        \item For a (6, 3) code, the parity check matrix is given by H = 
+        $\begin{bmatrix}
+        	1 & 0 & 1 & 0 & 0 \\
+        	0 & 1 & 1 & 1 & 0 \\
+        	1 & 1 & 0 & 0 & 1
+        \end{bmatrix}
+        $. Determine whether a received vector 100101 is erroneous. \hfill [5] (\bo{75 Ch})
+        
+        \item Validate the code if received code vector code is \[ 100011 \] given by that H =
+        $\begin{bmatrix}
+        	1 & 0 & 1 & 1 & 0 & 0 \\
+        	0 & 1 & 1 & 0 & 1 & 0 \\
+        	1 & 1 & 0 & 0 & 0 & 1
+        \end{bmatrix}
+        $
+        
+        \item A (6, 3) error control code has the following parity check matrix. \hfill [2+4+4] (\bo{\texttt{81 Ch}})\\
+        H = $\begin{bmatrix}
+        	1 & 0 & 1 & 1 & 0 & 0 \\
+        	1 & 1 & 0 & 0 & 1 & 0 \\
+        	0 & 1 & 1 & 0 & 0 & 1
+        \end{bmatrix}$\\
+        a. Determine the generator matrix G.
+        b. Generate a codeword for message 110.
+        c. Check whether the received code word 1101111 has error or not.
+        
+        \item For a code vector x = ( 0111000 ), and the parity check matrix H given below. Prove that, the given code is valid. \hfill [4] (\bo{72 Ch, 71 Ch})\\
+        H = ${\begin{bmatrix}
+        	1 & 1 & 1 & 0 & 1 & 0 & 0 \\
+        	1 & 1 & 0 & 1 & 0 & 1 & 1 \\
+        	1 & 0 & 1 & 1 & 0 & 0 & 1 \\
+        \end{bmatrix}}_{3x7}
+        $
+      \end{enumerate}
+      
+  \subsection{Block Codes}
+    \subsubsection{Linear block codes (systematic and non-systematic)}
+    \subsubsection{Generation and capabilities of linear block codes}
+    \subsubsection{Syndrome calculation for linear block codes}
+    	\begin{enumerate}
+    		\item Explain with example, the syndrome decoding method in linear block coding. \hfill [5] (71 Shr)
+    	\end{enumerate}
+    
+  \subsection{Binary Cyclic Codes}
+    \subsubsection{Generation and capabilities of cyclic codes}
+    \subsubsection{Syndrome calculation for cyclic codes}
+  \subsection{Convolutional Codes}
+    \subsubsection{Implementation of convolutional codes}
+      \begin{enumerate}
+        \item Why convolution coder is better than block coder? \hfill [2] (\bo{\texttt{78 Ch}, 73 Ch})
+        
+        \item Explain convolution coder with suitable example. \hfill [6] (72 Ka)
+
+        \item Write short notes on: Convolution Codes. \hfill [4] (\textit{71 Ma})
+        \lb Write short notes on: Convolution Coding. \hfill [4] (\bo{80 Bh})
+        \lb Write short notes on: Convolution Coder. \hfill [5] (\bo{79 Bh})
+        \lb Write short notes on: Convolution Coder with example. \hfill [5] (\bo{75 Bh})
+        
+        \item Explain the operation of a 1/3 convolution encoder. \hfill [6] (\bo{74 Ch})
+      \end{enumerate}
+
+    \subsubsection{Code tree and trellis representation}
+      \begin{enumerate}
+        \item Write short notes on: Trellis diagram of a message 1010 using $\frac{1}{2}$ rate three-state memory block convolutional encoder. \hfill [5] (\bo{\texttt{81 Ch}})
+
+        \item Determine the encoded sequence for the following input message. \hfill [8] (\bo{\texttt{80 Ch}})\\
+        (m$_0$, m$_1$, m$_2$, m$_3$, m$_4$) = (1 0 0 1 1) using convolutional encoder having shift registers with three flip flops. Draw state and trellis diagrams. \hfill [8] (\bo{80 Ch})
+      \end{enumerate}
+
+    \subsubsection{Decoding algorithms for convolutional codes}
+      \begin{enumerate}
+        \item Design a convolution encoder having code-rate of $\frac{1}{2}$. Also, draw the code-tree and trellis diagram for the same assuming any three-bit input. \hfill [4+4] (\bo{\texttt{79 Ch}})
+        
+        \item The 1/3 rate convolutional encoder with constraint length equal to 3 has following three generator sequences each of length 3. \hfill [3] (\bo{76 Ch})\\
+        $\begin{pmatrix}
+        	g _0^{(1)}, & g_1^{(1)}, & g_2^{(1)} \\
+        \end{pmatrix}$
+        = (0, 1, 1)\\
+        $\begin{pmatrix}
+        	g _0^{(2)}, & g_1^{(2)}, & g_2^{(2)} \\
+        \end{pmatrix}$
+        = (1, 0, 1)\\
+        $\begin{pmatrix}
+        	g _0^{(3)}, & g_1^{(3)}, & g_2^{(3)} \\
+        \end{pmatrix}$
+        = (1, 1, 0)\\
+        Determine the encoded sequence for the following input message  (m$_0$, m$_1$, m$_2$, m$_3$, m$_4$) = (1 0 0 1 1)
+      \end{enumerate}
+      
+\section{I don't know where these fit}
+	\begin{enumerate}
+		\item Write short notes on: linear prediction theory. \hfill [4] (\bo{81 Bh})
+		\lb Write short notes on: linear prediction theory/coding \hfill [6] (\bo{70 Ch})
+		
+		\item Write down the significant of variable length coding with relevant example. \hfill [2] (72 Ka)
+		
+		\item What is capture effect? \hfill [2] (70 Asa)
+	\end{enumerate}
+
+\end{document}
