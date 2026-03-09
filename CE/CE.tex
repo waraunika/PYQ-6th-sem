@@ -1,1 +1,277 @@
-SafNnJPYUqqyqf3K
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[margin=1.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem, inconsolata}
+\usepackage{tikz}
+\usepackage{circuitikz}[scale=1.2]
+\usetikzlibrary{patterns}
+\parindent 0px
+\newcommand{\W}{\(\Omega\)}
+\newcommand{\w}{\(\omega\)}
+\newcommand{\lb}{\\$\left|\rightarrow\right.$}
+\newcommand{\enter}{\\\textcolor{white}{1}}
+\newcommand{\sub}[1]{\textsubscript{#1}}
+\newcommand{\super}[1]{\textsuperscript{#1}}
+\ExplSyntaxOn
+\NewDocumentCommand{\bo}{m}
+ {
+   \bold_commas:n { #1 }
+ }
+
+\cs_new:Npn \bold_commas:n #1
+ {
+   \seq_set_split:Nnn \l_tmpa_seq { , } { #1 }
+   \seq_map_indexed_function:NN \l_tmpa_seq \__bold_commas_aux:nn
+ }
+
+\cs_new:Npn \__bold_commas_aux:nn #1 #2
+ {
+   \textbf{#2}
+   \int_compare:nNnTF { #1 } < { \seq_count:N \l_tmpa_seq }
+     { , }
+     { }
+ }
+
+\ExplSyntaxOff
+
+\title{Communication English}
+\author{by PUL079BEI008}
+\date{\today}
+
+\begin{document}
+\maketitle
+\vspace{10.5cm}
+\textbf{Notes}
+\begin{itemize}[noitemsep]
+	\item Our subject code is SH 651.
+	\item If a question was asked in Regular Exam, it is kept in \bo{boldened} form. If it was asked in back exam, it is in regular font.
+	\item Months are marked as: 
+	\begin{itemize}[noitemsep, topsep=0pt]
+		\item Ba: Baisakh
+		\item Jth: Jestha
+		\item Asa: Ashar
+		\item Shr: Shrawan
+		\item Bh: Bhadra
+		\item Ash: Ashwin
+		\item Ka: Kartik
+		\item Mng: Mangsir
+		\item Po: Poush
+		\item Ma: Magh
+		\item Ch: Chaitra
+	\end{itemize}
+\end{itemize}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Editing}
+  \begin{center}(5 Marks)\end{center}
+    \begin{enumerate}
+      \item Your leader is my son she said and not one of the soldiers doubt it. They fell in beside her, singing his praises, saying how clever and brave he is, and she listen to them with head proudly raise, showing no surprise. \hfill  (82 Ba)
+
+      \item May I give him a bone he asked and when she nodded he asked courteously How long have you been in Yalta. For five days she replied. Time goes fast and yet it is so dull here she said not looking at him. \hfill (\bo{\texttt{81 Ch}})
+
+      \item The privileges of beauty are immense said Coctaeu. To be sure, beauty is a form of power. And deservedly so what is lamentable is that it is the only form of power that most women are encouraged to seek. This power is always conceived in relation to men it is not the power to do but the power to attract. \hfill (\bo{81 Bh})
+
+      \item the weather is better this evening he said. where shall we go now. Shall we drive somewhere he added. I have no idea, she replies. \hfill (81 Ba)
+
+      \item Then to may amazement, she gave me her phone number. That night, mary revealled that dropping my letter jacket in front of her was a stupid thing to do. She didn't care about what sports guys lettered in, she only cherished wonderful people with substance. fter I begin being myselves, they quickly fell for one another so became ``high school loves". \hfill (\bo{\texttt{80 Ch}}, 71 Ma)
+
+      \item Look at that thought he the land is all being sold and I shall get none of it so he spoke to his wife. \hfill (\bo{80 Bh})
+
+      \item How could i despise you asked Gurov. You don't know what you are saying he adds. God forgive me said with her eyes fills with tears. \hfill (\bo{\texttt{79 Ch}}, 80 Ba)
+        
+      \item I count it as nothing, he told his sympathizers his eyes on the rope he was tying. What is egg-rasher Did i depend on it last week Or is it greater than other things that went with the war I say, let egg-rasher perish in the flames! \hfill (\bo{79 Bh})
+        
+      \item Those children who listened to lot of baby talk were talking more than the babies that listens to mroe adult talk or standard speech, says Nairan Ramirez of the University of Connecticut. We also finds that it really matters whether you use baby talk in one-one-one context, she adds. \hfill (\bo{78 Ch})
+
+      \item I have no idea whether the right pronoun for God is He, She or It. But this I'm sure of. If god could somehow be induced to take that test, God will not come macho and not feminism, either, but right at the middle. Fellow androgynes, its a nice thought. \hfill (78 Ka)
+        
+      \item Dr Brigitte halford, a professor of linguistics at Freiburg University in German agree bilinguals tends to use language better as a whole she says, `They also display greater creativity and problem-solving ability, and they learn further languages more easily.'
+        So with all of the benefit, why do we not show more enthusiasm for learning other languages. \hfill (\bo{78 Bh})
+
+      \item don't cry my darling. He said. You have had your cry that's enough...Let us talk now let us thought of some plan. \hfill (\bo{77 Ch})
+
+      \item How you frightened me said breathing hard still pale and overwhelmed. Oh how you frightened me. I am halfdead. Why have you come why. \hfill (\bo{76 Ch})
+
+      \item Who is knocking? whispered his wife lying beside him on the floor. I do not know he whispered back breathlessly the second knocking was so loud that the rickety old door could have fallen down. \hfill (76 Ash)
+
+      \item I reassure you of one thing. At any point in a period of spritual endeavour you can experience space and stillness. Every time you realise a truth, every time you sense the hand of god in your life or the incidentally support a fellow traveler, you become mentally still. Every time you are blessed with an insight, see someones in a different light. \hfill (\bo{76 Bh})
+
+      \item If the intention is to put in place a parallel agency it is not welcome he said, adding that it was important to known the jurisdiction of the propose taskforce. In a recent case of gold smuggling which is under investigation, the police has identify on the run MK agrawal as the main investor and racketeer. The taskforce will lok into such cases, the source said. \hfill (76 Ba)
+
+      \item But when the war is over, the country recedes from the consciousness and it is rarely even at the back of the mind. The question am I doing any good to the country doesn't occur to the mind; and even the question is what i am doing good or bad for the country occurs only rarely. A limited patriotism is better than none but is not enough. \hfill (75 Ash, 74 Ash)
+
+      \item A board game is a game played with counters or pieces that are placed or removed from or moved across a board simple board games often make ideal family entertainment. Since they are often appropriate for all ages. Some board games such like chess and Chinese checkers have strategic value and have been classic for centuries. \hfill (75 Ash 2, 72 Ma)
+
+      \item If you do not acknowledge weakness on the face of troubles and if you refuse to worry about your problems, you will find on how much more successful, peaceful, and happy your are. Daily make this affirmation. I will be neither lazy nor feverishly active in every challenge of life I shall do my best without worry about the future. \hfill (75 Ba)
+
+      \item Your leader is my son she said and not one of the soldiers doubt it. They fell in beside her, singing his praises, saying how clever and brave he is, and she listen to them with proudy raise, showing no surprise. \hfill (\bo{74 Ch})
+
+      \item What she goes on to describe is if you think about it a perverse variation of Theseus paradise. What if you started replacing the solid planks of his ship with rotted ones is it still the same ship after one plank is replaced how about half of them is there a point when Gerda is no longer gerda? \hfill (\bo{74 Bh})
+
+      \item An old cripled by rheumatism was about to step on to bus when a young man who was standing beside her asked may I help you. \hfill (73 Ma)
+
+      \item How perfectly sweet said Christine when Sarah confessed that Adit's decision had been made in the war with Pakistan. Now if my Simon was to find himself in such a spot he dfunk he would my Simon. When there was such a flap in Cuba and Russa and darling Kennedy was ever so brave Simon wanted to flee to greenland. \hfill (\bo{73 Bh})
+
+      \item Arundhati Roy the famous novelist and activist who won the booker prize in 1997 for her novel. The God of small things was born in shellong Meghalaya on november 24, 1961 to a Keralite mother and a Bengali father. \hfill (73 Shr)
+
+      \item But the Bengali lady with green who kept darting looks at the drummer rather than on the beautiful sitar player whispered suddenly he keeps staring at me Minakshi. Or, perhaps it is I who keep staring at him. I cant take my eyes off him Minakshi. \hfill (\bo{72 Ch})
+
+      \item A husband and wife were having problems and decided to end their union after a very short time together. After a brief attempt to reconcile, teh couple went to court to finalize their break up.
+        The judge asked the husband, what had brought you to this point, where you're unable to keep this marriage together.
+          The husband replied, ``In the six weeks we have been together, we have not been able to agree on a single think"
+            seen weeks the wife said. \hfill (72 Ash)
+
+      \item Two pastors are standing by the side of a road holding up a sign that reads. The end is near turn around now before it is too late! A passing driver yells, "you guys are nuts!" and speed past them. From around the curve, they hear screeching tyres- then a big splash. One of the pastors says to the other, do you think we should just put up a sign that says Bridge broken instead? \hfill (\bo{71 Ch})
+
+      \item My father learnt this lesson after leaving me a dozen voice mail messages none of which I listened to . Expasperated he called my sister to complain that I never returned his phone calls why are you leaving him voice mails my sister asked just text him. \hfill (\bo{71 Bh})
+
+      \item A woman husband had been seriously ill but finally the doctor announces that he would live. What do you mean? You told me that he couldn't lsat another two weeks, complained the wife. ``Well, I'm going to cure him after all. Surely you're glad aren't you" replied the doctor. It puts me in kind of a trouble said the woman I've gone and sold his clothes to pay for the funeral. \hfill (71 Shr)
+
+      \item Robotization are by and large a viable propositions. The machines can worked round the clock, raise output, protected quality and industrial competitive. \hfill (70 Ma)
+
+      \item Hamlet had just enough life left in him to hear Goratio's promise: then whispering the words the rest in silence he sank down dead such was the end of the brave and noble prince of Denmark. He was mourned as one who would have made a splendid king, and he was carried to his burial with soldiers music and a people's mourning. \hfill (\bo{70 Bh})
+    \end{enumerate}
+\pagebreak
+
+\section{Interpretation}
+  \begin{center}(5 Marks)\end{center}
+
+  \begin{enumerate}
+    \item Addressing the youth workforce and returnee migrants and bolstering employment opportunities in the country are crucial for Nepal's sustainable development. As a corollary to this, due consideration is needed to raise the capability of the labor force. The youths can be better positioned to enrich the health of the economy by exploiting the available economic potentiality and catering to the demand of the labor market. To attain this, governmental agencies must motivate the academic institutions and the business sector to put collaborative effort to educate and train youths and remediate the educational skill gaps in the workforce. Most fresh entrants to the labor market are without the matching skills necessary for the job market. Hence, equipping them with Technical Education and Vocational Training (TEVT), On-the-Job Training (OJT), and apprenticeship/internship training is vital to make them capable and employable. The government must implement a policy to motivate the business sector to invest in training programmes to upskill and reskill migrants as well as unskilled workers. This will enable them to acclimatize to the needs of the local labor market. \hfill (82 Ba)
+
+    \item Happiness is the ultimate goal because it is self-evidently good. If we are asked why happiness matters, we can give no further external reason. Those who think about happiness are oblivious to the vast philosophical literature in which the meaning and value of happiness have been explored and questioned. They write as if nothing of any importance had been thought on the subject until it came to their attention. It was the philosopher Jeremy Bentham who was more than anyone else responsible for thinking about happiness. For Bentham it was obvious that the human good consists of pleasure and the absence of pain. The Greek philosopher Aristotle may have identified happiness with self-realization in the 4th century BC, and thinkers throughout the ages may have struggled to reconcile the pursuit of happiness with other human values, but for Bentham all this was mere metaphysics or fiction. \hfill (\bo{\texttt{81 Ch}})
+    
+    \item In the quiet corner of the café, Sarah flipped through the pages of a well-worn novel, the tactile sensation of paper beneath her fingers grounding her thoughts. Nearby, a man squinted at his tablet, adjusting the brightness and shifting uncomfortably in his seat. Sarah's focus remained steady as she lost herself in the story, her eyes free from strain and distraction. The rich scent of ink and the slight rustle of pages turned created an immersive experience, each chapter leaving a lasting impression on her mind. Meanwhile, the man sighed, rubbing his tired eyes, as notifications continued to ping in the background. \hfill (\bo{81 Bh})
+
+    \item Broken friendship may be repaired but the break will always show. Friendship is a precious thing-too precious a treasure to be carelessly broken or thrown away. The world handles the word 'friend' lightly; its real, true deeper meaning is forgotten. Your friend is one who appreciates you-your faults as well as your virtues. He understands and sympathizes with your defeats and victories, your aims and ideals, your joys and temptations, your hopes and disappointments, as no one else does or can. It is your friend to whom you turn for counsel, for comfort, for praise; he may not be as learned as some or as wise as others.\\
+      Blessed is the man or woman into whose life has come the beauty and power of such a friendship. Prize it well. Do all in your power to keep such a friendship unbroken. Avoid the break, for when it comes it cannot be mended and the jarring note mars the harmony. \hfill (81 Ba)
+
+    \item Deep thinking can transform your life. It can profoundly change the way you think, feel and behave. Thinking deeply enriches your life and encourages deeper living. To think deeply means to think beyond beliefs, preconceived ideas and prevailing opinions. It means to shed off false convictions so that the truth can unfold. The problem is that we no longer know how to think. Our thinking is unfocused, superficial and not directed. It simply occurs randomly, but we don't give much thought to it. At the same time, we don't use our thinking processes to think deeply. We no longer seek to think beyond our own boundaries. Most are perfectly happy within the comfortable confines of their own beliefs, attitudes and prejudices. If you're not one of them, the following is for you. It will address the magnificent power of deep thinking and how thinking deeply can change your life. It will show you what you can do to think deeply and introduces you to some deep thoughts you can get started with. \hfill (\bo{\texttt{80 Ch})})
+
+    \item There is a big difference between the natural slavery of man to nature and the unnatural slavery of man to man. Nature is kind to her slaves. If she forces you to eat and drink, she makes eating and drinking so pleasant that when we can afford it, we eat and drink too much. Thus, instead of resenting our natural wants as slavery, we take the greatest pleasure in their satisfaction. The slavery of man to man is the very opposite of this. It is hateful to the body and the spirit. Our poets do not praise it; they proclaim that no man is good enough to be another man's master. Naturally the master class, through its parliaments, schools and newspapers, makes the most desperate efforts to prevent us from realizing our slavery. \hfill (\bo{80 Bh})
+
+    \item There is a big difference between the natural slavery of man to nature and the unnatural slavery of man to man. Nature is kind to her slaves. If she forces you to eat and drink, she makes eating and drinking so pleasant that when we can afford it, we eat and drink too much. We must go to sleep or go madl but then sleep is so pleasant that we have great difficulty in getting up in the morning. \hfill (71 Shr)
+
+    \item What is a master? I would say that he is not someone who teaches something, but someone who inspires the student to do his best to discover a knowledge he already has in soul. Teaching is not hard. The toughest part for a student is to practice it every day, until one achieves the necessary precision. \hfill (80 Ba)
+
+    \item A society in which people relate well will be able to advance economically. This is because there will be sufficient coordination and cooperation in undertaking the affairs of the society. Therefore, with good relationships, people will be able to work together in coming up with projects and also in implementing them. Such projects will be very useful to the community since with proper coordination, they will be set up such that they help almost all members of the society. \hfill (\bo{\texttt{79 Ch}})
+      
+    \item The survival of the publishing industry depends upon the existence of a public who will buy the printed word in the form of newspapers, books and magazines. Over the past several years, however, the advance of electronic media, particularly CD-ROMs, online computer services, and the internet, has made information available to the public electronically without the need for printed materials. As the availability of electronic media increases and as it is more easily accessible, the public has less need for printed materials. \hfill (\bo{79 Bh})
+
+    \item By teaching all other subjects, except moral values, we may produce great scientiests, engineers, doctors, scholars, management experts and literatures, etc. comparable with the best anywhere in the world but if these great professionals do not have peace of mind and qualities of love and kindness, what kind of society will we have? \hfill (\bo{78 Ch}, 75 Ash-2, 72 Ma)
+
+    \item Learning style is not the only area undergoing demystification: our understanding of intelligence is also being reconstructed. The IQ score, developed early in the 20th century, is supposed to be a measure of a person's innate intelligence, with a score of 100 defined as normal, or average. The higher the score, the brighter the person. Some of us grew up in communities where IQ was barely mentioned. In many cases this lack of knowledge might have been a blessing. Others of us grew up with "IQ envy", in communities where IQ scores were a big part of our culture. Since the score is considered a fixed, permanent measure of intellect like a person's physical height, the scores engendered strong feelings. Friends who scored higher on an IQ test had a secret weapon, a mysteriously wonderful brain. But then our friend "genius" was stumped trying to unpack and plug in a toaster oven or got hopelessly lost trying to follow the simplest driving directions. We may have been equally puzzled when another friend, who scored horribly low on an IQ test, went on to fame and riches. What is this traditional assessment of intelligence supposed to mean? \hfill (78 Ka)
+
+    \item The history of civilization shows man always how has to choose between making the right and wrong use of discoveris of science. This has never been truer than in our age. Ina  brief period, amazing discoveris have been made and applied to practical purposes. It has become a platitude to say - we are living in an age of revolution. \hfill (\bo{78 Bh})
+
+    \item Patience is better than wisdom: An ounce of patience is worth a pound of brains. All men praise patience, but few can practice it. It is medicine which is good for all diseases, but it is not every garden that grows the herbs to make it with. Many people are born crying, live complaining and die disappointed. They think every other person's burden to be light and their own feathers to be heavy as lead, and yet if the truth were known, it is their fancy rather than their fate that makes things go so hard with them. Many would be well off they could but think so. \hfill (\bo{77 Ch})
+
+    \item Computers and the Internet have made a revolution in science and engineering. Studying computational models of reality can be cheaper and better than studying reality. Sometimes reality is impossible to measure or too steep to scale, and computational models are the only way to get any purchase on it. Those are the actual computer revolutions; the others are mostly potential and not real, locked up in awe-inspiring icebergs that just float around eliciting admiration and making trouble. The computer revolution is still frozen, latent, waiting to happen. \hfill (\bo{76 Ch})
+
+    \item If we observe the actions of men, whether as individuals or as groups, and whether scientists or non-scientists, we find that they frequently fall into avoidable errors because of a failure to reason correctly. There are many reasons for this, though only a few can be dealt with here.
+      The first difficulty is bound up with (related to) the use of words. It frequently happens that what one person means when he uses a certain word is different from what others mean. Consider, for example, the words intelligence, oxygen, accurate and average. In intelligence, we face the problem that a word may not mean only one thing, but many—in this instance a very complicated set of aptitudes and abilities whose numbers and characteristics are not agreed upon by the specialists who study the phenomenon, and are even less understood by the layman (non specialist). In oxygen, we have a different problem, for although both a research chemist and a chemical manufacturer identify the word theoretically with the element O, in practice they have different concepts about it. Thus, if the researcher performed a delicate experiment, using the manufacturer's oxygen, it might easily be a failure since the so-called O, whether used as a solid, liquid, or gas, would almost certainly contain other substances. Hence, another difficulty about words is that they often do not differentiate clearly enough between several varieties of the 'same' thing. \hfill (76 Ash)
+
+    \item Broken friendship may be repaired but the break will always show. Friendship is a precious thing-too precious a treasure to be carelessly broken or thrown away. The world handles the word 'friend' lightly; its real, true, deeper meaning is forgotten.
+      Your friend is one who appreciates you-your faults as well as your virtues. He understands and sympathises with your defeats and victories, your aims and ideals, your joys and temptations, your hopes and disappointments, as no one else does or can. It is your friend to whom you turn for counsel, for comfort, for praise; he may not be as learned as some or as wise as others.
+      Blessed is the man or woman into whose life has come the beauty and power of such a friendship. Prize it well. Do all in your power to keep such a friendship unbroken. Avoid the break, for when it comes it cannot be mended and the jarring note mars the harmony. \hfill (\bo{76 Bh})
+      
+    \item I think that wisdom can be taught. But this teaching should have a larger intellectual element than has been customary in what has been thought of as moral instruction. The disastrous result of hatred and narrow-mindedness to those who feel them can be pointed out incidentally in the course of giving knowledge. I do not think that knowledge and morals ought to be too much separated. It is true that the kind of specialized knowledge which is required for various kinds of skill has little to do with wisdom. But it should be supplemented in education by wider surveys calculated to put it in its place in the total of human activities. Even the best technicians should also be good citizens and when I say 'citizens', I mean citizen of the world and not of this or that nation. With every increase of knowledge and skill, wisdom becomes more necessary, for every such increase augments our capacity for realizing our purposes and therefore augments our capacity for evil, if our purposes are unwise. The world needs wisdom as it has never needed it before; and if knowledge continues to increase, the world will need wisdom in the future even more than it does now. \hfill (76 Ba)
+
+    \item There is a big difference between the natural slavery of man to nature and the unnatural slavery of man to man. Nature is kind to her slaves. If she forces you to eat and drink, she makes eating and drinking so pleasant that when we can afford it, we eat and drink too much. Thus, instead of resenting our natural wants as slavery, we take the greatest pleasure in their satisfaction. The slavery of man to man is the very opposite of this. It is hateful to the body and the spirit. Our poets do not praise it; they proclaim that no man is good enough to be another man's master. Naturally the master class, through its parliaments, schools and newspapers, makes the most desperate efforts to prevent us from realizing our slavery. \hfill (75 Ash)
+
+    \item The planet on which man lives is the third closest to the sun, with the third shortest orbit. It has something none of the others has- an atmosphere that can support life in all the manifold forms that exist on our planet. There may be satellites circling other stars in other parts of the universe, which have the right ingredients for some sort of life to evolve, but the earth is the one one in the solar system. \hfill (75 Ba)
+
+    \item The third great defect of our civilization is that it does not know what to do with its knowledge. Science has given us powers fit for the Gods, yet we use them like small children. For example, we do not know how to manage our machines. Machines were made to be man's servants; yet he has grown so dependent on them that they are in a fair way to become his masters. Already most men spend most of their lives looking after and waiting upon machines. And the machines are very stern masters. They must be fed with coal, and given petrol to drink, and oil to wash with, and they must be kept at the right temperature. And if they do not get their meals when they expect them, they grow sulky and refuse to work, or burst with rage, and blow up, and spread ruin and destruction all round them. So, we have to wait upon them very attentively and do all that we can to keep them in good temper. Already we find it difficult either to work or play without the machines, and a time may come when they will rule us altogether, just as we rule the animals. \hfill (\bo{74 Ch})
+
+    \item Computers have solved many problems for us, but they create some problems too. Say, for example, that you are writing a novel. After you are done with your first draft you devide to change your heroine's name from Linda to Lydia. With a typewriter you would have to retype every page containing the heroine's name. With word processing software, on a computer, you press just a few keys and the computer takes care of all the work. But technology hasn't solved all our problems. While many of Shakespeare's original documents survive, it takes only misplaced keystrokes to wipe out your next masterpiece. \hfill (74 Ash)
+
+    \item We are all short-sighted and very often see but one side of a matter; our views are not extended to all that has a connection with it. From this defect, I think no man is free. We see but in part, and we know but in part, and therefore, it is no wonder we conclude not right from our partial views. This might instruct the proudest esteemer of his own parts how useful it is to talk and consult with others, even such as come short of him in capacity, quickness and penetration; for since no one sees all, and we generally have different prospects of the same thing, according to our different, as I may say, positions to it, it is not incongruous to think, nor beneath any man to try, whether another man have notions of things which have escaped him, and which his reason would make use of if they came into his mind. (\bo{74 Bh})
+
+    \item A mother creates, she protects and to speak to her of destruction means to speak against her: but he did not know this, he did nor know that he was negating her reason for existence. A mother is always opposed to death; the hand that brings death into the house of men, is hateful and abhorrent to mothers. But the son did not perceive this, for he was blinded by the cold glitter of glory that deadend the heart. \hfill (73 Ma)
+
+    \item This technical term has a wider meaning than the ``culture" of history and literature. A humble cooking pot is as much a cultural product as is Beethoven sonata. In ordinary speech a man of culture is a man who can speak languages other than his own, who is familiar with history, literature, phiolosophy or the fine arts. In some cliques, that definition is still narrower. The cultured person is one who can talk about James Joyce, Scarlatti, and Picasso. To the anthropologist, however, to be human is to be cultured. There is culture in general and then there are the specific cultures such as Russian, American, British, Hottento, Inca. The general abstract notion serves to remind us that we cannot explain acts solely in terms of the biological properties of the people concerned, their individual past experience and the immediate situation. The past experience of other men in the ofrm of culture enters into almost every event. Each specific culture constitutes a kind of blueprint for all of life's activities. \hfill (\bo{73 Bh})
+
+    \item Ever since humans have inhabited the earth, they have made use of various forms of communication. Generally, this expression of thoughts and feelings has been in the form of oral speech. When there is a language barrier, communication is accomplished through sign language in which motions stand for letters, words and ideas. Tourists, the deaf and the mute have had to resort to this form of expression. many of these symbols of whole worlds are very picturesque and exact can be used internationally; spelling, however, cannot. \hfill (73 Shr)
+
+    \item It is not only in public ways, but in private life equally; that wisdom is needed. It is needed in the choice of ends to be pursued and in emancipation from personal prejudice. Even an end which it would be noble to pursue if it were attainable may be pursued unwisely if it is inherently impossible of achievement. Many men in past ages devoted their lives to a search for the philosopher's stone and the elixir of life. No doubt, if they could have found them, they would have conferred great benefits upon mankind, but as it was, their lives were wasted. 
+      I think the essence of wisdom is emancipation, as far as possible, from the tyranny of the here and the now. We cannot help the egoism of our senses. Sight and sound and touch are bound up with our own bodies and cannot be made impersonal. Our emotions start similarly from ourselves. An infant feels hunger or discomfort, and is unaffected except by his own physical condition. Gradually with the years his horizon widens and in proportion as his thoughts and feelings become less personal and less concerned with his own physical states, he achieves growing wisdom. This is of course a matter of degree. No one can view the world with complete impartiality; and if anyone could, he would hardly be able to remain alive. But, it is possible to make a continual approach towards impartiality, on the one hand, by knowing things somewhat remote in time or space and, on the other hand, by giving to such things their due weight in our feelings. It is this approach towards impartiality that constitutes growth in wisdom.
+      Can wisdom in this sense be taught? And, if it can, should the teaching of it be one of the aims of education? I should answer both these questions in the affirmative. \hfill (\bo{72 Ch})
+
+    \item For half of the day we are slave to necessities which we cannot shirk, whether we are monarchs with a thousand servants or humble laborers with no savants but their wives. And the wives must undertake the additional heavy slavery of child-bearing if the world is still to be peopled. These natural jobs cannot be shirked. But they involve other jobs which can. As we must eat we must provide food; as we must sleep we must have beds and bedding in houses with fireplaces and coals; now, food and houses and clothes can be produced by human labour. If you are too lazy to get about from plce to plcae on your own legs, you can make a slave of a horse. And what you do to a horse, you can also do to a man or a woman or  achild if you can get the upper hand of them by force or fraud or trickery of any sort. \hfill (\bo{72 Ash})
+
+    \item The prevention of free inquiry is unavoidable so long as the purpose of education is to produce belief rather than thought to compel the young to hold positive optinions on doubtful matters rather than to let them see the doubtfulness and be encouraged to independence of mind. Education ought to foster the wish for truth, not the conviction that some particular creed is the truth. \hfill (\bo{71 Ch})
+
+    \item Most men and women, given suitable conditions, will feel passionate love at some period of their lives. For the inexperienced, however, it is very difficult to distinguish passionate love from mere sex hunger; especially is this the case with well-brought-up girls, who hav ebeen taught that they could not possible like to kiss a man unless they loved him. If a girl is expected to be a virgin when she marries, it will very often happen that she is trapped by a transient and trivial sex attraction, which a woman with sexual experience could easily distinguish from love. This has undoubtedly been a frequent cause of unhappy marriages. Even where mutual love exists, it may be poisoned by the belief of one or both that it is sinful. This belief may, of course, be well founded. Parnell, for example, undoubtedly sinned in committing adultery, since he thereby postponed the fulfilment of the hopes of Ireland for many years. \hfill (71 Ma)
+
+    \item Today, jet-lag is a familiar hazard for the seasoned traveler. Travel across time zones plays havoc with the biological clock rhythms of the human body. For the active pilot, who is rarely in one place long enough to know if it is time for breakfast or dinner, the impact of jet-lag on his sleep is critical. Several air disasters have been partly caused by overtired pilots ignoring the natural laws of sleep. Much research is directed to finding out what these lws are and what extent pilot and astronauts disobey them. But they are laws which affect all of us, not just pilots. \hfill (\bo{71 Bh})
+
+    \item Worst of all were the nights; in the nocturnal stillness the groans and cries were more distinctly audible, black shadows crept stealthily from the gorges of the distant mountains towards the half-demolished walls, hiding enemy camp from view and over the black ridges of the mountains rose the moon like a lost shield dented by sword blows. \hfill (70 Ma)
+
+    \item What is a democratic government to do in a country where people are steeped in ignorance and superstition, where there is opposition or resistance to even mild reforms from vested interests in society? \hfill (\bo{70 Bh})
+
+  \end{enumerate}
+  
+\section{Note Making \& Summary}
+  \begin{center}(5+5 Marks)\end{center}
+
+\section{Reading Passages}
+  \begin{center}(2x5 Marks)\end{center}
+  
+\pagebreak
+
+\section{Grammar}
+  \begin{center}(10 * 0.5 Marks)\end{center}
+
+  \subsection{Subject Verb Agreement}
+  \subsection{Active/Passive Voice}
+  \subsection{Prepositions}
+  \subsection{Conditional sentences}
+  \subsection{Sequence of tense}
+  \subsection{Sequence of tense}
+
+\pagebreak
+
+\section{MLA and APA comparision}
+  \begin{center}(4 Marks)\end{center}
+  
+\pagebreak
+
+\section{Writing Notice/Agenda/Minutes}
+  \begin{center}(5 Marks)\end{center}
+
+\pagebreak
+
+\section{Writing Formal Technical Proposal}
+  \begin{center}(10 Marks)\end{center}
+
+\pagebreak
+
+\section{Writing Informal/Short Reports}
+  \begin{center}(6 Marks)\end{center}
+  
+  \subsection{Letter Report}
+  \subsection{Memory Report}
+  \subsection{Project Report}
+  \subsection{Progress Report}
+  \subsection{Feasible Report}
+  \subsection{Research Report}
+  \subsection{Technical Report}
+\pagebreak
+
+\section{Formal Reports}
+  \begin{center}(10 Marks)\end{center}
+  
+\pagebreak
+
+\section{Research Article}
+  {\center (10 Marks)}
+  \begin{enumerate}
+    \item Using the simplified revenue model, derive the percentage revenue loss equation for any rise angle, rather than just 45 degrees. \hfill [2] (\bo{70 Bh})
+  \end{enumerate}
+
+\end{document}
