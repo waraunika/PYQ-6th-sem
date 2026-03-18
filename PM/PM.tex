@@ -1,0 +1,284 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[margin=1.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem, inconsolata}
+\usepackage{tikz}
+\usepackage{circuitikz}[scale=1.2]
+\usetikzlibrary{patterns}
+\parindent 0px
+\newcommand{\W}{\(\Omega\)}
+\newcommand{\w}{\(\omega\)}
+\newcommand{\lb}{\\$\left|\rightarrow\right.$}
+\newcommand{\enter}{\\\textcolor{white}{1}}
+\newcommand{\sub}[1]{\textsubscript{#1}}
+\newcommand{\super}[1]{\textsuperscript{#1}}
+\ExplSyntaxOn
+\NewDocumentCommand{\bo}{m}
+ {
+   \bold_commas:n { #1 }
+ }
+
+\cs_new:Npn \bold_commas:n #1
+ {
+   \seq_set_split:Nnn \l_tmpa_seq { , } { #1 }
+   \seq_map_indexed_function:NN \l_tmpa_seq \__bold_commas_aux:nn
+ }
+
+\cs_new:Npn \__bold_commas_aux:nn #1 #2
+ {
+   \textbf{#2}
+   \int_compare:nNnTF { #1 } < { \seq_count:N \l_tmpa_seq }
+     { , }
+     { }
+ }
+
+\ExplSyntaxOff
+
+\title{Project Management}
+\author{by PUL079BEI008\\by PUL079BEI014}
+\date{\today}
+
+\begin{document}
+\maketitle
+\vspace{10.5cm}
+\textbf{Notes}
+\begin{itemize}[noitemsep]
+	\item Our subject code is CT 658.
+	\item This document encorporates for both, electronics and computer department..
+	\item If a question was asked in Regular Exam, it is kept in \bo{boldened} form. If it was asked in back exam, it is in regular font.
+	\item Months are marked as: 
+	\begin{itemize}[noitemsep, topsep=0pt]
+		\item Ba: Baisakh
+		\item Jth: Jestha
+		\item Asa: Ashar
+		\item Shr: Shrawan
+		\item Bh: Bhadra
+		\item Ash: Ashwin
+		\item Ka: Kartik
+		\item Mng: Mangsir
+		\item Po: Poush
+		\item Ma: Magh
+		\item Ch: Chaitra
+	\end{itemize}
+\end{itemize}
+\pagebreak
+\tableofcontents
+\pagebreak
+
+
+\section{Introduction to Project Management}
+  \begin{center}(8 Hours / 16 Marks)\end{center}
+
+  \subsection{Project Basics}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Define project management. Why it is important? And how do you identify the completion of project phases? \hfill [1.5+2+1.5] (81 Ch)
+      
+      \item Define project. Differentiate between project and operation. \hfill [2+2] (79 Ch)
+      
+      \item How can you relate the characteristics of project with your minor project? \hfill [4] (78 Ch)
+    \end{enumerate}
+
+  \subsection{Elements of Project Management}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item What do you mean by general management skill? What are the essential interpersonal and managerial skills? \hfill [2+3] (81 Ch)
+      
+      \item What is project communication management? Why it is important to complete project successfully? Find the no. of communication channels among 7 people. \hfill [1+2+2] (81 Ch)
+      
+      \item What is project risk management? What are the risk identification techniques? \hfill [2+3] (81 Ch)
+      
+      \item What do you mean by Project Procurement Management? Explain the different processes adopted in the procurement management? \hfill [2+4] (81 Ch)
+      
+      \item Quality is one the most important factors to be considered for effective delivery of project objectives. How quality assurance and quality control is implemented in order to deliver a successful project? \hfill [2+3] (81 Ch)
+            
+      \item One of the famous actors, Bill Cosby, once said "I don't know the key to success but the key to failure is trying to please everybody." How relevant is this statement in the field of IT System Project Management? What are other traits of successful Project Manager? Explain. \hfill [6] (80 Ch)
+      
+      \item What do you mean by Project Procurement Management? What are the different processes adopted for procurement in ICT project? \hfill [2+3] (80 Ch)
+      
+      \item Why communication management is important in IT project? As a project manager how do you conduct meeting effectively? \hfill [3+3] (79 Ch)
+      
+      \item Quality is one of the most important factors to be controlled for effective delivery of project objectives. How quality assurance and quality control are implemented in order to deliver a successful project? \hfill [5] (79 Ch)
+      
+      \item Explain about risk management plan. What are the different sources of risk in IT project? \hfill [2+3] (79 Ch)
+      
+      \item Explain about procurement management process flow. \hfill [2+3] (79 Ch)
+            
+      \item Define PMBOK. How the external environmental influences on ICT project? \hfill [2+3] (79 Ch, 78 Ch)
+      
+      \item Why communication management is important in IT project? As project manager, how do you write effective email? \hfill [2+2] (78 Ch)
+      
+      \item What is project risk? Explain about risk management plan. \hfill [1+4] (78 Ch)
+      
+      \item Compare Formal versus informal communication in PM. \hfill [4×3] (80 Ch)
+      
+      \item Discuss briefly on risk identification techniques. Create a sample risk register of any ICT related project. \hfill [2+3] (80 Ch)
+    \end{enumerate}
+
+  \subsection{Project Cycle}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Describe about project process groups. \hfill (79 Ch)
+      
+      \item Explain overlaps of project process groups with clear diagram. \hfill [5] (78 Ch)
+      
+    \end{enumerate}
+
+  \subsection{Change in Project Management}
+    
+
+\pagebreak
+
+\section{Project Identification, Planning, Formulation and Appraisal}
+  \begin{center}(8 Hours / 16 Marks)\end{center}
+
+  \subsection{Project Identification}
+
+  \subsection{Feasibility Study}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Write short notes on Role of Feasibility Study \hfill [3] (81 Ch)
+    \end{enumerate}
+
+  \subsection{Project Appraisal}
+    
+
+  \subsection{Analysis and Impacts}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Write short notes on:Quantitative Risk Analysis \hfill [3] (81 Ch)
+    \end{enumerate}
+
+\pagebreak
+
+\section{Project Organization and Implementation}
+  \begin{center}(10 Hours / 20 Marks)\end{center}
+
+  \subsection{Project Organization}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item What is system view of project management? Explain about three sphere model of system management. \hfill [2+4] (81 Ch)
+      
+      \item What are the differentiation between product life cycle \& project life cycle? Describe different types of organizational structure. \hfill [2+4] (81 Ch)
+      
+      \item What is system view of project management? Explain about three sphere model of system management. \hfill [6] (80 Ch)
+      
+      \item Differentiate and compare among various organizational structures, with examples. \hfill [6] (80 Ch)
+      
+      \item What is system view of project management? Explain about three sphere Model of system management. \hfill [2+3] (79 Ch)
+      
+      \item Describe about functional organization structure. What are the disadvantages of projectized organizational structure? \hfill [3+2] (79 Ch)
+      
+      \item What is system view of project management? Explain, how organizational structures influence the IT projects? \hfill [2+3] (78 Ch)
+      
+      \item Explain role and responsibilities of key project members. \hfill [6] (78 Ch)
+    \end{enumerate}
+
+  \subsection{Resource Management}
+    
+  \subsection{Resource Mobilization}
+    
+
+  \subsection{Project Scheduling}
+
+  \subsection{Project Delays}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Project Crashing is termed as optimal point of trade-off between project cost and project time for any project while assessing delayed or over-run project. Do you agree or not? In any case justify with the help of right-side graph. \hfill [6] (80 Ch)
+    \end{enumerate}
+
+  \subsection{Project Administration}
+    
+
+\pagebreak
+
+\section{Project Monitoring, Controls and Information Systems}
+  \begin{center}(5 Hours / 12 Marks)\end{center}
+
+  \subsection{Monitoring}
+   
+
+  \subsection{Control Cycle}
+    
+
+  \subsection{Control Systems}
+    
+
+  \subsection{Information Systems}
+    
+
+\pagebreak
+
+\section{Project Evaluation and Auditing}
+  \begin{center}(7 Hours / 16 Marks)\end{center}
+
+  \subsection{Evaluation}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Define EVM. Your project is scheduled for 2 years. Nine months into the project, while the total project budget is Rs 42,00,000. You have already spent Rs 16,50,000. CPI is 0.875. Calculate EV, EAC, ETC, VAC and is the project is behind the schedule or ahead schedule? \hfill [2+1+1+1+1+2] (81 Ch)
+      
+      \item Define EVM. Suppose you are the project manager on an IOT project. The project is set to be completed in 10 months with an estimated cost of Rs 500,000. The project has been running for 5 months now, the team has spent Rs 220,000 and completed an amount of work worth Rs 255,000. Calculate CPI and SPI and Share your conclusion. \hfill [1+2+2+1] (79 Ch)
+      
+      \item What is EVM? Calculate the schedule and cost variance for a project whose estimated budget is $100,000$ and estimated time is 50 man months. 5 people were involved in the project. After 7 months, 60\% of work was completed and $80,000$ was expended. Also estimate the new cost and time for the project. \hfill [2+5] (78 Ch)
+      
+      \item Compare Project Cost management versus Earned Value management. \hfill [4×3] (80 Ch)
+    \end{enumerate}
+
+  \subsection{Auditing Systems}
+    
+
+  \subsection{Monitoring Techniques}
+    
+
+  \subsection{Impact Assessment}
+    
+
+  \subsection{Life Cycle Auditing}
+    
+
+\pagebreak
+
+\section{Additional Topics and Mixed Questions}
+
+  \subsection{Project Integration Management}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item What is project charter? What type of information should be included while making the project charter? Explain with example. \hfill [1+4] (81 Ch)
+      
+      \item What is Project Integration Management? What type of information should include while making the project charter? \hfill [2+3] (79 Ch)
+      
+      \item Define the Project Integration Management. What are the essential information required to create Project Charter? \hfill [3+3] (78 Ch)
+    \end{enumerate}
+
+  \subsection{Project Scope Management}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+     \item Imagine you have got the role of Project Manager for a software project that will make personalized and secure access of your semester-end mark-sheet possible. This will relieve Exam Control Office for printing semester end marksheet rather students will browse and download semester end mark-sheet as pdf only through either using browser or ECD app. (80 Ch)
+      \item a) Prepare a brief project scope document for the above system project work. \hfill [7] 
+      \item b) While making the process groups, what are the important considerations that you have to manage and take care of? \hfil [5]
+    \end{enumerate}
+
+  \subsection{Quality Management}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Quality is one of the most important factors to be controlled for effective delivery of project objectives. How quality assurance and quality control are implemented in order to deliver a successful project? \hfill [2+3] (78 Ch)
+    \end{enumerate}
+
+  \subsection{IT Project Challenges}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Discuss briefly the challenges in IT project in Nepal. \hfill [4] (80 Ch)
+      
+      \item Define project portfolio management. What are the reasons for failure of the ICT projects? \hfill [2+5] (78 Ch)
+    \end{enumerate}
+
+  \subsection{Short Notes and Miscellaneous}
+    \begin{enumerate}[topsep=0pt, noitemsep]
+      \item Write short notes on 
+        \item Balanced Scorecard (BSC) \hfill [3] [2] (81 Ch, 78 Ch)
+        \item WBS \hfill [3] (81 Ch)
+        \item Statement of Work (SOW) \hfill [3] (81 Ch)
+        \item Portfolio Management \hfill [3] (81 Ch)
+        \item Need custom processes for IT project \hfill [4] [2] (79 Ch, 78 Ch)
+        \item Future trend of IT projects \hfill [4] (79 Ch)
+        \item Project tripple constaints \hfill [3][4] (81 Ch, 79 Ch)
+      
+      \item Compare Project Manager versus Program Manager as per PMI. \hfill [4] (80 Ch)
+      
+      \item Compare KPI versus Balanced scorecard. \hfill [4] (80 Ch)
+      
+      
+    \end{enumerate}
+
+\end{document}
