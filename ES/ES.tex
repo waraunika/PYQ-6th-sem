@@ -73,7 +73,7 @@
 
   \subsection{Embedded Systems Overview}
     \begin{enumerate}[topsep=0pt, noitemsep]
-      \item What is Embedded system? \hfill [1] (\bo{81 Ch, 76 Bh, 75 Bh, 74 Bh, 73 Bh} 73 Ma, 72 Ma, 70 Ma)
+      \item What is Embedded system? \hfill [1] \begin{footnotesize} (\bo{81 Ch, 76 Bh, 75 Bh, 74 Bh, 73 Bh}, \texttt{82 Ka}, 73 Ma, 72 Ma, 70 Ma) \end{footnotesize}
       
       \item List out types of embedded system. Define them. \hfill [3] (\bo{73 Bh})
     
@@ -105,9 +105,10 @@
       \item Define design metric. \hfill [1] (\bo{78 Ch})
 
       \item Explain the various design metrics of embedded system. \hfill [3] (\bo{80 Ch, 78 Ch})
-      \lb ... all important design metrics ---. \hfill [3] (76 Ba)
+      \lb ... all important design metrics ... . \hfill [3] (76 Ba)
       
-      \item Explain different purpose of embedded system with examples. \hfill [4] (\bo{77 Ch, 71 Bh}) [3] (75 Ba)
+    \item Explain different purpose of embedded system with examples. \hfill [3] (75 Ba) [4] (\bo{77 Ch, 71 Bh})
+      \lb Briefly explain purpose. \hfill [3] (\texttt{82 Ka})
       
       \item Describe various application of embedded system. \hfill [3] (70 Ma)
     \end{enumerate}
@@ -120,7 +121,7 @@
   \subsection{Combination Logic}
   \subsection{Sequential Logic}
   \subsection{Custom Single-Purpose Processor Design}
-    \begin{enumerate}[topsep=0pt, noitemsep]
+    \begin{enumerate}[topsep=0pt]
       \item Develop algorithm; draw the state diagram and design the datapath of a custom single purpose processor that determines the greatest common divisor(GCD) of two numbers. Propose the block diagram of it's controller also. \hfill [8] (\bo{81 Ch})
       
       \item Design a custom single purpose processor to find x$^\text{n}$ showing all the steps involved. \hfill [8] (\bo{80 Ch})
@@ -129,6 +130,7 @@
       \item Design a dual purposed processor that takes in 10 numbers one at a time and finds the average and the maximum of the 10 numbers. Show algorithm, FSMD, FSM and Datapath for the processor. \hfill [8] (\bo{79 Ch})
       
       \item Design a single purpose  processor that gives the LCM of two digit 8-bit numbers. Start with the algorithm, translate it into state diagram, and state transition table. Also draw the required data path. \hfill [8] (\bo{78 Ch, 72 Ash})
+        \lb similar, but 8-bit not specified, include algorithm, FSMD, Datapath, FSM,  controller. \hfill [8] (\texttt{82 Ka})
       
       \item Design a single purpose processor that output Fibonacci numbers upto 'n' places. Start design from function computing the desired result, FSDM and sketch a probable datapath. \hfill [5] (\bo{77 Ch}) [8] (\bo{72 Ash}, 75 Ba)
       
@@ -192,7 +194,9 @@
     \begin{enumerate}[topsep=0pt]
       \item Define Addressing modes. \hfill [1] (72 Mg)
 
-      \item Describe programmer's view in the context of software development for general purpose processor. \hfill [5] (\bo{80 Ch}) [4] (\bo{76 Bh, 74 Bh}, 73 Ma)
+      \item Explain software development process with the view of embedded systems. \hfill [4] (\texttt{82 Ka})
+
+      \item Describe programmer's view in the context of software development for general purpose processor. \hfill [4] (\bo{76 Bh, 74 Bh}, \texttt{82 Ka}, 73 Ma) [5] (\bo{80 Ch})
     \end{enumerate}
   \subsection{Development Environment}
     \begin{enumerate}[topsep=0pt]
@@ -252,6 +256,8 @@
 
       \item Comose 4Kx5 ROM using 1Kx2 ROM. \hfill [4] (\bo{79 Ch}) 
 
+      \item Compose 2K x 16 ROM using 1K x 4 ROM. \hfill [4] (\texttt{82 Ka})
+
       \item Design the internal architecture 4x4 ROM. \hfill [3] (\bo{77 Ch})
 
       \item Compose a memory of size 2$^{k+1}$ x 2n using 2$^k$ x n sized memory. \hfill [5] (\bo{78 Ch})
@@ -308,6 +314,8 @@
   \subsection{Memory Hierarchy and Cache}
     \begin{enumerate}
       \item What is cache memory? \hfill [2] (\bo{71 Bh})
+
+      \item Explain cache mapping technique. \hfill [4] (\texttt{82 Ka})
 
       \item Explain fully associative cache mapping technique. \hfill [4] (\bo{81 Ch})
 
@@ -381,7 +389,7 @@
       \lb with proper illustration and types. \hfill [5] (\bo{77 Ch})
       \lb and compare with daisy-chain arbitration. \hfill [5] (\bo{74 Ch})
 
-      \item Explain Daisy-chain arbitration. \hfill [3] (\bo{73 Bh}) [4] (\bo{71 Bh})
+    \item Explain Daisy-chain arbitration. \hfill [3] (\bo{73 Bh}) [4] (\bo{71 Bh}, \texttt{82 Ka})
       \lb with neat diagram. \hfill [3] (\bo{75 Bh})
 
       \item Describe Daisy-Chain arbitration with the help of a block diagram and steps. \hfill [5] (\bo{78 Ch})
@@ -399,7 +407,7 @@
     \begin{enumerate}
       \item Describe the advanced communication principles used in embedded systems. \hfill [4] (70 Ma)
 
-      \item Describe the significance of I$^2$C serial communication protocol. \hfill [4] (\bo{70 Ch})
+      \item Describe the significance of I2C serial communication protocol. \hfill [4] (\bo{70 Ch}, \texttt{82 Ka})
     \end{enumerate}
 
 \pagebreak
@@ -483,6 +491,7 @@
       \item Four processes with process IDs P1, P2, P3 and P4 with priorities 0, 2, 4, 5 and estimated completion time 5, 4, 6 and 4 ms respectively enter the ready queue together. Two new processes P5 and P6 with priorities 1, 3 and estimated completion time 2 and 3 ms respectively enters the ready queue: P5 enters 1 ms of start of execution while P6 enters ready queue after 3 ms of start of execution of P4. Calculate WT, TAT, AWT, ATAT assuming that there is no I/O waiting for the process using pre-emptive priority based and SJF/SRT algorithm. \hfill [6] (\bo{79 Ch})
 
       \item Consider four processes with process IDs P1, P2, P3 and P4 with estimated completion time 53, 17, 68, 24 ms respectively, enters the ready queue together in order P1, P2, P3 and P4. Calculate waiting time and turn around time for each process and average waiting times and average turn around time in Round Robin algorithm with time slice 4 ms. Assume there is no I/O waiting for the process. \hfill [6] (\bo{78 Ch})
+        \lb time slice of 20 ms. \hfill [6] (\texttt{82 Ka})
     \end{enumerate}
 
   \subsection{Task Synchronization}
@@ -495,10 +504,12 @@
 
       \item Explain the conditions favoring deadlock situation. \hfill [2] (\bo{75 Bh})
 
-      \item Define deadlock. \hfill [2] (\bo{73 Bh})
+      \item Define deadlock. \hfill [1] \texttt{82 Ka} [2] (\bo{73 Bh})
       
-      \item explain the Coffman's condition for deadlock. \hfill [2] (\bo{73 Bh}) [3] (\bo{70 Bh})
-      \lb List Coffman Condition for deadlock. [2] (\bo{78 Ch})
+      \item Explain the Coffman's condition for deadlock. \hfill [2] (\bo{73 Bh}) [3] (\bo{70 Bh})
+        \lb List Coffman Condition for deadlock. [2] (\bo{78 Ch}) [2.5] (\texttt{82 Ka})
+
+      \item Mention deadlock handling techniques. \hfill [2.5] (\texttt{82 Ka})
     \end{enumerate}
 
   \subsection{Device Drivers}
@@ -515,6 +526,8 @@
       \item With neat diagram write the steps for designing closed loop control system. \hfill [5] (\bo{72 Ash})
 
       \item Draw a clear block diagram of a closed-loop control system and explain its various parts. \hfill [4] (71 Ma)
+
+      \item Draw a well labeled close lop control system for car cruise controller. \hfill [2] (\texttt{82 Ka})
 
       \item Which system is better for control system? \hfill [2] (76 Ba)
 
@@ -546,6 +559,8 @@
       \item Explain PID control system with block diagram and equations. \hfill [4] (\bo{79 Ch})
 
       \item What is the purpose of PID tuning, and what are the benefits of computer based control implementations? \hfill [4] (70 Ma)
+
+      \item Derive the condition of linear proportional controller for stability and avoid the oscillation. \hfill [6] (\texttt{82 Ka})
     \end{enumerate}
 
   \subsection{Software coding of PID Controller}
@@ -597,7 +612,7 @@
 
       \item What are the merits and demerits of semicustom IC technology? \hfill [2] (\bo{81 Ch})
 
-      \item Explain the steps involved in IC manufacturing. \hfill [4] (\bo{79 Ch, 70 Bh})
+      \item Explain the steps involved in IC manufacturing. \hfill [3] (\texttt{82 Ka}) [4] (\bo{79 Ch, 70 Bh})
       \lb with neat block diagram. \hfill [5] (70 Ma)
 
       \item What are IC manufacturing steps in semiconductor industries? \hfill [3] (71 Ma)
@@ -615,6 +630,8 @@
       \item Draw the top-level diagram of a NAND gate using CMOS. \hfill [3] (\bo{80 Ch})
 
       \item What is photolithography and what are its types? \hfill [4] (72 Ma)
+
+      \item Show various steps of photolithography process using appropriate diagrams. \hfill [5] (\texttt{82 Ka})
 
       \item Explain the importance of photolithography in IC manufacturing. \hfill [5] (\bo{74 Bh}, 73 Ma)
       \lb with suitable example. \hfill [8] (\bo{71 Bh})
@@ -652,13 +669,16 @@
 
       \item Explain about PORT 3 of 8051 microcontroller. \hfill [2] (76 Ba)
 
-      \item Explain the addressing modes used in 8051 microcontroller with example. \hfill [4] (75 Ba, 72 Ma, 71 Ma)
+      \item Explain the addressing modes used in 8051 microcontroller. \hfill [3] (\texttt{82 Ka})
+        \lb with example. \hfill [4] (75 Ba, 72 Ma, 71 Ma)
 
       \item Provide a comparison chart of the 8051 family members. \hfill [4] (\bo{70 Bh})
     \end{enumerate}
 
   \subsection{Programming in Assembly Language}
     \begin{enumerate}
+      \item Write a program to read an 8-bit temperature in Celsius from Port 1 and to output the Fahrenheit temperature equivalent onto port 2. (Note: F = C x (9/5) + 32) \hfill [5] (\texttt{82 Ka})
+
       \item Write an assembly language programming to alternatively blink the 8 LEDs connected at port 2 of the 8051 microcontroller. \hfill [4] (\bo{81 Ch}, 72 Ma)
 
       \item Write an assembly program for 8051 to count number of 0's in an 8-bit data stored in ROM at 40H and result in RAM at 41H. \hfill [4] (\bo{79 Ch})
@@ -740,7 +760,8 @@
       \item Write a VHDL code for a full adder using two half adders and one OR gate in structural model. \hfill [5] (\bo{75 Bh})
       \lb Write a VHDL code for a full adder using 2 half adder as component. \hfill [5] (73 Ma)
 
-      \item Write an algorithm and VHDL code for custom single purpose processor that calculates the Greatest Common Divisor (GCD) of two numbers as Finite State Machine. \hfill [6] (\bo{76 Bh}) [2+6] (\bo{73 Bh}) [3+5] (\bo{71 Bh})
+      \item Write an algorithm and VHDL code for custom single purpose processor that calculates the Greatest Common Divisor (GCD). \hfill [8] (\texttt{82 Ka})
+        \lb of two numbers as Finite State Machine. \hfill [6] (\bo{76 Bh}) [2+6] (\bo{73 Bh}) [3+5] (\bo{71 Bh})
 
       \item Design and write a code for Decoder using VHDL. \hfill [6] (76 Ba)
       
