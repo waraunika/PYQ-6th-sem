@@ -83,6 +83,8 @@
 \section{Introduction}
   \begin{center}(2 Hours / 2.5 Marks)\end{center}
 
+  What is communnication system? \hfill [2] (\texttt{79 Ash})
+
   \subsection{Fundamental Concepts}
     \subsubsection{A/D sources and transmission}
       \begin{enumerate}[topsep=0pt, noitemsep]
@@ -92,12 +94,18 @@
 
         \item What major elements does a CS contains? \hfill [4] (\bo{68 Bh})
 
+        \item Draw the generic block diagram of Analog Communication system for half duplex mode. \hfill [3] (\texttt{80 Ash})
+
         \item Draw the block diagram of analog CS. \hfill [2] (\bo{72 Ash}) [4] (68 Jth)
         \lb and briefly explain each block. \hfill [6] (\bo{79 Ch}) [8] (\bo{74 Bh})
 
         \item What are the main components of analog CS? Describe each. \hfill [2+5] (\bo{69 Bh}) [4] (67 Shr)
 
-        \item Draw the block diagram of digital CS. \hfill [2] (\bo{72 Ashh})
+        \item Explain the importance of transducers, modulators and channel in Analog CS with neat and clean diagram. \hfill [6] (\texttt{79 Ash})
+
+        \item Describe the functional digital CS working in half duplex mode and constrast it with an analog CS. \hfill [5] (\texttt{82 Ka})
+
+        \item Draw the block diagram of digital CS. \hfill [2] (\bo{72 Ash})
         
         \item Briefly explain the function of the basic components of a digital communication system. \hfill [5] (\bo{79 Bh})
         
@@ -121,6 +129,10 @@
 
     \subsubsection{Noise, Distortion and Interference}
       \begin{enumerate}[topsep=0pt, noitemsep]
+        \item Mention all the communication impairments and performance parameters. \hfill [3] (\texttt{82 Ka})
+
+        \item Define BW, SNR, SQNR, BER, ISI parameters. \hfill [5] (\texttt{81 Ash})
+      
        \item Define noise. \hfill [2] (72 Ma)
        
        \item Define any three types of noise. \hfill [3] (\bo{76 Ch})
@@ -171,6 +183,7 @@
 
         \item ``Communication over long distance is impossible without modulation. Modulation is must to mitigate several constraints in transmission." Justify. \hfill [4] (\bo{68 Bh})
         \lb What are the needs for modulation? \hfill [1] {\tiny (70 Ma)} [2] {\tiny (\bo{\texttt{79 Ch}, 76 Ch, 71 Bh, 69 Bh}, 76 Ba, 75 Ba, 72 Ma, 68 Jth)} [4] {\tiny (\bo{75 Bh}, 67 Shr)}
+        \lb Explain need and disadvantages of modulation. \hfill [5] (\texttt{80 Ash})
 
         \item Describe how channel can be modulated? \hfill [4] (72 Ma)
       \end{enumerate}
@@ -213,17 +226,20 @@
         
         \item Show that impulse response of an ideal low pass filter is non-casual. \hfill [4] (64 Shr) [6] (\bo{75 Bh})
         \lb What is the impulse response of LPF? \hfill [1] (\bo{72 Ash})
+        \lb Describe the impulse response of LPF. \hfill [3] (\texttt{79 Ash})
       \end{enumerate}
   
     \subsubsection{LTI systems}
       \begin{enumerate}[topsep=0pt]
         \item Define LTI system. \hfill [2] (\bo{71 Bh, 70 Bh})
 
-        \item Write the properties of LTI system. \hfill [4] (\bo{68 Bh})
+        \item Write the properties of LTI system. \hfill [4] (\texttt{80 Ash}, \bo{68 Bh})
 
         \item What is the significance of LTI in communication engineering? \hfill [3] (\bo{70 Bh})
 
         \item Find the expression (in time domain) for the output of a LTI. \hfill [5] (\bo{71 Bh})
+
+        \item Check whether y(t) = log{x(t)} is a linear or non-linearsystem. \hfill [5] (\texttt{82 Ka})
 
         \item Determine whether the following signals are: \hfill [4+4] (\bo{\texttt{81 Ch}})\\
         a. $y(t) = 2t^2\ x(t)\ +\ 3t\ x(t-4)$ linear or not\\
@@ -242,12 +258,17 @@
         \item State and explain following properties of Fourier Transform. \hfill [5] (\bo{67 Mng})\\
         a. Modulation \hspace{1cm} b. Duality (symmetry) \hspace{1cm} c. Time shifting\\
         d. Scaling \hspace{1.8cm} e. Convolution
+
+        \item Construct the signal flow diagram of the system described by the following equation. \hfill [4] (\texttt{82 Ka})\\
+          $$y(t) + 2 \int y(t) dt + 3 \int \int y(t) dt dt = 4 \int x(t)dt + 5 \int \int x(t) dt dt$$
       \end{enumerate}
 
     \subsubsection{Lowpass/Bandpass signals and systems}
     \subsubsection{Bandwidth of systems}
     \subsubsection{Distortionless Transmission}
       \begin{enumerate}
+        \item What is distortionless transmission? \hfill [2] (\texttt{79 Ash})
+
         \item Explain the significance of distortionless transmission in CS with necessary derivation. \hfill [5] (72 Ma)
 
         \item Derive the transfer function for a system that provides distortionless transmission. \hfill [3] (\bo{69 Bh})
@@ -265,7 +286,7 @@
       \begin{enumerate}
         \item On Hilbert Transform:
         \lb Define. \hfill [2] (\bo{\texttt{80 Ch}, 80 Ch, 76 Bh, 75 Bh}, 71 Ma) [4] (73 Ma)
-        \lb Write short notes. \hfill [5] (\bo{\texttt{81 Bh}})
+        \lb Write short notes. \hfill [4] (\texttt{81 Ash}) [5] (\bo{\texttt{81 Bh}})
         \lb Write its properties. \hfill [2] (76 Ba, 75 Ba) [3] (\bo{76 Bh}) [4] (73 Ma)
         \lb Describe, with its properties. \hfill [2] (\bo{\texttt{78 Ch}}) [4] (71 Ma)
         \lb Describe, with mathematical expression in frequency domain.
@@ -300,7 +321,8 @@
   \subsection{Signal Energy and Power}
     \subsubsection{Energy and Power}
       \begin{enumerate}
-        \item Define energy and power signal. \hfill [2] (\bo{76 Bh, 73 Bh}, 65 Ka)
+        \item Define energy and power signal. \hfill [2] (\bo{76 Bh, 73 Bh}, 65 Ka) [4] (\texttt{80 Ash})
+          \lb Differentiate. \hfill [3] (\texttt{79 Ash})
 
         \item Define bandwidth of a system along with necesary diagram. \hfill [2] (\bo{73 Bh})
 
@@ -348,6 +370,7 @@
 
     \subsection{AC function, relationship between psdf and AC function}
       \begin{enumerate}
+        \item Define psdf and express its relation with AC function. \hfill [5] (\texttt{82 Ka})
         \item Define auto-correlation function. \hfill [1] (76 Ba) [3] (\bo{74 Ch})
         \lb Write short notes on: Autocorrelation function and its properties. \hfill [5] (\bo{79 Ch})
 
@@ -366,6 +389,30 @@
         \item Prove that in LTI system when a power signal x(t) is applied the PSD of its output is equal to the PSD of its input multiplied by the squared amplitude response of the system. \hfill [5] (\bo{77 Ch})
 
         \item Given a signal x(t) = $\cos (200\pi t)$, find the auto correlation of x(t) at $\tau = \frac{\pi}{4}$. \hfill [3] (\bo{72 Ash})
+
+        \item Taking example of any two signals, derive auto-correlation, cross-correlation and convolution graphically. \hfill [3+3+3] (\texttt{82 Ka})
+
+        \item What is autocorrelation and crosscorrelation of a signal? \hfill [2] (\texttt{79 Ash})
+
+        \item Perform convolution of the following signals, by graphical method. \hfill [6] (\texttt{81 Ash})
+          \begin{tikzpicture}
+            \draw[->] (-0.5,0) -- (3,0) node[right] {$t$};
+            \draw[->] (0,-0.5) -- (0,2) node[above] {$X_1(t)$};
+            \draw[thick,red] (0,1) -- (2,1) -- (2,0);
+            \node[below] at (1,0) {1};
+            \node[below] at (2,0) {2};
+            \node[left] at (0,1) {1};
+          \end{tikzpicture}
+          \hspace{2cm}
+          \begin{tikzpicture}
+            \draw[->] (-0.5,0) -- (3,0) node[right] {$t$};
+            \draw[->] (0,-2) -- (0,2) node[above] {$X_2(t)$};
+            \draw[thick,red] (0,1) -- (1,1) -- (1,-1) -- (2,-1) -- (2,0);
+            \node[below left] at (1,0) {1};
+            \node[below right] at (2,0) {2};
+            \node[left] at (0,1) {1};
+          \end{tikzpicture}
+
 
         \item Derive auto-correlation, cross-correlation and convolution of the following two signals graphically:\\
         \begin{tikzpicture}
@@ -442,6 +489,7 @@
     \subsubsection{Generation of DSB-FC AM (Balanced, Ring Modulators)}
       \begin{enumerate}
         \item Derive the expression for double tone AM. \hfill [3] (\bo{\texttt{80 Ch}}) [6] (\bo{\texttt{79 Ch}})
+          \lb and draw its line spectrums. \hfill [5] (\texttt{82 Ka})
 
         \item Find the time domain and frequency domain expressions for signle tone DSB-FC AM modulated wave. Also, show the spectrum of the modulated signal. \hfill [3+3+3] (75 Ba)
 
@@ -450,7 +498,8 @@
         \item Describe the process of generating DSB-SC AM using Balance Modulator. \hfill [5] (\bo{75 Bh})
 
         \item Explain Ring Modulator method of generating DSB-SC signal. \hfill [5] (\bo{70 Bh})
-        \lb with waveforms and necesary derivation. \hfill [6] (73 Ma) [8] (\bo{74 Bh})
+          \lb with waveforms and necesary derivation. \hfill [6] (73 Ma) [8] (\bo{74 Bh})
+          \lb with neat and clean diagram. \hfill [6] (\texttt{79 Ash})
 
         \item Explain the method of conventional AM generation by using switching modulator. \hfill [6] (\bo{73 Bh})
 
@@ -540,6 +589,8 @@
       \begin{enumerate}
         \item What is the limitation of square law detector for DSB-AM detection? \hfill [2] (70 Ma)
 
+        \item With the help of neat circuit diagram, explain the operation of square law detector. \hfill [6] (\texttt{82 Ka})
+
         \item Write short notes on: Envelope Detector. \hfill [4] (\bo{76 Bh})
         \lb Explain envelope detector. Include in your explanation how the values of capacitor and resistor can be chosen so that the output of detector is the envelope of the signal as its input. \hfill [6] (\bo{70 Bh})
 
@@ -559,6 +610,8 @@
   \subsection{Phase Locked Loop (PLL) in AM}
     \subsubsection{PLL: basic concepts, definition, equations and applications}
       \begin{enumerate}
+        \item What is PLL? \hfill [2] (\texttt{79 Ash})
+
         \item Write short notes on: Phase Locked Loop. \hfill [5] (\bo{79 Ch})
 
         \item What are the essential components that constitute PLL? \hfill [2] (\bo{74 Bh})
@@ -581,6 +634,10 @@
 
   \subsection{Numericals}
     \begin{enumerate}
+      \item Calculate the percentage power saved in: (i) DSB-SC (ii) SSB-SC as compared to standard AM if the modulation depth is 60\%. \hfill [2+2] (\texttt{80 Ash})
+
+      \item Calculate the power saving mode for double side band AM signal and single side band AM signal for percentage modulation of 60\%. \hfill [6] (\texttt{79 Ash})
+        
       \item For the given modulated signal draw line spectrums. \hfill [3] (\bo{\texttt{80 Ch}})\\
       $s(t)\ =\ 50 \cos(2\ \pi\ 10^6t\ +\ 60^0)\ -\ 15\ \cos(2\ \pi\ 10^6t\ - 60^0)\ +\ 20\sin(4\ \pi\ 10^4t\ -\ 190^0)\ +\ \sin(2\ \pi\ 10^4t\ + 190^0)$.
 
@@ -684,12 +741,15 @@
       \begin{enumerate}
         \item Find the time domain and frequency domain expression of single tone modulated FM signal.
         \enter\hfill [3+3] (75 Ba)
+
+        \item With the help of necessary mathematical expression of Bandwidth and Modulation Index, differentiate between AM and FM. \hfill [6] (\texttt{81 Ash})
       \end{enumerate}
 
     \subsubsection{Spectral representation using Bessel's function}
     \subsubsection{Bessel's function properties}
       \begin{enumerate}
         \item What are the properties of Bessel function? \hfill [2] (\bo{76 Bh})
+          \lb short notes on bessel function. \hfill [4] (\texttt{79 Ash})
 
         \item Derive expression for single tone modulated FM signal in terms of Bessel coefficients. \hfill [8] (\bo{75 Bh})
         \lb Find the time domain expression for single tone FM modulated waves in terms of Bessel coefficients.
@@ -710,6 +770,7 @@
     \subsubsection{Narrow and wideband FM}
       \begin{enumerate}
         \item Define narrow band and wide band FM. \hfill [2] (76 Ba)
+          \lb Differentiate. \hfill [3] (\texttt{79 Ash})
 
         \item How is the spectrum of Narrow band FM similar to and different from the spectrum of conventional AM? \hfill [5] (\bo{70 Bh})
 
@@ -723,7 +784,7 @@
   \subsection{Generation and Demodulation}
     \subsubsection{Generation of FM (direct and Armstrong's method)}
       \begin{enumerate}
-        \item Explain the Armstrong's method for Frequency Modulation. \hfill [4] (\bo{\texttt{80 Ch}}) [6] (73 Ma)
+        \item Explain the Armstrong's method for Frequency Modulation. \hfill [4] (\bo{\texttt{80 Ch}, 79 Ash}) [6] (73 Ma)
         \lb Explain how NBFM is generated by Armstrong's method. \hfill [5] (\bo{70 Bh})
 
         \item Explain the process of generation of wide band FM wave using Armstrong method. \hfill [6] (76 Ba)
@@ -734,7 +795,7 @@
     \subsubsection{Demodulation of FM and PM signals}
     \subsubsection{Synchronous (PLL) and non-synchronous (limiter-discriminator) demodulation}
       \begin{enumerate}
-        \item What is the role of amplitude limiter in limiter discriminator method? \hfill [2] (\bo{76 Bh}, 70 Ma)
+        \item What is the role of amplitude limiter in limiter discriminator method? \hfill [2] (\bo{76 Bh}, \texttt{79 Ash}, 70 Ma)
 
         \item Explain demodulation of FM using limiter-discriminator method. \hfill [6] (71 Ma) [7] (\bo{71 Bh})
 
@@ -748,6 +809,7 @@
       \begin{enumerate}
         \item Explain the stereo FM encoder and decoder with spectral diagram. \hfill [7] (\bo{\texttt{78 Ch}})
         \lb With functional block diagrams and spectral details explain the operation of stereo encoder and decoder. \hfill [5+5] (\bo{79 Ch})
+        \lb Explain the functioning of stereo encoder and decoder in commercial FM with clear diagram. \hfill [5] (\texttt{79 Ash})
 
         \item Draw the block diagram of stereo FM encoder and decoder. Explain each block briefly.
         \enter\hfill [8] (76 Ba)
@@ -763,6 +825,8 @@
 
     \subsubsection{The super-heterodyne radio receivers for AM/FM}
       \begin{enumerate}
+        \item What is superheterodyne AM receiver? \hfill [2] (\texttt{79 Ash})
+
         \item Explain the operation of superheterodyne radio receiver. \hfill [5] (\bo{70 Bh}) [8] (\bo{80 Ch}, 71 Ma)
 
         \item Write short notes on: Super heterodyne Receiver. \hfill [4] (\bo{74 Bh}, 76 Ba) [5] (70 Ma)
@@ -780,6 +844,8 @@
 
   \subsection{Numericals}
     \begin{enumerate}
+      \item A modulated signal is given by s(t) = $40 \cos(100.1 \times 10^6 \times 2\pi t + 10 \sin(15 \times 10^3 \times 2\pi t))$. Determine (i) practical bandwidth (ii) frequency sensitivity (iii) frequency deviation and (iv) modulation index. \hfil [8] (\texttt{79 Ash})
+
       \item The equation of angle modulated signal is v(t) = $12\ \sin(10^6t\ +\ 5\sin(10^4t))$. Determine the following:
       \enter a. Carrier frequency \hfill [4x 1.5] (\bo{80 Ch})
       \enter b. Modulating frequency
@@ -850,13 +916,13 @@
         \item Encode “Engineer Ko Betha Arulai Ke Thaha” using Huffman Encoder and calculate the transmission efficiency. Find the codeword if the message is received as “Engineer Ko Betha Ke Ke”. 
         \enter\hfill [7+2+3] (\bo{\texttt{81 Ch}})
 
+        \item Encode 'Phoola Ko Thunga Bahera Gayo Ganga Ko Panima' using Shannon-Fano coding technique and calculate transmission efficiency. \hfill [6+2] (\texttt{81 Ash})
+
+        \item Encode ``Ma Mare Pani Mero Desh Bachi Rahos" using Shannon-Fano codes and calculate its efficiency. \hfill [8] (\texttt{80 Ash})
+
         \item Encode the message "Mississipi is missing" using weighted Huffman code and calculate transmission efficiency. \hfill [8] (\bo{\texttt{80 Ch}})
 
         \item Encode "Kun Mandir Ma Janchhau Yatri" using Huffman codes and finds its efficiency. \hfill [8] (\bo{\texttt{79 Ch}})
-        
-        \item A DMS has five symbols with probability of p(x$_1$) = 0.4, p(x$_2$) = 0.19, p(x$_3$) = 0.16, p(x$_4$) = 0.15 and p(x$_5$) = 0.1. Construct the Huffman code for X and calculate its efficiency and compare with fixed Length coding. \hfill [4] (81 Ba)
-        
-        \item A DMS has size symbols with probability of p(x$_1$) = 0.3, p(x$_2$) = 0.2, p(x$_3$) = 0.25, p(x$_4$) = 0.12, p(x$_5$) = 0.08 and p(x$_6$) = 0.05. Construct Shannon - Fano code for X and calculate its efficiency and code Redundancy. \hfill [5] (80 Ba)
         
         \item A discrete memoryless source has an alphabet of seven symbols whose probabilities occurrence are as under:
         \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -866,29 +932,34 @@
         \end{tabular}
         Determine the Huffman code for above source. \hfill [5] (\bo{79 Bh})
         
+        \item A DMS has five symbols with probability of p(x$_1$) = 0.4, p(x$_2$) = 0.19, p(x$_3$) = 0.16, p(x$_4$) = 0.15 and p(x$_5$) = 0.1. Construct the Huffman code for X and calculate its efficiency and compare with fixed Length coding. \hfill [4] (81 Ba)
+        
+        \item A discrete memory less source emits one of the eight symbols with probabilities P = \{ 0.25, 0.2, 0.15, 0.08, 0.07, 0.03, 0.02 \}. If the output symbols are encoded using Huffman code, find the coding efficiency and output bit if the symbol rate of the source is 1000 symbols per second. \hfill [4+2] (71 Shr)
+        
+        \item A discrete memoryless source has an alphabet of five symbols S$_0$, S$_1$, S$_2$, S$_3$, S$_4$ with probabilities of 0.55, 0.15, 0.15, 0.1 and 0.05 respectively. Determine the Huffman code for each symbol and calculate high the coding efficiency. \hfill [2+2] (74 Ash)
+        
+        \item If a source emits symbols X$_i$ = \{ A, B, C, D, E, F \} in the BCD format with probabilities P(X$_i$) = \{ 0.3, 0.1, 0.02, 0.15, 0.4, 0.03 \} at a rate R$_5$ = 14.4 kBaud, find the following: \hfill [5] (\bo{72 Ch})
+        \enter a. Information rate
+        \enter b. Coding efficiency both with BCD and Huffman coded signal
+        
+        \item Develop Huffman coding of a 5 symbol source with probabilities: S$_0$ = 0.3, S$_1$ = 0.25, S$_2$ = 0.2, S$_3$ = 0.15, S$_4$ = 0.1. And also calculating coding efficiency. \hfill [3+1] (70 Asa)
+        
+        \item Encode ``Rain Rain Go To Spain" using Shannon-Fano encoder and calculate the transmission efficiency. Find the codeword if the message is received as ``Rain Rain Go Go Spain". \hfill [2+3] (\texttt{82 Ka})
+        \item A DMS has size symbols with probability of p(x$_1$) = 0.3, p(x$_2$) = 0.2, p(x$_3$) = 0.25, p(x$_4$) = 0.12, p(x$_5$) = 0.08 and p(x$_6$) = 0.05. Construct Shannon - Fano code for X and calculate its efficiency and code Redundancy. \hfill [5] (80 Ba)
+        
         \item Calculate coding efficiency of a six symbol source with probabilities P = { 0.36, 0.18, 0.12, 0.09, 0.07 } using Shannon Fano and Huffman's coding techniques. \hfill [8] (\bo{76 Ch})
         
         \item Compute coding efficiency of a source with symbols \{ A$_0$, A$_1$, A$_2$, A$_3$, A$_4$\} with corresponding probabilities {0.4, 0.3, 0.15, 0.1, 0.05} using (i) Binary coding (ii) Shannon-Fano Coding (iii) Binary Huffman Coding. \hfill [2+2+2] (76 Ash)
 
         \item A DMS emits one of the seven symbol with probabilities P = [ 0.25, 0.2, 0.15, 0.08, 0.07, 0.03, 0.02 ]. Find the coding efficiency, code redundancy for both Shannon-Fano coding and Fixed length coding and compare result. \hfill [6] (\bo{75 Ch})
         
-        \item A discrete memory less source emits one of the eight symbols with probabilities P = \{ 0.25, 0.2, 0.15, 0.08, 0.07, 0.03, 0.02 \}. If the output symbols are encoded using Huffman code, find the coding efficiency and output bit if the symbol rate of the source is 1000 symbols per second. \hfill [4+2] (71 Shr)
-        
         \item Six messages are transmitted with probabilities 0.3, 0.08, 0.1, 0.15, 0.25 and 0.12 respectively. Obtain their respective shannon-fano and Huffamn's codes and code efficiencies. \hfill [8] (75 Ash)
-        
-        \item A discrete memoryless source has an alphabet of five symbols S$_0$, S$_1$, S$_2$, S$_3$, S$_4$ with probabilities of 0.55, 0.15, 0.15, 0.1 and 0.05 respectively. Determine the Huffman code for each symbol and calculate high the coding efficiency. \hfill [2+2] (74 Ash)
         
         \item The source of information symbols \{ A0, A1, A2, A3 and A4\} have corresponding probabilities \{ 0.4, 0.3, 0.15, 0.1 and 0.05\}. Encode the source symbols using Huffman encoder and Shannon-Fano encoder and compare their efficiency. \hfill [8] (\bo{74 Ch})
         
         \item A discrete memory less source emits five symbols with probabilities P = {0.3, 0.25, 0.2, 0.15, 0.1}, find coding efficiency for both fixed and shannon-fano coding and compare results. \hfill [4] (\bo{73 Ch})
         
-        \item If a source emits symbols X$_i$ = \{ A, B, C, D, E, F \} in the BCD format with probabilities P(X$_i$) = \{ 0.3, 0.1, 0.02, 0.15, 0.4, 0.03 \} at a rate R$_5$ = 14.4 kBaud, find the following: \hfill [5] (\bo{72 Ch})
-        \enter a. Information rate
-        \enter b. Coding efficiency both with BCD and Huffman coded signal
-        
         \item A discrete memory less source emits four symbols with probabilities P = \{ 0.125, 0.125, 0.25, 0.5 \}. If the output symbols are encoded using Shannon-Fano code, find the coding efficiency and compare the coding efficiency with that of BCD  code. \hfill [4+2] (\bo{71 Ch})
-        
-        \item Develop Huffman coding of a 5 symbol source with probabilities: S$_0$ = 0.3, S$_1$ = 0.25, S$_2$ = 0.2, S$_3$ = 0.15, S$_4$ = 0.1. And also calculating coding efficiency. \hfill [3+1] (70 Asa)
       \end{enumerate}
 
     \subsubsection{Coding of continuous time signals (A/D conversion)}
@@ -1043,6 +1114,8 @@
     \subsubsection{Non-uniform quantization}
     	\begin{enumerate}
     		\item Elaborate on the technique of implementing non-uniform quantization using uniform quantization technique. \hfill [5] (\bo{81 Bh})
+
+        \item Why is non-uniform quantization required? \hfill [3] (\texttt{80 Ash})
     		
     		\item Differentiate between uniform quantization and non-uniform quantization. \hfill [2] (74 Ash) [4] (\bo{73 Ch})
     		
@@ -1097,11 +1170,14 @@
         \item List out merits and demerits of Delta and Adoptive Delta Modulations. \hfill [2] (\bo{\texttt{80 Ch}})
         \lb Explain the principles of Adaptive Delta Modulation (ADM). \hfill [5] (\bo{79 Bh})
         
-        \item Write short notes on: Adaptive Delta Modulation. \hfill [4] (72 Ka)
+        \item Write short notes on:
+          \lb Delta Modulation. \hfill [3] (\texttt{81 Ash})
+          \lb Adaptive Delta Modulation. \hfill [4] (72 Ka)
 
         \item Compare PCM, DPCM and Delta Modulation. \hfill [3] (\bo{\texttt{79 Ch}})
         \lb Compare between PCM and DM. \hfill [1] (\bo{75 Bh})
 
+        \item Consider a sinusoidal signal m(t) = A $\cos(\omega_m t)$ applied to a delta modulator with step seize $\Delta$. Show that the slope overload distortion will occur if > $\dfrac{\Delta}{\omega_m T_s}$. \hfill [3] (\texttt{82 Ka})
         \item A delta modulator system is designed to operate at 5 times the Nyquist rate for a signal having a bandwidth equal to 3kHz bandwidth. Calculate the maximum aplitude of a 2kHz sinusoidal for which the delta modulator does not have slope overload. The given step size is 250 mV. \hfill [4] (\bo{\texttt{78 Ch}})
         
         \item Find the Nyquist rate and the interval for m(t) = $\sin^2(400\pi t)$ \hfill [4] (76 Ash)
@@ -1168,10 +1244,11 @@
       \begin{enumerate}
         \item Explain Shannon-Hartley channel capacity theorem. \hfill [1] (\bo{71 Ch}) [2] (\bo{72 Ch})
           \lb with example \hfill [3] (\bo{\texttt{80 Ch}})
+          \lb with implication. \hfill [4] (\texttt{80 Ash})
           \lb with implication and theoretical limits. \hfill [6] (80 Ba, 75 Ash)
           \lb\lo with example. \hfill [8] (76 Ash)
         
-        \item Write down theoretical limitations of Shannon-Hartley theorem. \hfill [3] (\bo{72 Ch, 71 Ch})
+        \item Write down theoretical limitations of Shannon-Hartley theorem. \hfill [2] (\texttt{82 Ka}) [3] (\bo{72 Ch, 71 Ch})
         
         \item Derive the expression which shows the limit of Shannon's channel capacity theorem when bandwidth tends to infinity. \hfill [6] (\bo{76 Ch})
         
@@ -1186,6 +1263,8 @@
   \subsection{Line Coding}
       \begin{enumerate}
     		\item Write short notes on: Line codes. \hfill [4] (72 Ka)
+
+        \item Explain the aim of line coding. \hfill [2] (\texttt{80 Ash})
     	\end{enumerate}
     \subsection{Unipolar (NRZ, RZ)}
       \begin{enumerate}
@@ -1200,6 +1279,9 @@
             110011000001 & \checkmark & & 2: \bo{\texttt{80 Ch}} \\ \hline
             1101010111 & & \checkmark & 2: \bo{\texttt{80 Ch}} \\ \hline
             101100001000000000111 & & \checkmark & 1.5: 76 Ash \\ \hline
+            1011000010000000000 & & \checkmark & 1.5: \texttt{82 Ka} \\ \hline
+            100100000111 & & \checkmark & 2: \texttt{82 Ash} \\ \hline
+            100111010 & & \checkmark & 1.5: \texttt{80 Ash} \\ \hline
           \end{tabular}
       \end{enumerate}
 
@@ -1223,6 +1305,7 @@
             1101010011 & \checkmark & \checkmark & & 1: \bo{73 Ch} \\ \hline
             101100001000000000111 & \checkmark & \checkmark & & 1.5: 76 Ash \\ \hline
             10110101 & \checkmark & & & 1: 75 Ash \\ \hline
+            1011000010000000000 & \checkmark & & & 1.5: \texttt{82 Ka} \\ \hline
           \end{tabular}
 
         \item Extra:
@@ -1248,6 +1331,7 @@
             1011001010 & \checkmark & & & 1: \bo{70 Ch}, 73 Shr \\ \hline
             1101010111 & \checkmark & & & 1: \bo{73 Ch} \\ \hline
             101100001000000000111 & \checkmark & & & 1.5: 76 Ash \\ \hline
+            100111010 & \checkmark & & & 1.5: \texttt{70 Ash} \\ \hline
           \end{tabular}
 
         \item Extra:
@@ -1272,6 +1356,9 @@
             1101010111 & & \checkmark & & & & 1: 81 Ba \\ \hline
             1011001010 & & \checkmark & & & & 1: \bo{70 Ch}, 73 Shr \\ \hline
             1101010011 & & \checkmark & & & & 1: \bo{73 Ch} \\ \hline
+            1011000010000000000 & & \checkmark & \checkmark & & & 3: \texttt{82 Ka} \\ \hline 
+            100100000111 & & \checkmark & & \checkmark & & 2: \texttt{81 Ash} \\ \hline
+            100111010 & \checkmark & \checkmark & & & & 3: \texttt{80 Ash}\\ \hline
           \end{tabular}
 
         \item Extra:
@@ -1362,6 +1449,8 @@
   \subsection{Binary Digital Modulations}
     \subsubsection{ASK, PSK, FSK, DPSK, QPSK implementation}
       \begin{enumerate}
+        \item Write short notes on: ASK, PSK and FSK. \hfill [4] (\texttt{79 Ash})
+
         \item Explain the modulation scheme for MSK with appropriate example. \hfill [4] (\bo{\texttt{80 Ch}})
         
         \item Discuss Gaussian Minimum Shift Keying (GMSK) with its advantage. \hfill [5] (81 Ba)
@@ -1400,12 +1489,16 @@
       \begin{enumerate}
         \item What is QAM, why is it necessary? \hfill [3] (\bo{74 Bh})
         \lb What is the significance of constellation diagram? \hfill [2] (\bo{\texttt{80 Ch}})
-
+ 
         \item Explain generation and detection of QAM wave. [4] (\bo{74 Bh})
         
         \item Explain the working of Quadrature Amplitude Modulation (QAM) with appropriate modulation, demodulation block, and constellation diagram. \hfill [5] (\bo{81 Bh})
 
+        \item Describe QAM and prepare constellation diagram of 16-QAM. \hfill [4] (\texttt{80 Ash})
+          
         \item Define an efficient constellation diagram of a 32-QAM. \hfill [3] (\bo{\texttt{81 Ch}})
+
+        \item Short notes on: Constellation diagram of 32-QAM \hfill [3] (\texttt{82 Ka})
       \end{enumerate}
 
     \subsubsection{Four phase PSK systems}
@@ -1452,6 +1545,10 @@
   \subsection{Noise Characterization}
     \subsubsection{White noise and thermal noise}
     \subsubsection{Band-limited white noise}
+      \begin{enumerate}
+        \item Write short notes: Band limited white noise vs thermal noise. \hfill [4] (\texttt{81 Ash})
+      \end{enumerate}
+
     \subsubsection{PSDF and AC function of white noise}
   \subsection{Noise in Linear Systems}
     \subsubsection{Passage of random signals through a LTI system}
@@ -1500,6 +1597,8 @@
         \item Find the impulse response of optimum detector in the presence of additive white noise. \hfill [5] (\bo{79 Bh}) [6] (\bo{\texttt{80 Ch}, 81 Bh, 71 Ch}, 76 Ash)
         
         \item Derive the expression of impulse response of the matched filter. \hfill [6] (81 Ba) [8] (74 Ash)
+
+        \item Short notes on: Impulse response of a matched filter for an AWGN channel \hfill [3] (\texttt{82 Ka})
         
         \item What are the physical constraints in implementing Nyquist pulse shaping criteria? \hfill [4] (\bo{80 Bh})
       \end{enumerate}
@@ -1542,6 +1641,8 @@
     		\item  Evaluate the noise performance of the coherent detection of DSB-FC using necessary derivations. Use the result ot evaluate the noise performance of the signal-tone DSB-FC modulation with 100\% modulation. \hfill [2] (81 Ba)
     		
     		\item With necessary derivation, compare noise performance of DSB-AM, DSB-SC, SSB-SC. \hfill [8] (\bo{72 Ch})
+
+        \item Explain the coherent detection and phase error effect of DSB Am. \hfill [4] (\texttt{79 Ash})
     		
     		\item With necessary derivations, compare the noise performance of DSB-SC and SSB-SC modulations in analog communication system. \hfill [6] (71 Shr)
     	\end{enumerate}
@@ -1578,12 +1679,14 @@
 
     \subsubsection{Use of pre-emphasis and de-emphasis circuits in FM}
       \begin{enumerate}
+        \item Explain Pre-emphasis and De-emphasis. \hfill [4+4] (\texttt{80 Ash})
+
+        \item Write short notes on: Pre-emphases and de-emphases. \hfill [4] (\bo{72 Ash})
+
         \item Why do we need pre-emphasis and de-emphasis circuits in FM? Explain. \hfill [4] (\bo{\texttt{80 Ch}})
         \lb Why pre-emphasis and de-emphasis circuits are required in commercial FM broadcasting? \hfill [2] (70 Ma)
 
         \item Why pre-emphasis and de-emphasis circuits are used in commercial FM broadcasting? \hfill [3] (\bo{75 Bh})
-
-        \item Write short notes on: Pre-emphases and de-emphases. \hfill [4] (\bo{72 Ash})
 
         \item Why pre-emphases is needed in FM during transmission? \hfill [2] (71 Ma)
       \end{enumerate}
@@ -1623,20 +1726,28 @@
 \section{Multiplexing}
   \begin{center}(2 Hours / 3 Marks)\end{center}
 
+  \begin{enumerate}
+    \item Write short notes: Multiplexing vs multiple access. \hfill [4] (\texttt{81 Ash})
+  \end{enumerate}
+
   \subsection{Frequency Division Multiplexing (FDM)}
     \subsubsection{Principle of FDM}
       \begin{enumerate}
         \item Define FDM. \hfill [2] (\bo{75 Bh}, 75 Ba) [4] (\bo{79 Ch})
 
         \item Write short notes on: FDM. \hfill [5] (\bo{73 Bh}, 70 Ma)
-        \lb Describe the principle of frequency division multiplexing (FDM). \hfill [2] (\bo{71 Bh})
+          \lb Describe the principle of frequency division multiplexing (FDM). \hfill [2] (\bo{71 Bh})
+
+        \item Briefly explain filter and oscillator requirement in FDM. \hfill [4] (\texttt{80 Ash}) [3+3] (\texttt{79 Ash})
       \end{enumerate}
 
     \subsubsection{FDM in telephony and hierarchy}
       \begin{enumerate}
-        \item Explain FDM hierarchy used in telephony. \hfill [5] (75 Ba) [6] (\bo{79 Ch, 75 Bh})
-        \lb Write short notes on: FDM in telephony. \hfill [4] (\bo{76 Bh}, 76 Ba)
-        \lb Write short notes on: FDM Telephone Hierarchy. \hfill [5] (\bo{70 Bh})
+        \item Explain FDM hierarchy used in telephony. \hfill [3] (\texttt{79 Ash}) [5] (75 Ba) [6] (\bo{79 Ch, 75 Bh})
+          \lb Write short notes on: FDM in telephony. \hfill [4] (\bo{76 Bh}, 76 Ba)
+          \lb Write short notes on: FDM Telephone Hierarchy. \hfill [5] (\bo{70 Bh})
+
+        \item Show that for a voice transmission, the basic data rate using PCM is 64 kbps. \hfill [4] (\texttt{80 Ash})
       \end{enumerate}
 
     \subsubsection{Frequency Division Multiple Access (FDMA) systems (SCPC, DAMA, SPADE)}
@@ -1668,6 +1779,10 @@
     \end{enumerate}
 
     \subsubsection{Time Division Multiplexing with PCM}
+      \begin{enumerate}
+        \item Write short notes on: Packet vs Message switching. \hfill [3] (\texttt{82 Ka}) [4] (\texttt{80 Ash})
+      \end{enumerate}
+
     \subsubsection{Data rate and bandwidth of a PCM signal}
       \begin{enumerate}
         \item Prove that signaling rate for time division multiplexing of 24 voice channels is equal to 1.544 Mbps. \hfill [8] (\textit{71 Ma})
@@ -1677,7 +1792,9 @@
       \begin{enumerate}
         \item Write short notes on: T1 and E1 hierarchy used in telephony. \hfill [5] (\bo{81 Ch})
         
-        \item Draw T1 and E1 telephony hierarchy. \hfill [2] (\bo{\texttt{78 Ch}})
+        \item T1 and E1 telephony hierarchy.
+          \lb Short notes. \hfill [4] (\texttt{81 Ash})
+          \lb Draw \hfill [2] (\bo{\texttt{78 Ch}})
         
         \item Explain T1 digital carrier system with its multiplexing hierarchy. \hfill [5] (\bo{79 Bh})
         
@@ -1726,8 +1843,20 @@
       \begin{enumerate}
       	\item What is the significance of (d$_{min}$) minimum hamming distance? \hfill [2] (\bo{81 Bh})
       	
+        \item Solution on: a (7, 4) polynomial cyclic Hamming code given by g(x) = 1 + x + x\super{3} \hfill [3] (\texttt{82 Ka})
+
+        \item With a suitable aassumption for a code word of C(7, 4) show how hamming code detects an error. \hfill [8] (\texttt{81 Ash})
+
+        \item With suitable examples, introduce CRC-3 and LBC work to correct a single bit error. \hfill [5+5] (\texttt{82 Ka})
+          \lb Check whether the received code word 110111 as has error or not7. \hfill [7] (\texttt{82 Ka})\\
+          (\textbf{NOTE}: \textit{I have copy pasted the question literally as it is. It is not mentioned which coding to perform. I decided to put this question as sub-question of CRC-3, in the paper its a completely new question.})
+
       	\item What is binary Cyclic code? \hfill [1] (70 Asa) [2] (80 Ba)
       	
+        \item Construct a (7, 4) binary CRC using a generator polynomial g(x) = $x^3 + x^2 + 1$ with data vector (1011). \hfill [5] (\texttt{80 Ash})
+
+        \item Demonstrate how CRC-4 detects two burst error. \hfill [5] (\texttt{80 Ash})
+
       	\item Construct a (7, 4) binary Cyclic Code using a generator polynomial g(x) = x$^3$ + x$^2$ + 1 with data vector (1011). \hfill [4] (70 Asa) [6] (74 Ash) [8] (80 Ba)
       	
       	\item The generator polynomial of a (7, 4) cyclic code is g(x) = 1 + x + x$^3$. Find the code for the message vector 1011 in a non-systematic and systematic form. \hfill [6] (\bo{70 Ch})
@@ -1814,6 +1943,10 @@
 
     \subsubsection{Decoding algorithms for convolutional codes}
       \begin{enumerate}
+        \item Single bit error correction using Viterbi decoder \hfill [3] (\texttt{82 Ka})
+
+        \item With suitable example of input bit stream show State Diagram, Code Tree and Trellis diagram, demonstrate how a convolutional code corrects a signle error. \hfill [6+4] (\texttt{81 Ash})
+
         \item Design a convolution encoder having code-rate of $\frac{1}{2}$. Also, draw the code-tree and trellis diagram for the same assuming any three-bit input. \hfill [4+4] (\bo{\texttt{79 Ch}})
         
         \item The 1/3 rate convolutional encoder with constraint length equal to 3 has following three generator sequences each of length 3. \hfill [3] (\bo{76 Ch})\\
