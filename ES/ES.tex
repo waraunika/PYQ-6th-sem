@@ -86,12 +86,13 @@
       \item What are the typical characterstics of embedded system ? \hfill [3] (\bo{72 Ash}, 73 Ma)
         \lb unique characterstics. \hfill [3] (78 Po)
       
-      \item How does digital camera satisfy embedded system characterstics. \hfill [1] (\bo{72 Ash})
       
       \item How embedded system differing than general purpose computing system? \hfill [4] (71 Ma)
         \lb explain with purpose of embedded system. \hfill [4] (\texttt{80 Ash})
 
-      \item Clarify the statement `Digital Camera is a good example of an Embedded System'. \hfill [3] (\bo{74 Bh})
+      \item Draw the block diagram of a digital camera as an example of embedded system and explain it. \hfill [4] (\texttt{79 Ash})
+        \lb Clarify the statement `Digital Camera is a good example of an Embedded System'. \hfill [3] (\bo{74 Bh})
+        \lb How does digital camera satisfy embedded system characterstics. \hfill [1] (\bo{72 Ash})
 
       \item Using the simplified revenue model, derive the percentage revenue loss equation for any rise angle, rather than just 45 degrees. \hfill [2] (\bo{70 Bh})
     \end{enumerate}
@@ -164,7 +165,7 @@
     \begin{enumerate}[topsep=0pt, noitemsep]
       \item What is optimization? \hfill [2] (79 Jth) [4] (\bo{75 Bh, 70 Bh})
 
-      \item Explain in detail about the optimization of custom single purpose processor with a suitable example. \hfill [6] (79 Jth)
+      \item Explain in detail about the optimization of custom single purpose processor with a suitable example. \hfill [6] (79 Jth) [8] (\texttt{79 Ash})
       
       \item What are the parameter you consider for optimization of single purpose processor? \hfill [4] (\bo{75 Bh}) 
 
@@ -217,12 +218,17 @@
     \begin{enumerate}[topsep=0pt]
       \item Define Addressing modes. \hfill [1] (72 Mg)
 
+      \item Differentiate between super scalar and VLIW architecture. \hfill [5] (79 Jth)
+
       \item Explain software development process with the view of embedded systems. \hfill [4] (\texttt{82 Ka})
         \lb Explain software development procedure shoing implementation oand verification phase.
         \enter\hfill [5] (\texttt{81 Ash})
 
       \item Describe programmer's view in the context of software development for general purpose processor. \hfill [4] (\bo{76 Bh, 74 Bh}, \texttt{82 Ka}, 73 Ma) [5] (\bo{80 Ch})
+
+      \item Briefly explain programmer's consideration on general purpose processors.  \hfill [6] (\texttt{79 Ash})
     \end{enumerate}
+
   \subsection{Development Environment}
     \begin{enumerate}[topsep=0pt]
       \item Define Debugger, Simulator, testing and Emulator \hfill [4] (\bo{80 Ch})
@@ -240,6 +246,8 @@
       \item Differentiate between application specific instruction set-processor and general purpose processor. Also discuss on issues related to selection of a particular processor. \hfill [8] (70 Ma)
       
       \item How GPP differ from ASIPs? \hfill [4] (\bo{73 Bh, 70 Mg}) 
+
+      \item What ASIP serve as a compromise between the general-purpose processor and single purpose processors? \hfill [2] (\texttt{79 Ash})
 
       \item Describe different forms of ASIP? \hfill [4] (78 Po)
     \end{enumerate}
@@ -266,6 +274,8 @@
         \enter\hfill [1.5] (\bo{75 Bh, 74 Bh, 72 Ash}) [2.5] (\bo{77 Ch, 76 Bh})
 
       \item Define write ability with its different levels. \hfill [3] (78 Po)
+
+      \item Explain storage permanence and write ability of different memories. \hfill [3] (\texttt{79 Ash})
 
       \item Explain the operation of storing data in One Time Programmable ROM. \hfill [2] (75 Ba) [3] (\bo{78 Ch})
 
@@ -361,6 +371,8 @@
 
   \subsection{Memory Hierarchy and Cache}
     \begin{enumerate}
+      \item Describe write policy and replacement algorithm used in cache memory. \hfill [5] (\texttt{79 Ash})
+
       \item Explain memory hierarchy. \hfill [3] (\texttt{81 Ash})
 
       \item What is cache memory? \hfill [2] (\bo{71 Bh})
@@ -404,11 +416,13 @@
       \item Explain the needs of interfacing. \hfill [2] (\bo{80 Ch, 77 Ch}, 78 Po)
 
       \item Explain control methods used for communication in interfacing. \hfill [3] (\bo{78 Ch})
+
     \end{enumerate}
 
   \subsection{Microprocessor Intefacing: I/O Addressing, Interrupts, DMA}
     \begin{enumerate}
       \item What is the difference between memory-mapped I/O and standard I/O. \hfill [3] (\bo{72 Ash})
+        \lb and isolated I/O. \hfill [3] (\texttt{79 Ash})
 
       \item How interrupts are interfaced with microprocessor? \hfill [4] (79 Jth)
 
@@ -445,6 +459,7 @@
       \item Explain different types of arbitration methods used in peripherals devices to gain control of system bus. \hfill [4] (\bo{70 Bh})
 
       \item Explain Priority arbitration. \hfill [3] (\bo{73 Bh}) [5] (\bo{80 Ch})
+        \lb with block diagram and steps. \hfill [5] (\texttt{79 Ash})
       \lb with proper illustration and types. \hfill [5] (\bo{77 Ch})
       \lb and compare with daisy-chain arbitration. \hfill [5] (\bo{74 Ch})
 
@@ -502,7 +517,7 @@
 
   \subsection{Task, Process, and Threads}
     \begin{enumerate}
-      \item Differentiate between process and thread. \hfill [3] (\bo{81 Ch, 79 Ch}, 70 Ma) [4] (73 Ma)
+      \item Differentiate between process and thread. \hfill [3] (\bo{81 Ch, 79 Ch}, 70 Ma) [4] (73 Ma) [5] (\texttt{79 Ash})
       \lb any 4. \hfill [2] (\bo{74 Bh})
       \lb atleast 6. \hfill [3] (\bo{71 Bh})
 
@@ -541,7 +556,7 @@
     \begin{enumerate}
       \item Define task scheduling, list out its types and explain the factors affecting on selection of scheduling algorithm. \hfill [4] (75 Ba)
 
-      \item 3 processors with PIDs P1, P2, P3 with estimated completion time 10, 5, 7 ms respectively enter ready queue together. Now a new process with PID 4 with esitmated completion time 2 ms enters ready queue after 2 ms. Calculate waiting time and TAT. Also calculate average waiting time and average TAT using SJF preemptive scheduling algorithm. \hfill [6] (\texttt{81 Ash})
+      \item 3 processors with PIDs P1, P2, P3 with estimated completion time 10, 5, 7 ms respectively enter ready queue together. Now a new process with PID 4 with esitmated completion time 2 ms enters ready queue after 2 ms. Calculate waiting time and TAT. Also calculate average waiting time and average TAT using SJF preemptive scheduling algorithm. \hfill [6] (\texttt{81 Ash, 79 Ash})
 
       \item Three processes P1, P2 and P3 with estimated completion time 5, 8, 7 ms respectively enters the ready queue together. Calculate WT, TAT for each process and calculate AWT and ATAT using Round Robin Pre-emptive scheduling algorithms with time slice of 2 ms. \hfill [6] (\bo{75 Bh})
 
@@ -557,9 +572,10 @@
 
       \item Three processes with process IDs P1, P2, P3 with estimated completion time 8, 6, 10 ms and priorities 0, 3, 2 (0-highest, 3-lowest) respectively, enters the ready queue together in order P1, P2, P3 (assume only P1 is present in the Ready queue when the scheduler picks it up and P2 and P3 enter ready queue after that). Now, a process P4 with estimated completion time 6 ms and priority 1 enters the ready queue after 5 ms of execution of P1. Calculate waiting time and TAT for each process and average waiting time and TAT. Assume there is no I/O waiting for the processes and priority-based scheduling. \hfill [5] (\bo{76 Bh})
         \lb estimated completion times: 7, 8, 5, 10. \hfill [6] (76 Ba)
-        \lb estimated completion times: 10, 5, 7, 6. Priorities: 1, 3, 2, 0. P4 enters ready queue after 5 ms. \hfill [5] (\bo{73 Bh}) [8] (71 Ma)
         \lb esitmated time: 10, 5, 7, 6. priorities: 0, 2, 3, 1. \hfill [6] (78 Po)
         \lb estimated time 7, 10, 8, 4. priorities: 1, 2, 3, 0. \hfill [6] (\texttt{80 Ash})
+        \lb estimated completion times: 10, 5, 7, 6. Priorities: 1, 3, 2, 0. P4 enters ready queue after 5 ms. 
+          \enter\hfill [5] (\bo{73 Bh}) [8] (71 Ma)
 
       \item Consider Four processes with process IDs P1, P2, P3 and P4 with estimated completion time 7, 4, 12, 3 ms, enters the ready queue together. Process P$_5$ with completion time 4 ms enters the ready queue after 2 ms of the scheduling of process P$_1$ starts. Calculate waiting time and turnaround time for each process and average waiting times and average turnaround time in Preemptive Shortet Job First Algorithm. Assume there is no I/O waiting for the process. \hfill [6] (\bo{80 Ch})
 
@@ -581,7 +597,7 @@
 
       \item Explain the conditions favoring deadlock situation. \hfill [2] (\bo{75 Bh})
 
-      \item Define deadlock. \hfill [1] \texttt{82 Ka} [2] (\bo{73 Bh})
+      \item Define deadlock. \hfill [1] (\texttt{82 Ka}) [2] (\bo{73 Bh})
       
       \item Explain the Coffman's condition for deadlock. \hfill [2] (\bo{73 Bh}) [3] (\bo{70 Bh})
         \lb List Coffman Condition for deadlock. [2] (\bo{78 Ch}) [2.5] (\texttt{82 Ka})
@@ -590,6 +606,9 @@
     \end{enumerate}
 
   \subsection{Device Drivers}
+    \begin{enumerate}
+      \item What is device driver? \hfill [2] (\texttt{79 Ash})
+    \end{enumerate}
 
 \pagebreak
 
@@ -598,7 +617,8 @@
   
   \subsection{Open-loop and Close-loop Control System Overview}
     \begin{enumerate}
-      \item Differentiate between open loop and closed loop control system. \hfill [2] (\bo{78 Ch}, 76 Ba) [3] (\bo{75 Bh, 72 Ash}) [4] (\bo{79 Ch}, 78 Po, 78 Po)
+      \item Differentiate between open loop and closed loop control system.
+        \enter\hfill [2] (\bo{78 Ch}, 76 Ba) [3] (\bo{75 Bh, 72 Ash}) [4] (\bo{79 Ch}, 78 Po, 78 Po)
 
       \item Write the steps for designing closed loop control system.
         \lb with example. \hfill [5] (\texttt{80 Ash})
@@ -606,24 +626,30 @@
 
       \item Draw a clear block diagram of a closed-loop control system and explain its various parts. \hfill [4] (71 Ma)
 
+      \item How is closed loop CS better than open loop CS? Explain with example of cruise control system. \hfill [6] (\texttt{79 Ash})
+
       \item Draw a well labeled close lop control system for car cruise controller. \hfill [2] (\texttt{82 Ka})
 
       \item Which system is better for control system? \hfill [2] (76 Ba)
 
       \item What are the evaluation steps used in general control systems input? \hfill [3] (\bo{71 Bh})
 
-      \item Explain different performance metrics of control system using suitable performance response diagram. \hfill [4] (\bo{77 Ch})
-
       \item Define the following terms used in control system: Controller, Plant, Actuator. \hfill [3] (\bo{70 Bh})
     \end{enumerate}
 
   \subsection{Control System and PID Controllers}
     \begin{enumerate}
-      \item What are the challenges of modeling a real physical system and how can you overcome it? \hfill [3] (\bo{74 Bh})
+      \item What are the challenges of modeling a real physical system and how can you overcome it? 
+        \enter\hfill [3] (\bo{74 Bh})
 
       \item Differentiate between P, PI, PD, and PID controllers. \hfill [4] (71 Ma)
 
+      \item Explain different performance metrics of control system using suitable performance response diagram.
+        \enter\hfill [4] (\bo{77 Ch})
+
       \item Explain controller design using PD and PI controller. \hfill [5] (\bo{71 Bh})
+
+      \item Why is an integral controller needed in a control system? \hfill [2] (\texttt{79 Ash})
 
       \item Explain the metrics used to measure the control objectives. \hfill [4] (\bo{76 Bh, 73 Bh})
 
@@ -639,27 +665,26 @@
 
       \item Explain PID control system with block diagram and equations. \hfill [4] (\bo{79 Ch})
 
-
       \item Discuss about the practical issues with computer-based control. Also list the benefit of computer control. \hfill [6+2] (\texttt{81 Ash})
 
-      \item Derive the condition of linear proportional controller for stability and avoid the oscillation. \hfill [6] (\texttt{82 Ka})
+      \item Derive the condition of linear proportional controller for stability and avoid the oscillation.
+        \enter\hfill [6] (\texttt{82 Ka})
     \end{enumerate}
 
   \subsection{Software coding of PID Controller}
     \begin{enumerate}
       \item Write an algorithm for a PID control. \hfill [4] (\bo{77 Ch})
-      \lb Write an algorithm to implement the PID controller in software. \hfill [4] (\bo{73 Bh})
+      \lb Write an algorithm to implement the PID controller in software. \hfill [4] (\bo{73 Bh}) [5] (\bo{74 Ch})
       \lb Write the pseudo-code for PID controller. \hfill [4] (70 Ma)
 
       \item Explain software coding of PID controller. \hfill [4] (\bo{76 Bh})
-      \lb Write an algorithm to implement the PID controller in software. \hfill [5] (\bo{74 Ch})
     \end{enumerate}
 
   \subsection{PID Tuning}
     \begin{enumerate}
       \item How PID Tuning is performed? \hfill [3] (\texttt{80 Ash})
 
-      \item What is the purpose of PID tuning, and what are the benefits of computer based control implementations? \hfill [4] (70 Ma)
+      \item What is the purpose of PID tuning, and what are the benefits of computer based control implementations? \hspace{14.7cm} [4] (70 Ma)
 
       \item Describe PID tuning. \hfill [5] (\bo{75 Bh})
     \end{enumerate}
@@ -667,10 +692,11 @@
   \subsection{Design}
     \begin{enumerate}
       \item Design control system for an automobile cruise control in open-loop control system using proportional control. \hfill [6] (\bo{81 Ch, 78 Ch}) [8] (72 Ma)
-      \lb Draw the block diagram of closed-loop control system for speed control of an automobile and explain the conditions for no unbound and no oscillation showing all the design steps. \hfill [8] (75 Ba, 73 Ma)
-      \lb Design an open-loop automobile cruise controller and derive teh condition for no oscillaation and reduction of road disturbance and determine performance parameter. \hfill [8] (79 Jth)
+      \lb Design an open-loop automobile cruise controller and derive the condition for no oscillation and reduction of road disturbance and determine performance parameter. \hfill [8] (79 Jth)
 
-      \item Draw the block diagram of a closed-loop control system to control speed in an automobile. \hfill [2] (\bo{80 Ch})
+      \item Draw block diagram of a closed-loop control system to control speed in an automobile. \hfill [2] (\bo{80 Ch})
+        \lb Draw the block diagram of closed-loop control system for speed control of an automobile and explain the conditions for no unbound and no oscillation showing all the design steps.
+        \enter\hfill [8] (75 Ba, 73 Ma)
 
       \item Design the control system showing all the steps and derive the condition for no oscillation and no unbound output. \hfill [6] (\bo{80 Ch})
     \end{enumerate}
@@ -691,14 +717,13 @@
       \item What are the merits and demerits of full custom IC technology?
         \enter\hfill [2] (\bo{79 Ch, 76 Bh}) [3] (\bo{72 Ash}) [4] (\bo{78 Ch})
 
-      \item Differentiate between super scalar and VLIW architecture. \hfill [5] (79 Jth)
     \end{enumerate}
 
   \subsection{Semi-Custom ASIC IC Technology}
     \begin{enumerate}
       \item What is Semi-Custom IC technology? \hfill [2] (\bo{79 Ch, 77 Ch})
 
-      \item Explain teh two broad categories of Semi-Custom IC technology. \hfill [3] (\bo{74 Ch}, 73 Ma)
+      \item Explain the two broad categories of Semi-Custom IC technology. \hfill [3] (\bo{74 Ch}, 73 Ma)
 
       \item Briefly explain semi-custom (ASIC) IC technology and write about its types. \hfill [3] (76 Ba)
 
@@ -724,24 +749,27 @@
       \item Draw the top-level diagram of a NAND gate using CMOS. \hfill [3] (\bo{80 Ch})
 
       \item What is photolithography? \hfill [1] (\texttt{81 Ash})
-        \lb and what are its types? \hfill [4] (\texttt{80 Ash}, 72 Ma)
+        \lb and what are its types? \hfill [3] (\texttt{79 Ash}) [4] (\texttt{80 Ash}, 72 Ma)
 
       \item Show various steps of photolithography process using appropriate diagrams. \hfill [5] (\texttt{82 Ka})
 
       \item Explain the importance of photolithography in IC manufacturing. \hfill [3] (79 Jth) [5] (\bo{74 Bh}, 73 Ma)
       \lb with suitable example. \hfill [8] (\bo{71 Bh})
 
-      \item Describe the alignment and exposure techniques in photolithographic process in IC fabrication. \hfill [5] (71 Ma)
+      \item Describe the alignment and exposure techniques in photolithographic process in IC fabrication.
+        \enter\hfill [5] (71 Ma)
 
-      \item Explain the basic steps of photo lithography process. \hfill [4] (\bo{78 Ch, 77 Ch}, 72 Ma) [5] (\bo{72 Ash}) [6] (\bo{76 Bh})
+      \item Explain the steps of photo lithography process. \hfill [4] (\bo{78 Ch, 77 Ch}, 72 Ma) [5] (\bo{72 Ash}) [6] (\bo{76 Bh})
         \lb List the ten basic steps of photolithography. \hfill [3] (\texttt{81 Ash})
         \lb with appropriate figure. \hfill [4] (75 Ba)
 
-      \item Explain Full-Custom, Semi-Custom and PLD schemes used in IC technology with steps and comparision. \hfill [8] (\bo{73 Bh})
+      \item Explain Full-Custom, Semi-Custom and PLD schemes used in IC technology with steps and comparision. \hspace{14.6cm} [8] (\bo{73 Bh})
 
       \item List the three major IC technologies with brief definitions. \hfill [3] (70 Ma)
 
-      \item Draw final structurl view diagraam of respective structure. \hfill [5] (79 Jth)
+      \item Draw the logic circuit diagrams of NAND and NOR gates using CMOS and explain their operations. \hfill [5] (\texttt{79 Ash})
+
+      \item Draw final structural view diagram of respective structure. \hfill [5] (79 Jth)
         \includegraphics[width=4in]{./images/es_1_79_Jth.jpg}
     \end{enumerate}
 
@@ -771,7 +799,7 @@
       \item Explain about PORT 3 of 8051 microcontroller. \hfill [2] (76 Ba)
         \lb about purpose of port 3 and port 2. \hfill [4] (79 Jth, 73 Ma)
 
-      \item Explain the addressing modes used in 8051 microcontroller. \hfill [3] (\texttt{82 Ka})
+      \item Explain the addressing modes used in 8051 microcontroller. \hfill [3] (\texttt{82 Ka}) [4] (\texttt{79 Ash})
         \lb with example. \hfill [4] (75 Ba, 72 Ma, 71 Ma)
 
       \item Provide a comparison chart of the 8051 family members. \hfill [4] (\bo{70 Bh})
@@ -784,7 +812,8 @@
       \item Write an assembly language programming to alternatively blink the 8 LEDs connected at port 2 of the 8051 microcontroller. \hfill [4] (\bo{81 Ch}, 72 Ma)
 
       \item Write an assembly program for 8051 to count number of 0's in an 8-bit data stored in ROM at 40H and result in RAM at 41H. \hfill [4] (\bo{79 Ch})
-        \lb rom at 75 H, ram at 45H. \hfill [4] (78 Po)
+        \lb rom at 75H, ram at 45H. \hfill [4] (78 Po)
+        \lb count 1's, rom at 75H, ram at 45H. \hfill [4] (\texttt{79 Ash})
 
       \item Assume that XTAL = 11.0592 MHz, write a program to generate a square wave of 1 kHz frequency on pin P1.5 of 8051 microcontroller using timer. \hfill [2+4] (\bo{78 Ch})
 
@@ -834,7 +863,7 @@
     \begin{enumerate}
       \item How does a FPGA differ from a microcontroller? \hfill [1] (70 Ma)
 
-      \item What is structural style of architecture in VHDL? \hfill [3] (\bo{81 Ch})
+      \item What is structural style of architecture in VHDL? \hfill [3] (\bo{81 Ch}, \texttt{79 Ash})
 
       \item Explain different models of VHDL. \hfill [3] (\bo{75 Bh})
 
@@ -890,6 +919,7 @@
 
       \item Write an algorithm and VHDL code for a custom processor that calculates LCM of two numbers. \hfill [5] (\bo{72 Ash})
 
+      \item Design a 3-bit up counter using T flip flop using structural modeling in VHDL. \hfill [5] (\texttt{79 Ash})
       \item A circuit composed of two T-flip flops and an inverter shown in figure below, convert it to VHDL code. \hfill [5] (71 Ma)\\
       \includegraphics[width=4in]{images/es_2_71_Ma}
 
